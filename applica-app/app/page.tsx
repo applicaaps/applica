@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[870px] flex items-center overflow-hidden hero-gradient">
+      <section className="relative pt-4 pb-12 md:pt-8 md:pb-16 flex items-center overflow-hidden hero-gradient">
         <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
           <div className="lg:col-span-7 space-y-8 z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary-fixed)]/30 text-[var(--color-on-primary-fixed-variant)]">
@@ -33,7 +33,7 @@ export default function Home() {
           </div>
           
           <div className="lg:col-span-5 relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <div className="aspect-[4/5] rounded-[2rem] overflow-hidden ambient-shadow rotate-3 hover:rotate-0 transition-transform duration-500 smooth-card bg-[var(--color-surface-dim)] relative">
+            <div className="aspect-[4/5] rounded-[2rem] overflow-hidden ambient-shadow smooth-card bg-[var(--color-surface-dim)] relative">
               {/* Image Placeholder */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-[var(--color-outline)]">
                 <Users size={64} className="mb-4 opacity-50" />

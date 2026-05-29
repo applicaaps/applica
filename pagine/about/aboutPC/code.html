@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#dde0e0",
+                    "tertiary-fixed-dim": "#bec9c8",
+                    "on-surface-variant": "#3f4948",
+                    "surface-variant": "#e2e2e2",
+                    "inverse-primary": "#8ad3d0",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "primary-container": "#2d7a78",
+                    "primary": "#03615f",
+                    "outline": "#6f7978",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#8ad3d0",
+                    "surface": "#f9f9f9",
+                    "on-secondary-fixed-variant": "#434748",
+                    "on-secondary-container": "#5f6364",
+                    "secondary": "#5b5f5f",
+                    "on-primary-fixed-variant": "#00504e",
+                    "inverse-on-surface": "#f1f1f0",
+                    "inverse-surface": "#2f3131",
+                    "tertiary-fixed": "#dae5e4",
+                    "on-tertiary-container": "#eaf5f4",
+                    "outline-variant": "#bec9c7",
+                    "on-secondary-fixed": "#181c1d",
+                    "surface-container-high": "#e8e8e8",
+                    "primary-fixed": "#a6f0ed",
+                    "surface-dim": "#dadad9",
+                    "tertiary": "#4e5858",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#eeeeed",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1a1c1c",
+                    "surface-bright": "#f9f9f9",
+                    "tertiary-container": "#667170",
+                    "background": "#f9f9f9",
+                    "surface-container-low": "#f4f3f3",
+                    "on-tertiary-fixed": "#131d1d",
+                    "on-primary-container": "#c0fffc",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "on-primary-fixed": "#00201f",
+                    "on-tertiary-fixed-variant": "#3e4948",
+                    "secondary-fixed": "#e0e3e3",
+                    "surface-tint": "#156967",
+                    "secondary-fixed-dim": "#c4c7c7",
+                    "deep-teal": "#00201f",
+                    "soft-clay": "#D9BBA9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "max-width": "1280px",
+                    "margin-desktop": "48px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-md": ["Manrope"],
+                    "title-lg": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-lg": ["Manrope"],
+                    "label-lg": ["Manrope"],
+                    "body-sm": ["Manrope"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "label-md": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "600"}],
+                    "title-lg": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ambient-shadow {
+            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.06);
+        }
+        .text-balance {
+            text-wrap: balance;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<header class="bg-surface shadow-sm sticky top-0 z-50">
+<nav class="flex justify-between items-center h-20 px-gutter max-w-max-width mx-auto w-full">
+<div class="flex items-center gap-2">
+<span class="text-title-lg font-display-lg text-deep-teal">Applica APS</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#">Pazienti</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#">Professionisti</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#">Materiali</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:block text-label-lg font-label-lg text-primary hover:text-deep-teal transition-colors duration-200">Diventa Professionista</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg text-label-lg font-label-lg font-bold hover:bg-primary-container transition-all active:scale-95 shadow-sm">Richiedi un Colloquio</button>
+<button class="md:hidden flex items-center justify-center p-2 text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section: Storytelling Entry -->
+<section class="relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32">
+<div class="max-w-max-width mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6 space-y-6">
+<span class="text-label-md font-label-md text-primary uppercase tracking-widest bg-primary-fixed/30 px-3 py-1 rounded-full">Chi Siamo</span>
+<h1 class="text-display-lg font-display-lg text-deep-teal text-balance leading-tight">Trasformare la salute mentale in un bene comune.</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
+                    Applica APS nasce dalla convinzione che il benessere psicologico non debba essere un lusso, ma un diritto accessibile, fondato sulla scienza e profondamente umano.
+                </p>
+</div>
+<div class="lg:col-span-6 relative">
+<div class="aspect-square rounded-3xl overflow-hidden ambient-shadow rotate-3 scale-95 border-8 border-white">
+<img alt="Collaborative Professional Community" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX0XyQZvswdFXDS1WDXSQtE9u7Ybo3ZgynE_vJH6x6X_uIeo-Nu41aX1Bm4SV9BHkiS-eX1wrCafLBgxn91r7v7-GOUsS0cmfi-wISvqJbnVfLBJFgWWLi2D53f0MwyEKB0i3IkPYATxGz06S9loVM_pYpIeS5wcHoTjnNMjvi5dZagKUx3h1P69-X_o3orgzgMxYHWT3FKZt9ezAaWJjP_rq5Qv1H65Ss0GNp1C9gYcpfzEfPZIhJSAtqecm_Hv-dNb-2G8p2qAfh"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-soft-clay/90 p-8 rounded-2xl ambient-shadow max-w-[240px] -rotate-3 hidden md:block">
+<p class="text-body-md font-body-md text-on-secondary-fixed italic">"Insieme, rendiamo la cura un'esperienza quotidiana e condivisa."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission & Vision: Bento Grid Style -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-max-width mx-auto px-gutter">
+<div class="mb-16 text-center max-w-3xl mx-auto">
+<h2 class="text-headline-lg font-headline-lg text-deep-teal mb-4">La nostra Missione</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Promuoviamo una cultura della salute mentale che superi lo stigma, offrendo percorsi concreti e sostenibili per ogni individuo.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Mission Item 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant hover:border-primary transition-colors duration-300">
+<div class="w-12 h-12 bg-primary-fixed/20 rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined">diversity_3</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-deep-teal mb-3">Comunità Inclusiva</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Promuovere la salute mentale nella comunità attraverso iniziative di sensibilizzazione e supporto reciproco.</p>
+</div>
+<!-- Mission Item 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant hover:border-primary transition-colors duration-300">
+<div class="w-12 h-12 bg-primary-fixed/20 rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined">universal_currency_alt</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-deep-teal mb-3">Servizi Accessibili</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Offrire servizi professionali con tariffe calmierate, garantendo che nessuno venga lasciato indietro per motivi economici.</p>
+</div>
+<!-- Mission Item 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant hover:border-primary transition-colors duration-300">
+<div class="w-12 h-12 bg-primary-fixed/20 rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-deep-teal mb-3">Rigore Scientifico</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Applicare metodologie validate e aggiornate, con un team di professionisti altamente qualificati.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Values Section: Asymmetric Layout -->
+<section class="py-24 overflow-hidden">
+<div class="max-w-max-width mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 relative">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden bg-primary-container/10">
+<img alt="Supportive Hands" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBglBa0VX1-xfR--ppNmoylVEJaUb6Pb86Ioih0GFJI_h1NSij4hKt1ppRZ_zbFTSG6CTff4TAs52MWuINzSZS01WBVL3pNxwwiqz6Fmr0ctim1vz3r2D86OPGjRiyVca5xaLkqfWGeashGdSrOYHnpskVmnmj3almfLYF1uFMf7VCrWfvJsd7wtXO_Zshq2QNBNeLGoLftg3Qw8JYql8vqL7cO5lSIgmD-CxPzun-OzRYEKCRK0Z95M4tAGwYYdLpFsF3G0wHOs_2A"/>
+</div>
+<div class="p-6 bg-tertiary-fixed/20 rounded-2xl">
+<h4 class="text-headline-md font-headline-md text-on-tertiary-fixed mb-1">Umana</h4>
+<p class="text-label-md font-label-md text-on-tertiary-fixed-variant">L'ascolto prima di tutto.</p>
+</div>
+</div>
+<div class="space-y-4 pt-12">
+<div class="p-6 bg-secondary-container rounded-2xl">
+<h4 class="text-headline-md font-headline-md text-on-secondary-container mb-1">Accessibile</h4>
+<p class="text-label-md font-label-md text-on-secondary-fixed-variant">Senza barriere, per tutti.</p>
+</div>
+<div class="aspect-[4/5] rounded-2xl overflow-hidden bg-secondary-fixed-dim">
+<img alt="Collaborative Team" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe-MHBJ8HqiAqc7Cut5HbunGv0ot8jRwSHiaZGJr2JYudNAKMFs-Qp4PE9PVzKpu6wQbqzvfBtUxQEakr3zS3pd3HlFmjCMnTwHI6DQ-x-CK1p7hjDGNupvHm0thAvwXQzA_p0L6o8jQgWFxtS7tZphqXlIsjpFntOi-7vbJrL9HUFdcsOMeQbxXZpZDOUEiOCUJGJmiDZiPb4-rcncoCgGydTNEqFFXf7G8uOj-DXVWXYy_mE5b7IyCWRhHKmXbzH6rHI_3fx4IUA"/>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-8">
+<h2 class="text-headline-lg font-headline-lg text-deep-teal">I Valori che guidano il nostro agire.</h2>
+<div class="space-y-6">
+<div class="flex gap-6 items-start">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">1</div>
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Accessibilità</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Rimuoviamo gli ostacoli fisici, economici e sociali che impediscono l'accesso alla cura psicologica.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">2</div>
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Scientificità</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Ogni nostro intervento è guidato da evidenze cliniche e protocolli scientifici aggiornati.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">3</div>
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Praticità</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Forniamo strumenti concreti e spendibili nella vita di tutti i giorni per gestire le sfide psicologiche.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">4</div>
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Umanità</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Mettiamo la persona al centro, con un approccio empatico che rispetta la dignità e l'unicità di ognuno.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-deep-teal py-20">
+<div class="max-w-max-width mx-auto px-gutter text-center space-y-8">
+<h2 class="text-display-lg font-display-lg text-white max-w-2xl mx-auto">Vuoi far parte della nostra rete o richiedere supporto?</h2>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary-fixed text-on-primary-fixed px-8 py-4 rounded-xl font-bold text-body-lg hover:bg-primary-fixed-dim transition-all shadow-lg active:scale-95">Richiedi un Colloquio</button>
+<button class="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-body-lg hover:bg-white/10 transition-all active:scale-95">Diventa Socio</button>
+</div>
+</div>
+</section>
+<!-- Contact & Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="max-w-max-width mx-auto px-gutter py-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<!-- Brand column -->
+<div class="md:col-span-2 space-y-6">
+<span class="text-headline-md font-display-lg font-bold text-deep-teal">Applica APS</span>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-sm">
+                        Associazione di Promozione Sociale dedicata alla salute mentale e al benessere psicologico. Scienza e cura al servizio della persona.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white border border-outline-variant flex items-center justify-center text-deep-teal hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white border border-outline-variant flex items-center justify-center text-deep-teal hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">groups</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white border border-outline-variant flex items-center justify-center text-deep-teal hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">mail</span>
+</a>
+</div>
+</div>
+<!-- Links Column -->
+<div class="space-y-6">
+<h4 class="text-label-md font-label-md font-bold text-on-surface uppercase tracking-wider">Risorse</h4>
+<ul class="space-y-4">
+<li><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Termini di Servizio</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">FAQ</a></li>
+<li><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Trasparenza</a></li>
+</ul>
+</div>
+<!-- Contact Column -->
+<div class="space-y-6">
+<h4 class="text-label-md font-label-md font-bold text-on-surface uppercase tracking-wider">Contatti</h4>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="text-body-md font-body-md text-on-surface-variant">Via Cassano, 70029<br/>Santeramo in Colle (BA), Italia</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">phone</span>
+<span class="text-body-md font-body-md text-on-surface-variant">+39 080 XXX XXXX</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">alternate_email</span>
+<span class="text-body-md font-body-md text-on-surface-variant">info@applica-aps.it</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-label-md font-label-md text-on-surface-variant">© 2024 Applica APS. Scienza e cura per il benessere psicologico.</p>
+<div class="flex gap-6">
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary" href="#">LinkedIn</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary" href="#">Facebook</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary" href="#">Instagram</a>
+</div>
+</div>
+</div>
+</footer>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        const animateItems = document.querySelectorAll('section > div > div, .bento-item');
+        animateItems.forEach(item => {
+            item.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+            observer.observe(item);
+        });
+    });
+</script>
+</body></html>

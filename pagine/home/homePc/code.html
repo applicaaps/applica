@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#000965",
+                      "surface-container-high": "#eae8e6",
+                      "tertiary-container": "#5965cd",
+                      "on-background": "#1b1c1b",
+                      "surface-container": "#efedec",
+                      "error-container": "#ffdad6",
+                      "outline": "#6f7978",
+                      "secondary": "#6a5c4e",
+                      "soft-clay": "#D9BBA9",
+                      "secondary-fixed-dim": "#d6c3b3",
+                      "surface-container-highest": "#e4e2e0",
+                      "on-primary-fixed-variant": "#00504e",
+                      "inverse-on-surface": "#f2f0ee",
+                      "clinical-blue": "#4A5568",
+                      "on-surface-variant": "#3f4948",
+                      "tertiary": "#404cb2",
+                      "surface-bright": "#fbf9f7",
+                      "surface-tint": "#156967",
+                      "outline-variant": "#bec9c7",
+                      "deep-teal": "#1B4D4B",
+                      "background": "#fbf9f7",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#2d7a78",
+                      "surface-variant": "#e4e2e0",
+                      "inverse-surface": "#30302f",
+                      "on-secondary-fixed-variant": "#514538",
+                      "on-secondary-container": "#706254",
+                      "on-tertiary-fixed-variant": "#2e3aa2",
+                      "inverse-primary": "#8ad3d0",
+                      "tertiary-fixed": "#dfe0ff",
+                      "on-tertiary-container": "#f4f2ff",
+                      "tertiary-fixed-dim": "#bdc2ff",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "success-green": "#48BB78",
+                      "primary": "#03615f",
+                      "surface": "#fbf9f7",
+                      "primary-fixed": "#a6f0ed",
+                      "on-secondary-fixed": "#231a0f",
+                      "surface-container-low": "#f5f3f1",
+                      "on-primary-fixed": "#00201f",
+                      "on-surface": "#1b1c1b",
+                      "secondary-fixed": "#f3dfce",
+                      "secondary-container": "#f3dfce",
+                      "error": "#ba1a1a",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#dbdad8",
+                      "on-primary-container": "#c0fffc",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#8ad3d0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "unit": "8px",
+                      "margin-desktop": "64px",
+                      "max-width": "1280px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Manrope"],
+                      "title-md": ["Manrope"],
+                      "label-sm": ["Inter"],
+                      "display-lg": ["Manrope"],
+                      "headline-lg-mobile": ["Manrope"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .ambient-shadow {
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #fbf9f7 0%, #efedec 100%);
+        }
+        
+        /* Entrance Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered Delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        
+        /* Smooth Hover Transitions */
+        .smooth-card {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease;
+        }
+        .smooth-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .smooth-btn {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .smooth-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+        .smooth-btn:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm fixed top-0 w-full z-50 transition-all duration-300 h-20">
+<nav class="flex justify-between items-center h-20 px-gutter max-w-max-width mx-auto w-full">
+<div class="flex items-center gap-8">
+<a class="text-title-md font-title-md font-bold text-deep-teal dark:text-primary-fixed" href="#">Applica APS</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 hover:text-primary transition-colors duration-200" href="#">Pazienti</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-body-md hover:text-primary transition-colors duration-200" href="#">Professionisti</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-body-md hover:text-primary transition-colors duration-200" href="#">Materiali</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:block text-label-sm font-label-sm px-4 py-2 text-deep-teal hover:text-primary transition-colors duration-200 smooth-btn">Diventa Professionista</button>
+<button class="bg-primary text-on-primary text-label-sm font-label-sm px-6 py-2.5 rounded-full hover:bg-primary-container transition-all active:scale-95 smooth-btn">Richiedi un Colloquio</button>
+<button class="md:hidden p-2 text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center overflow-hidden hero-gradient">
+<div class="max-w-max-width mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+<div class="lg:col-span-7 space-y-8 z-10 fade-in-up">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed/30 text-primary-fixed-variant">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="text-label-sm font-label-sm">BENVENUTI IN APPLICA</span>
+</div>
+<h1 class="text-display-lg font-display-lg leading-tight text-deep-teal">
+                        Psicologia concreta, accessibile e trasformativa
+                    </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
+                        Accogliamo persone e professionisti in uno spazio dedicato alla salute mentale, alla crescita emotiva e allo sviluppo professionale. Un approccio che unisce scienza ed empatia.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded-xl ambient-shadow hover:bg-primary-container transition-all duration-300 flex items-center justify-center gap-2 smooth-btn">
+                            RICHIEDI UN COLLOQUIO
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-surface-container-highest text-deep-teal font-label-sm text-label-sm px-8 py-4 rounded-xl border border-outline-variant/30 hover:bg-secondary-container transition-all duration-300 flex items-center justify-center smooth-btn">
+                            DIVENTA PROFESSIONISTA APPLICA
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative fade-in-up delay-200">
+<div class="aspect-[4/5] rounded-[2rem] overflow-hidden ambient-shadow rotate-3 hover:rotate-0 transition-transform duration-500 smooth-card">
+<img class="w-full h-full object-cover" data-alt="A professional and warm portrait of a smiling female psychologist in a bright, modern office setting. She is sitting comfortably on a soft neutral-colored chair, looking towards the camera with an empathetic expression. The background features warm wood textures, indoor plants, and soft sunlight filtering through windows, creating a serene and welcoming therapeutic atmosphere that aligns with the brand's human-first and scientific identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMp3TT310x6wXQl_sU9GHjABEUNBpeSFZT-mZ3lK4_wLyHGupvu8_xYm2pCSVcAidHQ8Kmw1GfJ1ahTjYdwDUijbVgL98yxn048eOkRzrgW7-d8iB2DsLftD3D1PYpqFdx2rLmVgxXCDrBSN02_rWQsEjFDyQTicLvD9ILPGXPTxMS_4Z9KfUye2kyK-WRzHeW7tUvH6kFMJKL2q2l5H1YBafw2Ul0ZVqh45qPH4-iu38DkyMtPJas_XVMwqIwM1XEKPvv0vQPBQOQ"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl ambient-shadow hidden sm:block max-w-[240px] smooth-card">
+<div class="flex gap-1 text-primary mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-label-sm font-label-sm italic text-on-surface-variant">"Un percorso reale verso il benessere. Professionalità e ascolto profondo."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Emotional Phrase Section -->
+<section class="py-24 bg-surface fade-in-up">
+<div class="max-w-max-width mx-auto px-gutter">
+<div class="bg-soft-clay/10 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden smooth-card hover:bg-soft-clay/15 transition-colors">
+<div class="absolute top-0 left-0 w-24 h-24 bg-primary/5 rounded-full -translate-x-12 -translate-y-12"></div>
+<div class="absolute bottom-0 right-0 w-48 h-48 bg-secondary/5 rounded-full translate-x-24 translate-y-24"></div>
+<div class="max-w-3xl mx-auto space-y-8 relative z-10">
+<span class="material-symbols-outlined text-primary text-5xl">favorite</span>
+<h2 class="text-headline-lg font-headline-lg text-deep-teal">
+                            Non crediamo in una psicologia distante. <br class="hidden md:block"/> Crediamo in una psicologia umana, vicina e reale.
+                        </h2>
+<p class="text-body-lg font-body-lg text-secondary italic">
+                            Ogni storia merita uno spazio sicuro, basato sull'evidenza scientifica ma guidato dal calore dell'incontro umano. Siamo qui per accompagnarti in ogni passo della tua trasformazione.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission/Bento Grid Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-max-width mx-auto px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 fade-in-up">
+<div class="max-w-2xl">
+<h2 class="text-label-sm font-label-sm text-primary mb-4">I NOSTRI PILASTRI</h2>
+<h3 class="text-headline-lg font-headline-lg text-deep-teal">Una missione basata sul valore della persona e del rigore scientifico</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Column 1: Scientifica -->
+<div class="md:col-span-4 bg-white p-8 rounded-3xl border border-outline-variant/30 ambient-shadow flex flex-col gap-6 smooth-card fade-in-up">
+<div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">science</span>
+</div>
+<h4 class="text-title-md font-title-md text-deep-teal">Scientifica</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Approcci clinici basati sulle evidenze (EBP) per garantire trattamenti efficaci e percorsi di crescita verificabili.</p>
+</div>
+<!-- Column 2: Accessibile & Umana (Stacked) -->
+<div class="md:col-span-4 flex flex-col gap-6 fade-in-up delay-100">
+<div class="bg-primary p-8 rounded-3xl text-on-primary flex-1 flex flex-col gap-6 smooth-card">
+<span class="material-symbols-outlined text-3xl">universal_currency_alt</span>
+<h4 class="text-title-md font-title-md">Accessibile</h4>
+<p class="text-body-md font-body-md opacity-90">Abbattiamo le barriere economiche e sociali per rendere il benessere psicologico un diritto di tutti, non un lusso.</p>
+</div>
+<div class="bg-secondary-container p-8 rounded-3xl text-on-secondary-container flex-1 flex flex-col gap-6 smooth-card">
+<span class="material-symbols-outlined text-3xl">diversity_1</span>
+<h4 class="text-title-md font-title-md">Umana</h4>
+<p class="text-body-md font-body-md opacity-90">L'accoglienza è il cuore del nostro lavoro. Mettiamo la relazione al centro di ogni intervento.</p>
+</div>
+</div>
+<!-- Column 3: Pratica & Image -->
+<div class="md:col-span-4 flex flex-col gap-6 fade-in-up delay-200">
+<div class="relative rounded-3xl overflow-hidden h-48 ambient-shadow smooth-card">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="A detailed, high-quality photograph of two diverse professionals shaking hands in a warm, sun-drenched office. The lighting is soft and golden, highlighting a sense of trust and partnership. The background shows a modern, minimalist workspace with wooden accents and blurred greenery, reflecting a professional yet approachable corporate environment consistent with the brand's values of concrete transformation and human connection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxUlRD1zVlSvvWN-C-Gwlbx3JZ570gtFDzTBgV4LmnYrH6Zm1NxWZ05YzxsR2l1_CgLN6YY7RqgDGIwfuleocqFgGVynk4B7i0gBRxCBjdF3N9OdxXG8D1ea650iAX7aay5lgnZUUPTL_0grv1b80Q2Fk43QUIm92QgATuBfpg1uNy3JLHayUVrtZepnk1r8Z7CK1WiAU6tReKlJEDvLZmgTeApzLIKqfUudhFBwZYqS5j-QMqvzfoPJ0SfrXIIiFg0hq3P77cw5MM"/>
+</div>
+<div class="bg-white p-8 rounded-3xl border border-outline-variant/30 ambient-shadow flex flex-col gap-6 flex-1 smooth-card">
+<div class="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">task_alt</span>
+</div>
+<h4 class="text-title-md font-title-md text-deep-teal">Pratica</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Soluzioni concrete e strumenti quotidiani per gestire le sfide emotive e migliorare la qualità della vita.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Collaboration Section -->
+<section class="py-24 bg-surface overflow-hidden">
+<div class="max-w-max-width mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4 pt-12 fade-in-up">
+<img class="rounded-2xl w-full h-64 object-cover ambient-shadow smooth-card" data-alt="A group of diverse people sitting in a circle during a therapy session in a bright, airy room with large windows. The lighting is natural and soft, creating an atmosphere of calm and safety. They are engaged in a thoughtful discussion, with expressions of listening and empathy. The decor is minimalist with warm wooden floors and soft textile accents, embodying a sense of community and psychological support." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWaq2wuTmsjf615ooMayMXqr_tLPzmvqJcANC42B2jFZk2SxAaadlXwkZp6gfE1ya3HIN6yQfZVzCYFGJVxlkVHv3vKnfv7Bfrkh6EhOfGNALtscqtY2BYFwak4lux6-21DdCHDSNbfmrgfnftVJW7sB54NM5544EtZy2FvcBbE2d9Z-eVQJ0kqFFIae4v-2b0A5PWv-jumom4eLyxsvKY-D7qO5QBjTbMIDTB1Cke_PDoEfr3YcVVa_ed5DHZtXcivW3udIL9td3-"/>
+<div class="bg-deep-teal p-6 rounded-2xl text-on-primary smooth-card">
+<p class="text-headline-lg font-headline-lg">150+</p>
+<p class="text-label-sm font-label-sm opacity-80">Professionisti in Rete</p>
+</div>
+</div>
+<div class="space-y-4 fade-in-up delay-100">
+<div class="bg-soft-clay p-6 rounded-2xl text-on-secondary-fixed smooth-card">
+<p class="text-headline-lg font-headline-lg">2k+</p>
+<p class="text-label-sm font-label-sm opacity-80">Percorsi Avviati</p>
+</div>
+<img class="rounded-2xl w-full h-64 object-cover ambient-shadow smooth-card" data-alt="A close-up shot of two people's hands holding mugs of tea while sitting across from each other in a warm, comfortable lounge. The background is softly blurred, showing a bookshelf and a cozy lamp. The focus is on the warmth of the interaction, suggesting a deep, human connection and a safe space for dialogue. The lighting is warm and low-key, creating a tactile and intimate feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYOmGSOiIMbm9sB0p4_PLwfiQh8UqNSpy6NIFXa5WI8C1zM2GIOpI-xjCpFhnxOrR9jq-TwR3vdKaU-hyxi9EcJ6h7XlzZV3Vaz3tRyr3jHgGoWAdyab-BVIaT-8YLOgFMGTTazfqzLbOZc2vvTpzq0_A2yZXvnE-fxvCr6gt1J2UMFEl-YTnPFIMWKw2VadJKTaWj2hloHa6DypxewX5Ca7NZpLaCZEqqz6a3ObyGnjWkvQ7iUZreYLDXkq_ivH-OMx4WSEZLfzBK"/>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-8 fade-in-up delay-200">
+<h2 class="text-label-sm font-label-sm text-primary">LAVORA CON NOI</h2>
+<h3 class="text-headline-lg font-headline-lg text-deep-teal leading-tight">Uno spazio di crescita per chi sceglie di prendersi cura</h3>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+                        Entrare nel network Applica significa far parte di una comunità di professionisti che condividono valori di rigore scientifico e accessibilità. Offriamo supervisione, formazione e una piattaforma per far crescere la tua pratica professionale.
+                    </p>
+<ul class="space-y-4">
+<li class="flex gap-3 items-start smooth-card p-2 -ml-2 rounded-lg hover:bg-surface-container-low transition-colors cursor-default">
+<span class="material-symbols-outlined text-success-green">check_circle</span>
+<span class="text-body-md font-body-md text-on-surface">Supervisione clinica costante e intervisione tra pari.</span>
+</li>
+<li class="flex gap-3 items-start smooth-card p-2 -ml-2 rounded-lg hover:bg-surface-container-low transition-colors cursor-default">
+<span class="material-symbols-outlined text-success-green">check_circle</span>
+<span class="text-body-md font-body-md text-on-surface">Formazione continua su approcci basati sull'evidenza.</span>
+</li>
+<li class="flex gap-3 items-start smooth-card p-2 -ml-2 rounded-lg hover:bg-surface-container-low transition-colors cursor-default">
+<span class="material-symbols-outlined text-success-green">check_circle</span>
+<span class="text-body-md font-body-md text-on-surface">Strumenti digitali integrati per la gestione dei pazienti.</span>
+</li>
+</ul>
+<div class="pt-4">
+<a class="inline-flex items-center gap-2 text-deep-teal font-bold border-b-2 border-deep-teal pb-1 hover:text-primary hover:border-primary transition-all smooth-btn" href="#">
+                            Scopri come collaborare
+                            <span class="material-symbols-outlined">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 bg-deep-teal text-white relative overflow-hidden fade-in-up">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-fixed rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
+</div>
+<div class="max-w-max-width mx-auto px-gutter text-center relative z-10 space-y-10">
+<h2 class="text-display-lg font-display-lg leading-tight">Iniziamo un percorso insieme?</h2>
+<p class="text-body-lg font-body-lg opacity-80 max-w-2xl mx-auto">
+                    Che tu sia una persona in cerca di supporto o un professionista desideroso di unirsi a noi, abbiamo uno spazio pronto ad accoglierti.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+<button class="bg-white text-deep-teal font-label-sm text-label-sm px-10 py-5 rounded-full hover:bg-surface-container-high transition-all shadow-lg smooth-btn">
+                        RICHIEDI UN COLLOQUIO
+                    </button>
+<button class="bg-transparent border-2 border-white/30 text-white font-label-sm text-label-sm px-10 py-5 rounded-full hover:bg-white/10 transition-all smooth-btn">
+                        DIVENTA PROFESSIONISTA
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline py-12">
+<div class="max-w-max-width mx-auto px-gutter w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-8 fade-in-up">
+<div class="space-y-4">
+<a class="text-title-md font-title-md font-bold text-deep-teal dark:text-primary-fixed smooth-btn inline-block" href="#">Applica APS</a>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-sm">
+                    © 2024 Applica APS. Scienza e cura per il benessere psicologico.
+                </p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-8">
+<div class="flex flex-col gap-3">
+<span class="text-label-sm font-label-sm font-bold text-deep-teal">LEGALE</span>
+<a class="text-on-surface-variant dark:text-surface-variant text-label-sm font-label-sm hover:text-primary transition-colors smooth-btn inline-block origin-left" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-label-sm font-label-sm hover:text-primary transition-colors smooth-btn inline-block origin-left" href="#">Termini di Servizio</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-label-sm font-label-sm font-bold text-deep-teal">SUPPORTO</span>
+<a class="text-on-surface-variant dark:text-surface-variant text-label-sm font-label-sm hover:text-primary transition-colors smooth-btn inline-block origin-left" href="#">Contatti</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-label-sm font-label-sm hover:text-primary transition-colors smooth-btn inline-block origin-left" href="#">FAQ</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-label-sm font-label-sm font-bold text-deep-teal">SOCIAL</span>
+<a class="text-on-surface-variant dark:text-surface-variant text-label-sm font-label-sm hover:text-primary transition-colors smooth-btn inline-block origin-left" href="#">Instagram</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-label-sm font-label-sm hover:text-primary transition-colors smooth-btn inline-block origin-left" href="#">LinkedIn</a>
+</div>
+</div>
+</div>
+<div class="max-w-max-width mx-auto px-gutter mt-12 pt-8 border-t border-outline-variant/20 flex flex-col sm:flex-row justify-between items-center gap-4 fade-in-up delay-100">
+<p class="text-label-sm font-label-sm text-outline">Associazione di Promozione Sociale - P.IVA 12345678901</p>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-primary cursor-pointer transition-colors smooth-btn">
+<span class="material-symbols-outlined text-sm">language</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll behavior for header shadow
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Intersection Observer for Entrance Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            animatedElements.forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>

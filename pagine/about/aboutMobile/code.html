@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=inter:wght@100..900&amp;family=manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dbdad8",
+                        "on-primary-fixed": "#00201f",
+                        "on-primary-container": "#c0fffc",
+                        "on-tertiary-fixed-variant": "#2e3aa2",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#f3dfce",
+                        "on-error": "#ffffff",
+                        "on-background": "#1b1c1b",
+                        "inverse-primary": "#8ad3d0",
+                        "surface-container": "#efedec",
+                        "on-surface": "#1b1c1b",
+                        "tertiary-fixed-dim": "#bdc2ff",
+                        "surface": "#fbf9f7",
+                        "outline": "#6f7978",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fbf9f7",
+                        "on-secondary-fixed": "#231a0f",
+                        "clinical-blue": "#4A5568",
+                        "on-surface-variant": "#3f4948",
+                        "tertiary-container": "#5965cd",
+                        "secondary-container": "#f3dfce",
+                        "on-tertiary-container": "#f4f2ff",
+                        "surface-tint": "#156967",
+                        "surface-container-low": "#f5f3f1",
+                        "tertiary-fixed": "#dfe0ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e4e2e0",
+                        "secondary-fixed-dim": "#d6c3b3",
+                        "success-green": "#48BB78",
+                        "surface-container-highest": "#e4e2e0",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#a6f0ed",
+                        "on-secondary-fixed-variant": "#514538",
+                        "outline-variant": "#bec9c7",
+                        "inverse-surface": "#30302f",
+                        "soft-clay": "#D9BBA9",
+                        "on-primary-fixed-variant": "#00504e",
+                        "on-tertiary-fixed": "#000965",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "background": "#fbf9f7",
+                        "primary": "#03615f",
+                        "on-secondary-container": "#706254",
+                        "inverse-on-surface": "#f2f0ee",
+                        "primary-container": "#2d7a78",
+                        "deep-teal": "#1B4D4B",
+                        "secondary": "#6a5c4e",
+                        "tertiary": "#404cb2",
+                        "surface-container-high": "#eae8e6",
+                        "primary-fixed-dim": "#8ad3d0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max-width": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["inter"],
+                        "headline-lg": ["manrope"],
+                        "body-lg": ["inter"],
+                        "title-md": ["manrope"],
+                        "body-md": ["inter"],
+                        "headline-lg-mobile": ["manrope"],
+                        "display-lg": ["manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-shadow {
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="bg-surface shadow-sm fixed top-0 left-0 right-0 z-50">
+<nav class="flex justify-between items-center h-20 px-4 w-full">
+<span class="text-title-md font-title-md font-bold text-deep-teal">Applica APS</span>
+<button class="p-2 text-primary" id="mobile-menu-toggle">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section: La Trasformazione -->
+<section class="px-4 py-12 bg-surface">
+<div class="space-y-6">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Chi Siamo</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-deep-teal">
+                    Trasformiamo la salute mentale in un <span class="text-primary italic">bene comune</span>.
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Applica APS nasce dall'esigenza di rendere la psicologia uno strumento pratico e accessibile, uscendo dai confini dello studio privato per entrare nella quotidianità delle persone. Crediamo nel rigore scientifico che sposa l'empatia umana.
+                </p>
+<div class="relative rounded-xl overflow-hidden soft-shadow aspect-video">
+<img alt="Team in supervisione" class="w-full h-full object-cover" data-alt="A professional yet warm group of diverse psychologists and social workers engaged in a clinical supervision meeting. The setting is a bright, modern office with soft-clay walls and deep-teal accents. The lighting is natural and diffuse, highlighting collaborative and empathetic expressions. The aesthetic is clean, corporate, and human-centric, aligning with a light-mode design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXDPb1O4yOQoiRLFelrwj4iwUHWR6ldESsWys7wiUVxEI7lywTph0dhrFiQyrDijGrKhLlUakQTgH01_qiL_Chk7zGQz5Xy-sOyXG2lGJ7G_0BAnmUSrHszzEs7d2i_nEmorkZp7c-1hOirsT6tszOcT4IDxIBRoLKUVUvG3z65YPa8hlx3gBx8yNQuOxxjiZtT1suHC9_F4U84SED_efJehpZynXl7deByVU8JlUM7j4KxPHChWLwaei8AOBTJlykneEjG5teSC69"/>
+</div>
+</div>
+</section>
+<!-- Values Section: Bento-ish Grid on Mobile -->
+<section class="px-4 py-16 bg-surface-container-low">
+<div class="mb-10 text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-deep-teal mb-4">I Nostri Valori</h2>
+<div class="w-12 h-1 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- Valore 1: Accessibilità -->
+<div class="bg-surface p-8 rounded-xl border border-outline-variant transition-transform active:scale-95">
+<div class="flex items-start justify-between mb-4">
+<div class="bg-primary-fixed p-3 rounded-lg text-primary">
+<span class="material-symbols-outlined">universal_currency</span>
+</div>
+<span class="text-display-lg opacity-10 font-bold leading-none">01</span>
+</div>
+<h3 class="font-title-md text-title-md text-deep-teal mb-2">Accessibilità</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Abbattere le barriere economiche e culturali per garantire supporto psicologico a chiunque ne abbia bisogno.</p>
+</div>
+<!-- Valore 2: Scientificità -->
+<div class="bg-surface p-8 rounded-xl border border-outline-variant transition-transform active:scale-95">
+<div class="flex items-start justify-between mb-4">
+<div class="bg-tertiary-fixed p-3 rounded-lg text-tertiary">
+<span class="material-symbols-outlined">science</span>
+</div>
+<span class="text-display-lg opacity-10 font-bold leading-none">02</span>
+</div>
+<h3 class="font-title-md text-title-md text-deep-teal mb-2">Scientificità</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ogni nostro intervento è guidato dall'Evidence-Based Practice e dal costante aggiornamento clinico.</p>
+</div>
+<!-- Valore 3: Praticità -->
+<div class="bg-surface p-8 rounded-xl border border-outline-variant transition-transform active:scale-95">
+<div class="flex items-start justify-between mb-4">
+<div class="bg-secondary-fixed p-3 rounded-lg text-secondary">
+<span class="material-symbols-outlined">psychology_alt</span>
+</div>
+<span class="text-display-lg opacity-10 font-bold leading-none">03</span>
+</div>
+<h3 class="font-title-md text-title-md text-deep-teal mb-2">Praticità</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Non solo teoria, ma strumenti concreti per gestire il cambiamento nella vita quotidiana.</p>
+</div>
+<!-- Valore 4: Umanità -->
+<div class="bg-surface p-8 rounded-xl border border-outline-variant transition-transform active:scale-95">
+<div class="flex items-start justify-between mb-4">
+<div class="bg-primary-fixed p-3 rounded-lg text-primary">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+<span class="text-display-lg opacity-10 font-bold leading-none">04</span>
+</div>
+<h3 class="font-title-md text-title-md text-deep-teal mb-2">Umanità</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Al centro di ogni protocollo c'è la persona, accolta senza giudizio e con rispetto della sua unicità.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-4 py-20 bg-deep-teal text-white text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-6">Inizia il tuo percorso con noi</h2>
+<p class="font-body-md text-body-md text-primary-fixed mb-10">Siamo qui per guidarti verso un benessere concreto e sostenibile.</p>
+<div class="flex flex-col gap-4">
+<button class="bg-primary-fixed text-on-primary-fixed font-title-md py-4 rounded-xl active:scale-95 transition-transform flex items-center justify-center gap-2">
+                    Richiedi un Colloquio
+                    <span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+<button class="border border-primary-fixed text-primary-fixed font-title-md py-4 rounded-xl active:scale-95 transition-transform">
+                    Diventa Professionista
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer Mobile -->
+<footer class="bg-surface-container-low py-12 px-4 border-t border-outline-variant">
+<div class="flex flex-col gap-8 items-center text-center">
+<span class="text-title-md font-title-md font-bold text-deep-teal">Applica APS</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant max-w-xs">
+                © 2024 Applica APS. Scienza e cura per il benessere psicologico.
+            </p>
+<div class="flex flex-wrap justify-center gap-4 text-primary font-body-md">
+<a class="hover:underline" href="#">Privacy Policy</a>
+<a class="hover:underline" href="#">Termini</a>
+<a class="hover:underline" href="#">Contatti</a>
+<a class="hover:underline" href="#">FAQ</a>
+</div>
+</div>
+</footer>
+<!-- Bottom Navigation for Mobile -->
+<div class="fixed bottom-0 left-0 right-0 bg-surface shadow-[0_-4px_10px_rgba(0,0,0,0.05)] h-16 flex justify-around items-center px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary border-t-2 border-primary pt-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-[10px] font-bold uppercase">Noi</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="text-[10px] font-medium uppercase">Pazienti</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] font-medium uppercase">Materiali</span>
+</button>
+</div>
+<script>
+        // Simple micro-interaction for scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Values card animation logic could go here if needed
+    </script>
+</body></html>

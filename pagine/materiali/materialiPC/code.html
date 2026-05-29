@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Materiali Psicoeducativi | Applica APS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-container": "#dde0e0",
+                "tertiary-fixed-dim": "#bec9c8",
+                "on-surface-variant": "#3f4948",
+                "surface-variant": "#e2e2e2",
+                "inverse-primary": "#8ad3d0",
+                "on-error-container": "#93000a",
+                "on-error": "#ffffff",
+                "primary-container": "#2d7a78",
+                "primary": "#03615f",
+                "outline": "#6f7978",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#8ad3d0",
+                "surface": "#f9f9f9",
+                "on-secondary-fixed-variant": "#434748",
+                "on-secondary-container": "#5f6364",
+                "secondary": "#5b5f5f",
+                "on-primary-fixed-variant": "#00504e",
+                "inverse-on-surface": "#f1f1f0",
+                "inverse-surface": "#2f3131",
+                "tertiary-fixed": "#dae5e4",
+                "on-tertiary-container": "#eaf5f4",
+                "outline-variant": "#bec9c7",
+                "on-secondary-fixed": "#181c1d",
+                "surface-container-high": "#e8e8e8",
+                "primary-fixed": "#a6f0ed",
+                "surface-dim": "#dadad9",
+                "tertiary": "#4e5858",
+                "error": "#ba1a1a",
+                "surface-container-highest": "#e2e2e2",
+                "on-primary": "#ffffff",
+                "surface-container": "#eeeeed",
+                "surface-container-lowest": "#ffffff",
+                "error-container": "#ffdad6",
+                "on-background": "#1a1c1c",
+                "surface-bright": "#f9f9f9",
+                "tertiary-container": "#667170",
+                "background": "#f9f9f9",
+                "surface-container-low": "#f4f3f3",
+                "on-tertiary-fixed": "#131d1d",
+                "on-primary-container": "#c0fffc",
+                "on-secondary": "#ffffff",
+                "on-surface": "#1a1c1c",
+                "on-primary-fixed": "#00201f",
+                "on-tertiary-fixed-variant": "#3e4948",
+                "secondary-fixed": "#e0e3e3",
+                "surface-tint": "#156967",
+                "secondary-fixed-dim": "#c4c7c7",
+                "deep-teal": "#03615f"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "unit": "4px",
+                "max-width": "1280px",
+                "margin-desktop": "48px",
+                "gutter": "24px",
+                "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                "label-md": ["Manrope"],
+                "title-lg": ["Playfair Display"],
+                "display-lg": ["Playfair Display"],
+                "headline-md": ["Playfair Display"],
+                "headline-lg": ["Playfair Display"],
+                "body-lg": ["Manrope"],
+                "label-lg": ["Manrope"],
+                "body-sm": ["Manrope"],
+                "display-lg-mobile": ["Playfair Display"],
+                "body-md": ["Manrope"],
+                "title-md": ["Playfair Display"]
+            },
+            "fontSize": {
+                "label-md": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "600"}],
+                "title-lg": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f9f9f9 0%, #eeeeed 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center h-20 px-gutter max-w-max-width mx-auto w-full">
+<div class="text-title-md font-title-md font-bold text-deep-teal dark:text-primary-fixed">
+            Applica APS
+        </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-outline-variant font-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Pazienti</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Professionisti</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Materiali</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden lg:block text-label-md font-label-md px-4 py-2 border border-outline rounded-lg text-deep-teal hover:bg-surface-container transition-all">Diventa Professionista</button>
+<button class="bg-primary text-on-primary text-label-md font-label-md px-6 py-2 rounded-lg shadow-sm hover:opacity-80 active:scale-95 transition-all">Richiedi un Colloquio</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="hero-gradient pt-20 pb-16 px-gutter border-b border-outline-variant">
+<div class="max-w-max-width mx-auto">
+<div class="max-w-3xl">
+<span class="inline-block px-3 py-1 mb-6 rounded-full bg-primary-container text-on-primary-container text-label-md font-label-md">RISORSE CLINICHE</span>
+<h1 class="text-display-lg font-display-lg text-deep-teal mb-6">Strumenti pratici per il lavoro clinico</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-8">
+                    Supportiamo l'intervento psicologico attraverso materiali scientificamente validati, progettati per facilitare l'espressione emotiva e la psicoeducazione in setting individuali e di gruppo.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="flex items-center gap-2 bg-deep-teal text-on-primary px-8 py-3 rounded-xl font-title-md hover:shadow-lg transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+                        Esplora il Catalogo
+                    </button>
+<button class="flex items-center gap-2 border border-deep-teal text-deep-teal px-8 py-3 rounded-xl font-title-md hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined">download</span>
+                        Risorse Gratuite
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<section class="sticky top-20 bg-surface/80 backdrop-blur-md z-40 py-4 px-gutter border-b border-outline-variant">
+<div class="max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-body-md" placeholder="Cerca materiali (es. CBT, Emozioni...)" type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-deep-teal text-on-primary text-label-md font-label-md">Tutti</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-md font-label-md hover:bg-outline-variant transition-colors">Carte</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-md font-label-md hover:bg-outline-variant transition-colors">Protocolli</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-md font-label-md hover:bg-outline-variant transition-colors">Esperienziali</button>
+</div>
+</div>
+</section>
+<!-- Bento Gallery Layout -->
+<section class="py-16 px-gutter">
+<div class="max-w-max-width mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Feature Card (Large) -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col md:flex-row hover:shadow-xl transition-shadow group">
+<div class="md:w-1/2 h-64 md:h-auto relative">
+<img alt="Materiale Clinico" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrGVG6jCfmfTJmYxoGmZfp4fmzdYO3Eg3k2o20RiZX6bVClzTPmu4S1HvNqnqlFikoxPKnLvpz82TNq4HqW8Ciqh1hW0zWyK85R-4a_356LteO_yBAu0p7YMY7YMFshttrYT2DrSKIaNSSVOrBAsDX1Nj9q_m_SN6i5LQNg0KpN4sOn-bosq6eqJKtMrLXLeBCpD3hSCSYcZof74qZTiLzHskgVWGgc8kKMxSctcCXpUsnMrxruNeosrCnMgxhj27rlZKfNwvPOih3"/>
+</div>
+<div class="md:w-1/2 p-8 flex flex-col justify-center">
+<div class="flex gap-2 mb-4">
+<span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-label-md font-label-md">Best Seller</span>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-label-md font-label-md">Adulti</span>
+</div>
+<h3 class="text-headline-lg font-headline-lg text-deep-teal mb-4">Mappe Emotive: Kit Completo</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-6">
+                            Un set di 52 carte illustrate per facilitare l'identificazione e la regolazione emotiva. Include manuale per il terapeuta e protocolli applicativi per l'approccio cognitivo-comportamentale.
+                        </p>
+<button class="w-fit bg-deep-teal text-on-primary px-6 py-2 rounded-lg text-label-md font-label-md uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all">SCOPRI I MATERIALI</button>
+</div>
+</div>
+<!-- Category Card (Small) -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-8 flex flex-col hover:shadow-xl transition-shadow">
+<div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<h3 class="text-title-md font-title-md text-deep-teal mb-2">Protocolli CBT</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-6 flex-grow">
+                        Moduli strutturati per ansia, depressione e disturbi del sonno. Materiali fotocopiabili e schede di monitoraggio.
+                    </p>
+<button class="text-primary font-title-md font-bold flex items-center gap-2 hover:gap-3 transition-all">
+                        SCOPRI I MATERIALI
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Grid Item 1 -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-shadow group">
+<div class="h-48 relative overflow-hidden">
+<img alt="Materiali Psicoeducativi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd7qspLR243iygTLfJkV6C-6RJIRp8R9oQ8qxoLf5zliqBiJKvCicSY9GolkeST_f5-vcxziASHV1w3pkH_vBAuBcOJEsgCGnJM9N5gnOYtQLeSvFmT3yusRILE9gfMIbi5NxL9lxMTS-EhoT-sNPCStI00DT_9PFNxyaiMhgf-H_oFSAs4lWDD4rj8sOvZaL7lwXQIAUeGFwZafcLp4eR4gqvgd2PwZY9tznXi4VpWNUrEdAGr2mki3N3dXmXBim0Cn-tC7YR7aDl"/>
+</div>
+<div class="p-6">
+<h4 class="text-title-md font-title-md text-deep-teal mb-2">Quaderni di Lavoro</h4>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">Percorsi guidati per pazienti adolescenti sulla gestione del bullismo e autostima.</p>
+<button class="text-primary text-label-md font-label-md font-bold tracking-widest uppercase hover:underline">SCOPRI I MATERIALI</button>
+</div>
+</div>
+<!-- Grid Item 2 -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-shadow group">
+<div class="h-48 relative overflow-hidden">
+<img alt="Strumenti Esperienziali" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPqPV-HKa0KbcPB7FuTKduddUC7eGtVmtvVyjH-e6UiqEScavTBJfaW46HBg_7Yk-0AbX9Iq7n7Xj7_uHNvTwMbVSxyaC2uPZVTp9i0EnTOdyfYb50Ea9z1z5nkpQJVnvaiKVWg8qg05X_76EiXFddio24NBSQz4svfUMODqisiI5RqZoNGL8ewln1Nr7YvXMR5TLQf5ayU5gTtHDdezeAbJiq041nB2RCzQfCtplf-E0j9DT3aBSv3tQzhiTcHC3qsJo0WHT-Vt2f"/>
+</div>
+<div class="p-6">
+<h4 class="text-title-md font-title-md text-deep-teal mb-2">Materiali Esperienziali</h4>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">Set di oggetti simbolici e strumenti tattili per la terapia dell'età evolutiva.</p>
+<button class="text-primary text-label-md font-label-md font-bold tracking-widest uppercase hover:underline">SCOPRI I MATERIALI</button>
+</div>
+</div>
+<!-- Grid Item 3 -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-shadow group">
+<div class="h-48 relative overflow-hidden">
+<img alt="Strumenti Digitali" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWf9-mWFvB1RyHZksj3rs3Dnow9pOQfcam_uyitrcRcEKiEjgIda81Au7bdpITe0qFU_l6m5U44lDGU1qkYmt97Mox-DWbZZTXmocod3MJhM0XxGTIal2j1zA7HPgonByNI6Efk5EMoEneQCUr9iURAHeYlDBUVd8Uh6K6cTVHa5EF7euEzedSxHZe7zhOR0xShRud2JY_uH3gRNNhp0YgBRBO-Xont3j5qXntmB9EXU5TYTJ0ApUFOH5RdczI0Rp8XyJr_bOWxc5c"/>
+</div>
+<div class="p-6">
+<h4 class="text-title-md font-title-md text-deep-teal mb-2">Supporto Digitale</h4>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">Dashboard interattive per il monitoraggio dei compiti a casa e sessioni online.</p>
+<button class="text-primary text-label-md font-label-md font-bold tracking-widest uppercase hover:underline">SCOPRI I MATERIALI</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Transformation Section -->
+<section class="py-20 bg-primary text-on-primary">
+<div class="max-w-max-width mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-display-lg font-display-lg mb-6 leading-tight">La scienza al servizio della pratica quotidiana.</h2>
+<p class="text-body-lg font-body-lg opacity-90 mb-8">
+                    Ogni materiale presente nel nostro catalogo è frutto di una rigorosa revisione scientifica. Crediamo che la cura debba essere supportata da strumenti che rendano tangibile il percorso di crescita.
+                </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 bg-primary-fixed/20 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="font-title-md font-bold">Validazione Scientifica</p>
+<p class="text-body-md opacity-80">Strumenti basati sulle evidenze cliniche più recenti.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 bg-primary-fixed/20 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="font-title-md font-bold">Focus Umano</p>
+<p class="text-body-md opacity-80">Design empatico che riduce la resistenza al trattamento.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest/10 p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
+<div class="flex items-center justify-between mb-8">
+<h4 class="text-headline-md font-headline-md">Statistiche d'Impatto</h4>
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-label-md font-label-md mb-2">
+<span>COINVOLGIMENTO PAZIENTE</span>
+<span>+85%</span>
+</div>
+<div class="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed w-[85%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-label-md font-label-md mb-2">
+<span>EFFICACIA PSICOEDUCATIVA</span>
+<span>+70%</span>
+</div>
+<div class="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed w-[70%] rounded-full"></div>
+</div>
+</div>
+</div>
+<p class="mt-8 text-label-md font-label-md opacity-60 italic text-center">
+                    *Dati basati su feedback clinici dei professionisti Applica APS.
+                </p>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="py-16 px-gutter">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-headline-lg font-headline-lg text-deep-teal mb-4">Resta aggiornato sui nuovi strumenti</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mb-8">Iscriviti alla newsletter tecnica dedicata ai professionisti della salute mentale.</p>
+<form class="flex flex-col sm:flex-row gap-4 justify-center">
+<input class="px-6 py-3 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary outline-none min-w-[300px]" placeholder="Inserisci la tua email" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all">Iscriviti</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline full-width bottom">
+<div class="py-12 px-gutter max-w-max-width mx-auto w-full flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-title-md font-title-md font-bold text-deep-teal dark:text-primary-fixed">
+            Applica APS
+        </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant dark:text-surface-variant text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Termini di Servizio</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Contatti</a>
+<a class="text-on-surface-variant dark:text-surface-variant text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">FAQ</a>
+</div>
+<p class="text-label-md font-label-md text-on-surface-variant dark:text-surface-variant opacity-70 text-center md:text-right">
+            © 2024 Applica APS. Scienza e cura per il benessere psicologico.
+        </p>
+</div>
+</footer>
+</body></html>

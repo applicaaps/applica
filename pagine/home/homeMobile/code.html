@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Applica APS | Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dbdad8",
+                    "on-primary-fixed": "#00201f",
+                    "on-primary-container": "#c0fffc",
+                    "on-tertiary-fixed-variant": "#2e3aa2",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#f3dfce",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1c1b",
+                    "inverse-primary": "#8ad3d0",
+                    "surface-container": "#efedec",
+                    "on-surface": "#1b1c1b",
+                    "tertiary-fixed-dim": "#bdc2ff",
+                    "surface": "#fbf9f7",
+                    "outline": "#6f7978",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fbf9f7",
+                    "on-secondary-fixed": "#231a0f",
+                    "clinical-blue": "#4A5568",
+                    "on-surface-variant": "#3f4948",
+                    "tertiary-container": "#5965cd",
+                    "secondary-container": "#f3dfce",
+                    "on-tertiary-container": "#f4f2ff",
+                    "surface-tint": "#156967",
+                    "surface-container-low": "#f5f3f1",
+                    "tertiary-fixed": "#dfe0ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e4e2e0",
+                    "secondary-fixed-dim": "#d6c3b3",
+                    "success-green": "#48BB78",
+                    "surface-container-highest": "#e4e2e0",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#a6f0ed",
+                    "on-secondary-fixed-variant": "#514538",
+                    "outline-variant": "#bec9c7",
+                    "inverse-surface": "#30302f",
+                    "soft-clay": "#D9BBA9",
+                    "on-primary-fixed-variant": "#00504e",
+                    "on-tertiary-fixed": "#000965",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "background": "#fbf9f7",
+                    "primary": "#03615f",
+                    "on-secondary-container": "#706254",
+                    "inverse-on-surface": "#f2f0ee",
+                    "primary-container": "#2d7a78",
+                    "deep-teal": "#1B4D4B",
+                    "secondary": "#6a5c4e",
+                    "tertiary": "#404cb2",
+                    "surface-container-high": "#eae8e6",
+                    "primary-fixed-dim": "#8ad3d0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "max-width": "1280px",
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["inter"],
+                    "headline-lg": ["manrope"],
+                    "body-lg": ["inter"],
+                    "title-md": ["manrope"],
+                    "body-md": ["inter"],
+                    "headline-lg-mobile": ["manrope"],
+                    "display-lg": ["manrope"]
+            },
+            "fontSize": {
+                    "label-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-indicator {
+            height: 3px;
+            width: 24px;
+            background-color: var(--tw-color-primary);
+            border-radius: 99px;
+        }
+        /* Mobile spacing utilities */
+        .px-mobile { padding-left: 16px; padding-right: 16px; }
+        .py-mobile { padding-top: 48px; padding-bottom: 48px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar (Mobile Execution) -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface shadow-sm h-16 flex items-center justify-between px-4">
+<div class="text-title-md font-bold text-deep-teal">Applica APS</div>
+<button class="p-2 text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="pt-16 pb-20">
+<!-- Hero Section -->
+<section class="relative bg-surface pt-8 pb-12 px-4 overflow-hidden">
+<div class="mb-8">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-deep-teal mb-4">
+                    Psicologia concreta, accessibile e trasformativa
+                </h1>
+<p class="text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                    Sosteniamo il benessere mentale attraverso un approccio basato sull'evidenza e sulla vicinanza umana.
+                </p>
+<div class="flex flex-col gap-3">
+<button class="bg-primary text-on-primary px-6 py-4 rounded-xl font-semibold shadow-sm active:scale-95 transition-transform text-center">
+                        Richiedi un Colloquio
+                    </button>
+<button class="border border-outline text-primary px-6 py-4 rounded-xl font-semibold hover:bg-primary-container hover:text-on-primary-container transition-colors text-center">
+                        Scopri di più
+                    </button>
+</div>
+</div>
+<div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30">
+<img alt="Psicologa professionista" class="w-full h-full object-cover" data-alt="A professional female psychologist in a bright, modern office with soft sunlight streaming through the windows. She has a warm, empathetic expression and is dressed in professional yet approachable attire. The background is minimalist with warm wood textures and plants, reflecting the Applica APS brand identity of scientific rigor and human warmth. The color palette is dominated by deep teals and soft clay tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQwvBmulljRSA7nfaQgtLOyir8UmNefw2JpeCE-2mZHq0BEkYias2YOUK1M_ZAj0W6aLisXEtv38s3bBj8FEQ00JLxyYJC1B6Zq5P6D8WG4_b6mqlaU8AipJRA9FOvQRpXNzQFzQuwewsB3v9Scxt1iR9-2vtC6a7UFoq_281v0VBTUghyu87RDgqrITZHPUNz-XOoxeJ7FHh4B61ZF22qjuYMk_Ris_DKNLqlNCniJI-lnrMUdplz3quOMvmQaBFugIDkhwwUyx6_"/>
+</div>
+</section>
+<!-- Emotional Quote -->
+<section class="bg-surface-container-low py-12 px-4 text-center">
+<div class="max-w-md mx-auto">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">format_quote</span>
+<p class="font-title-md text-title-md italic text-on-surface leading-snug">
+                    "La psicologia non è solo per chi soffre, ma per chiunque voglia esplorare il potenziale di una vita umana e reale."
+                </p>
+<div class="w-12 h-1 bg-soft-clay mx-auto mt-6"></div>
+</div>
+</section>
+<!-- The 4 Pillars (Vertical Bento) -->
+<section class="py-16 px-4">
+<div class="mb-10 text-center">
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-widest">Il nostro Metodo</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-deep-teal mt-2">Pilastri di Cura</h2>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Pillar 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-2xl flex items-start gap-4 transition-all active:bg-surface-container">
+<div class="bg-primary/10 p-3 rounded-xl">
+<span class="material-symbols-outlined text-primary">science</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-deep-teal mb-1">Scientifica</h3>
+<p class="text-body-md text-on-surface-variant">Protocolli validati e basati sulle ultime scoperte nelle neuroscienze e nella psicologia clinica.</p>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-2xl flex items-start gap-4 transition-all active:bg-surface-container">
+<div class="bg-secondary/10 p-3 rounded-xl">
+<span class="material-symbols-outlined text-secondary">universal_currency_alt</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-deep-teal mb-1">Accessibile</h3>
+<p class="text-body-md text-on-surface-variant">Riduciamo le barriere economiche e geografiche per rendere la cura mentale un diritto di tutti.</p>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-2xl flex items-start gap-4 transition-all active:bg-surface-container">
+<div class="bg-tertiary/10 p-3 rounded-xl">
+<span class="material-symbols-outlined text-tertiary">favorite</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-deep-teal mb-1">Umana</h3>
+<p class="text-body-md text-on-surface-variant">Ascolto empatico e connessione autentica. Mettiamo la persona al centro, non solo il sintomo.</p>
+</div>
+</div>
+<!-- Pillar 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-2xl flex items-start gap-4 transition-all active:bg-surface-container">
+<div class="bg-soft-clay/20 p-3 rounded-xl">
+<span class="material-symbols-outlined text-on-secondary-container">construction</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-deep-teal mb-1">Pratica</h3>
+<p class="text-body-md text-on-surface-variant">Strumenti concreti da applicare quotidianamente per generare un cambiamento visibile e duraturo.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- For Professionals Section -->
+<section class="bg-deep-teal text-surface py-16 px-4 rounded-t-[40px] -mt-4">
+<div class="mb-10 text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-4">Area Professionisti</h2>
+<p class="text-body-md opacity-90">Entra a far parte di un network dedicato all'eccellenza clinica e alla crescita condivisa.</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-12">
+<div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl text-center">
+<div class="font-display-lg text-primary-fixed mb-1">2k+</div>
+<div class="text-label-sm font-label-sm uppercase opacity-80">Pazienti Aiutati</div>
+</div>
+<div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl text-center">
+<div class="font-display-lg text-primary-fixed mb-1">150+</div>
+<div class="text-label-sm font-label-sm uppercase opacity-80">Psicologi Partner</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<button class="bg-primary-fixed text-on-primary-fixed px-6 py-4 rounded-xl font-bold transition-all active:scale-95">
+                    Diventa Professionista
+                </button>
+<a class="text-center py-2 text-label-sm font-label-sm underline opacity-80" href="#">Scopri i vantaggi del network</a>
+</div>
+</section>
+<!-- Footer (from JSON structure) -->
+<footer class="bg-surface-container-low py-12 px-4 text-center">
+<div class="text-title-md font-bold text-deep-teal mb-6">Applica APS</div>
+<nav class="flex flex-wrap justify-center gap-x-6 gap-y-4 mb-8">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Termini di Servizio</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contatti</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">FAQ</a>
+</nav>
+<p class="text-label-sm font-label-sm text-on-surface-variant opacity-70 leading-relaxed max-w-xs mx-auto">
+                © 2024 Applica APS. Scienza e cura per il benessere psicologico.
+            </p>
+</footer>
+</main>
+<!-- BottomNavBar (Mobile Shell) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-surface shadow-[0_-2px_10px_rgba(0,0,0,0.05)] h-16 flex items-center justify-around px-2 z-50 md:hidden">
+<button class="flex flex-col items-center gap-1 flex-1 text-primary">
+<span class="material-symbols-outlined font-bold" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+<div class="active-tab-indicator"></div>
+</button>
+<button class="flex flex-col items-center gap-1 flex-1 text-on-surface-variant opacity-70">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">Pazienti</span>
+</button>
+<button class="flex flex-col items-center gap-1 flex-1 text-on-surface-variant opacity-70">
+<span class="material-symbols-outlined">badge</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">Professionisti</span>
+</button>
+<button class="flex flex-col items-center gap-1 flex-1 text-on-surface-variant opacity-70">
+<span class="material-symbols-outlined">library_books</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">Materiali</span>
+</button>
+</nav>
+<!-- Floating Action Button (FAB Contextual) -->
+<button class="fixed right-6 bottom-20 bg-primary text-on-primary w-14 h-14 rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-3xl">chat_bubble</span>
+</button>
+<script>
+        // Subtle entrance animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-4');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body></html>

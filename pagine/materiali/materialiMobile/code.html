@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=inter:wght@100..900&amp;family=manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dbdad8",
+                    "on-primary-fixed": "#00201f",
+                    "on-primary-container": "#c0fffc",
+                    "on-tertiary-fixed-variant": "#2e3aa2",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#f3dfce",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1c1b",
+                    "inverse-primary": "#8ad3d0",
+                    "surface-container": "#efedec",
+                    "on-surface": "#1b1c1b",
+                    "tertiary-fixed-dim": "#bdc2ff",
+                    "surface": "#fbf9f7",
+                    "outline": "#6f7978",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fbf9f7",
+                    "on-secondary-fixed": "#231a0f",
+                    "clinical-blue": "#4A5568",
+                    "on-surface-variant": "#3f4948",
+                    "tertiary-container": "#5965cd",
+                    "secondary-container": "#f3dfce",
+                    "on-tertiary-container": "#f4f2ff",
+                    "surface-tint": "#156967",
+                    "surface-container-low": "#f5f3f1",
+                    "tertiary-fixed": "#dfe0ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e4e2e0",
+                    "secondary-fixed-dim": "#d6c3b3",
+                    "success-green": "#48BB78",
+                    "surface-container-highest": "#e4e2e0",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#a6f0ed",
+                    "on-secondary-fixed-variant": "#514538",
+                    "outline-variant": "#bec9c7",
+                    "inverse-surface": "#30302f",
+                    "soft-clay": "#D9BBA9",
+                    "on-primary-fixed-variant": "#00504e",
+                    "on-tertiary-fixed": "#000965",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "background": "#fbf9f7",
+                    "primary": "#03615f",
+                    "on-secondary-container": "#706254",
+                    "inverse-on-surface": "#f2f0ee",
+                    "primary-container": "#2d7a78",
+                    "deep-teal": "#1B4D4B",
+                    "secondary": "#6a5c4e",
+                    "tertiary": "#404cb2",
+                    "surface-container-high": "#eae8e6",
+                    "primary-fixed-dim": "#8ad3d0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "max-width": "1280px",
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["inter"],
+                    "headline-lg": ["manrope"],
+                    "body-lg": ["inter"],
+                    "title-md": ["manrope"],
+                    "body-md": ["inter"],
+                    "headline-lg-mobile": ["manrope"],
+                    "display-lg": ["manrope"]
+            },
+            "fontSize": {
+                    "label-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 226, 226, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar (Mobile Shell) -->
+<nav class="sticky top-0 z-50 bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center h-20 px-4 w-full">
+<div class="text-title-md font-title-md font-bold text-deep-teal dark:text-primary-fixed">
+            Applica APS
+        </div>
+<button aria-label="Menu" class="p-2 text-deep-teal">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<main class="min-h-screen pb-24">
+<!-- Hero Section -->
+<header class="px-4 pt-8 pb-6 bg-surface-container-low">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-deep-teal mb-3">Materiali e Strumenti</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Risorse pratiche basate su evidenze scientifiche per il tuo percorso di benessere o la tua pratica clinica.</p>
+</header>
+<!-- Search and Filters (Mobile Optimized) -->
+<div class="sticky top-20 z-40 bg-surface/90 backdrop-blur-md px-4 py-4 space-y-4">
+<!-- Search Bar -->
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-body-md" placeholder="Cerca protocolli o strumenti..." type="text"/>
+</div>
+<!-- Horizontal Category Chips -->
+<div class="flex gap-2 overflow-x-auto hide-scrollbar -mx-4 px-4">
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-primary text-on-primary text-label-sm font-label-sm transition-all active:scale-95">Tutti</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm hover:bg-surface-container-highest transition-all">Carte</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm hover:bg-surface-container-highest transition-all">Protocolli</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm hover:bg-surface-container-highest transition-all">Quaderni</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm hover:bg-surface-container-highest transition-all">Audio</button>
+</div>
+</div>
+<!-- Catalog (Asymmetric/Bento Style on Mobile) -->
+<section class="px-4 py-6 space-y-6">
+<!-- Featured Card -->
+<div class="group relative overflow-hidden rounded-3xl bg-deep-teal p-6 text-white min-h-[320px] flex flex-col justify-end">
+<div class="absolute inset-0 z-0">
+<img alt="Mappe Emotive Applica APS" class="w-full h-full object-cover opacity-40 transition-transform duration-700 group-hover:scale-110" data-alt="A high-quality top-down photograph of beautifully designed psychological emotional mapping cards spread across a clean, light oak wooden desk. The cards feature soft pastel gradients and minimalist geometric shapes, reflecting the modern corporate with tactile warmth aesthetic. Sunlight streams from a nearby window, creating gentle shadows. The palette consists of soft clay, deep teal accents, and warm neutrals, conveying a sense of organized mental clarity and empathetic professional care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJtesnt1I3fv9QJwg3IhELna69s5NCp7Yl3O0VR08GQuAZeNOXNDT7SQbksf8TICz8Me6PXg5we-8eHdGwjDEEU2S8_dzzpPQN1er6MhFqaFYLF9V2LOlEvqxs_FbkPyuv3YAGjHDug5wGsnUiDE2bMnoTQB2yLHkpLpbviDOhcCH8X2PD-N7W192PNgc9G9SRRA5c5CjW1qY4X6XcUlxDA3sEW4EJJ7_nwFDDSAFnsmCec1M0LQrnqFBfRr1AveO13bjoC-76Tfc9"/>
+</div>
+<div class="relative z-10">
+<span class="inline-block px-3 py-1 rounded-full bg-primary-fixed/20 text-primary-fixed font-label-sm text-label-sm mb-4">Novità</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-2">Mappe Emotive v2</h2>
+<p class="font-body-md text-body-md opacity-90 mb-6">Uno strumento visivo per esplorare la complessità dei sentimenti attraverso il colore e lo spazio.</p>
+<button class="w-full py-4 bg-primary-fixed text-on-primary-fixed rounded-xl font-bold flex justify-center items-center gap-2">
+                        Scopri lo strumento
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Secondary Grid -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Protocollo CBT -->
+<div class="glass-card p-6 rounded-3xl flex flex-col gap-4">
+<div class="w-12 h-12 bg-tertiary/10 text-tertiary rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-deep-teal">Protocolli CBT Avanzati</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Guide strutturate per la gestione dell'ansia e dello stress basate sulla terapia cognitivo-comportamentale.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/30 flex justify-between items-center">
+<span class="text-label-sm font-label-sm text-secondary">PDF Scaricabile</span>
+<button class="text-primary font-bold flex items-center gap-1">Scarica <span class="material-symbols-outlined text-sm">download</span></button>
+</div>
+</div>
+<!-- Quaderni di Riflessione -->
+<div class="glass-card p-6 rounded-3xl flex flex-col gap-4">
+<div class="w-12 h-12 bg-secondary/10 text-secondary rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-deep-teal">Quaderni di Riflessione</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Percorsi di auto-aiuto guidati per la mindfulness e la crescita personale quotidiana.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/30 flex justify-between items-center">
+<span class="text-label-sm font-label-sm text-secondary">Prodotto Fisico</span>
+<button class="text-primary font-bold flex items-center gap-1">Acquista <span class="material-symbols-outlined text-sm">shopping_cart</span></button>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="mt-12 px-4 py-12 bg-deep-teal text-on-primary-container rounded-t-[40px]">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-white mb-8 text-center italic">L'impatto dei nostri strumenti</h2>
+<div class="grid grid-cols-2 gap-6">
+<div class="text-center">
+<div class="text-display-lg font-display-lg text-primary-fixed">15k+</div>
+<p class="text-label-sm font-label-sm text-primary-fixed/80 uppercase tracking-widest">Download</p>
+</div>
+<div class="text-center">
+<div class="text-display-lg font-display-lg text-primary-fixed">4.9</div>
+<p class="text-label-sm font-label-sm text-primary-fixed/80 uppercase tracking-widest">Rating Medio</p>
+</div>
+<div class="text-center">
+<div class="text-display-lg font-display-lg text-primary-fixed">500+</div>
+<p class="text-label-sm font-label-sm text-primary-fixed/80 uppercase tracking-widest">Professionisti</p>
+</div>
+<div class="text-center">
+<div class="text-display-lg font-display-lg text-primary-fixed">24/7</div>
+<p class="text-label-sm font-label-sm text-primary-fixed/80 uppercase tracking-widest">Supporto</p>
+</div>
+</div>
+</section>
+<!-- Newsletter Subscription -->
+<section class="px-4 py-16 bg-surface-container-low text-center">
+<div class="max-w-md mx-auto">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-deep-teal mb-4">Rimani in Contatto</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Ricevi nuovi materiali, approfondimenti scientifici e protocolli gratuiti direttamente nella tua inbox.</p>
+<form class="space-y-4" onsubmit="event.preventDefault(); alert('Grazie per l\'iscrizione!')">
+<input class="w-full px-6 py-4 rounded-xl border-outline-variant focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="La tua email professionale" type="email"/>
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+                        Iscriviti alla Newsletter
+                    </button>
+</form>
+<p class="text-label-sm font-label-sm text-outline mt-6 italic">Unisciti a oltre 3.000 persone impegnate nel benessere psicologico.</p>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="py-12 px-4 w-full flex flex-col items-center gap-8">
+<div class="text-center">
+<div class="text-title-md font-title-md font-bold text-deep-teal dark:text-primary-fixed mb-2">Applica APS</div>
+<p class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant max-w-xs">
+                    © 2024 Applica APS. Scienza e cura per il benessere psicologico.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-x-6 gap-y-3">
+<a class="text-label-sm font-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Termini di Servizio</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Contatti</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">FAQ</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Shell - Critical Component) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-xl h-16 flex items-center justify-around px-4 z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant dark:text-outline-variant font-body-md" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant dark:text-outline-variant font-body-md" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-medium">Pazienti</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary dark:text-primary-fixed font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">folder_special</span>
+<span class="text-[10px] font-bold">Materiali</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant dark:text-outline-variant font-body-md" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-[10px] font-medium">Professionisti</span>
+</a>
+</nav>
+<script>
+        // Simple Micro-interaction for category chips
+        document.querySelectorAll('.overflow-x-auto button').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.overflow-x-auto button').forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+                });
+                this.classList.add('bg-primary', 'text-on-primary');
+                this.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+            });
+        });
+
+        // Sticky Search interaction
+        window.addEventListener('scroll', () => {
+            const searchContainer = document.querySelector('.sticky.top-20');
+            if (window.scrollY > 100) {
+                searchContainer.classList.add('shadow-md');
+            } else {
+                searchContainer.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

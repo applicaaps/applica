@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dbdad8",
+                    "on-primary-fixed": "#00201f",
+                    "on-primary-container": "#c0fffc",
+                    "on-tertiary-fixed-variant": "#2e3aa2",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#f3dfce",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1c1b",
+                    "inverse-primary": "#8ad3d0",
+                    "surface-container": "#efedec",
+                    "on-surface": "#1b1c1b",
+                    "tertiary-fixed-dim": "#bdc2ff",
+                    "surface": "#fbf9f7",
+                    "outline": "#6f7978",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fbf9f7",
+                    "on-secondary-fixed": "#231a0f",
+                    "clinical-blue": "#4A5568",
+                    "on-surface-variant": "#3f4948",
+                    "tertiary-container": "#5965cd",
+                    "secondary-container": "#f3dfce",
+                    "on-tertiary-container": "#f4f2ff",
+                    "surface-tint": "#156967",
+                    "surface-container-low": "#f5f3f1",
+                    "tertiary-fixed": "#dfe0ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e4e2e0",
+                    "secondary-fixed-dim": "#d6c3b3",
+                    "success-green": "#48BB78",
+                    "surface-container-highest": "#e4e2e0",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#a6f0ed",
+                    "on-secondary-fixed-variant": "#514538",
+                    "outline-variant": "#bec9c7",
+                    "inverse-surface": "#30302f",
+                    "soft-clay": "#D9BBA9",
+                    "on-primary-fixed-variant": "#00504e",
+                    "on-tertiary-fixed": "#000965",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "background": "#fbf9f7",
+                    "primary": "#03615f",
+                    "on-secondary-container": "#706254",
+                    "inverse-on-surface": "#f2f0ee",
+                    "primary-container": "#2d7a78",
+                    "deep-teal": "#1B4D4B",
+                    "secondary": "#6a5c4e",
+                    "tertiary": "#404cb2",
+                    "surface-container-high": "#eae8e6",
+                    "primary-fixed-dim": "#8ad3d0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "max-width": "1280px",
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Manrope"],
+                    "body-lg": ["Inter"],
+                    "title-md": ["Manrope"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "display-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "label-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md antialiased">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 z-50 bg-surface dark:bg-surface-dim shadow-sm w-full">
+<div class="flex justify-between items-center h-20 px-4 max-w-max-width mx-auto w-full">
+<div class="text-title-md font-title-md font-bold text-deep-teal dark:text-primary-fixed">Applica APS</div>
+<button class="md:hidden p-2 text-on-surface" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Desktop Nav (Hidden on Mobile) -->
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Pazienti</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1" href="#">Professionisti</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Materiali</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm hover:opacity-80 transition-all">Richiedi un Colloquio</button>
+</nav>
+</div>
+</header>
+<main class="pt-24 pb-32">
+<!-- Hero Section -->
+<section class="px-4 mb-12">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-deep-teal mb-4">I Nostri Servizi</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Percorsi clinici personalizzati e formazione di eccellenza per il benessere della persona e la crescita professionale.</p>
+</section>
+<!-- Sezione Pazienti -->
+<section class="px-4 mb-16">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<h2 class="font-title-md text-title-md text-deep-teal">Supporto Psicologico</h2>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Card Ansia -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant hover:shadow-sm transition-all">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-primary-container">psychology_alt</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Ansia</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Gestione dello stress, attacchi di panico e preoccupazioni limitanti attraverso approcci scientifici.</p>
+<button class="flex items-center gap-2 text-primary font-label-sm uppercase tracking-wider">
+                        Scopri di più <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Card Depressione -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant">
+<div class="w-12 h-12 bg-soft-clay/20 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-deep-teal">cloud</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Depressione</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Supporto empatico per ritrovare motivazione, energia e il senso di sé nella quotidianità.</p>
+<button class="flex items-center gap-2 text-primary font-label-sm uppercase tracking-wider">
+                        Scopri di più <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Card Relazioni e Coppia -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant">
+<div class="w-12 h-12 bg-tertiary-fixed-dim rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant">groups</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Relazioni e Coppia</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Percorsi di mediazione e miglioramento della comunicazione affettiva e interpersonale.</p>
+<button class="flex items-center gap-2 text-primary font-label-sm uppercase tracking-wider">
+                        Scopri di più <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-full bg-deep-teal text-on-primary h-14 rounded-full font-title-md shadow-sm active:scale-95 transition-all">
+                    Prenota un Colloquio
+                </button>
+</div>
+</section>
+<!-- Divider with Image -->
+<section class="mb-16">
+<div class="h-64 w-full relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A group of professionals in a bright, modern office with soft daylight filtering through floor-to-ceiling windows. They are engaged in a calm, focused collaborative session around a wooden table. The aesthetic is clean and corporate yet warm, using a palette of soft teals, muted clays, and natural wood tones. The atmosphere conveys professional growth, academic rigor, and empathetic communication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC390AcjxMo3b7LlAaERCY2eI1AuwWNyEbntsG5-yqcHebM8RdOmM1lFY54PojgDxye-HU39WrBBdGWrNAYXzI8ALvQ8N-r3efMVndTUHsIsdwqblNskZ8HJcZGGgPJ90gxD0b6IooJ4KlQl72B3QDtkKDPl-JN9smdHRS9LZp3r9c_VXK0_nj4XfiYMMUsKm5JkAs3gwkeGg8NnJsfjH1dZzTF6U-jfwi_sjA-udhclEUd19HkSgAUVJeZIFQjlslOdEMe3WM29mzY"/>
+<div class="absolute inset-0 bg-deep-teal/40 flex items-center justify-center px-4">
+<p class="text-white font-headline-lg-mobile text-center italic">"La cura è un atto di coraggio condiviso."</p>
+</div>
+</div>
+</section>
+<!-- Sezione Professionisti -->
+<section class="px-4 mb-16">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">school</span>
+<h2 class="font-title-md text-title-md text-deep-teal">Eccellenza e Formazione</h2>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Supervisione Bento Card -->
+<div class="bg-white p-6 rounded-2xl border border-outline-variant relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl"></div>
+<span class="font-label-sm text-tertiary bg-tertiary/10 px-3 py-1 rounded-full mb-4 inline-block">Clinica</span>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Supervisione</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Incontri individuali o di gruppo per psicoterapeuti, focalizzati sull'analisi del caso clinico.</p>
+</div>
+<!-- Formazione Continua Bento Card -->
+<div class="bg-surface-container-high p-6 rounded-2xl border border-outline-variant">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-sm text-primary bg-primary/10 px-3 py-1 rounded-full">ECM</span>
+<span class="material-symbols-outlined text-outline">history_edu</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Formazione Continua</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Workshop e seminari sulle frontiere della psicologia clinica e delle neuroscienze.</p>
+</div>
+<!-- Gruppi di Studio -->
+<div class="bg-deep-teal p-6 rounded-2xl text-on-primary">
+<h3 class="font-title-md text-title-md mb-2">Gruppi di Studio</h3>
+<p class="font-body-md text-body-md opacity-90 mb-4">Spazi di riflessione teorica e pratica clinica condivisa tra colleghi esperti.</p>
+<button class="text-primary-fixed font-label-sm underline">Vedi Calendario 2024</button>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-full border-2 border-deep-teal text-deep-teal h-14 rounded-full font-title-md active:scale-95 transition-all">
+                    Diventa Professionista
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface dark:bg-surface-dim shadow-[0_-4px_12px_rgba(0,0,0,0.05)] h-20 z-50 flex items-center justify-around px-4">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="font-label-sm text-label-sm font-bold">Servizi</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-label-sm">Formazione</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm text-label-sm">Profilo</span>
+</button>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="py-12 px-4 max-w-max-width mx-auto w-full flex flex-col items-center gap-8 text-center">
+<div class="text-title-md font-title-md font-bold text-deep-teal dark:text-primary-fixed">Applica APS</div>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="text-on-surface-variant font-label-sm hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary" href="#">Termini</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary" href="#">Contatti</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary" href="#">FAQ</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Applica APS. Scienza e cura per il benessere psicologico.</p>
+</div>
+</footer>
+<script>
+        // Simple Interaction for Mobile Menu (Stub)
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+            alert('Menu mobile in fase di implementazione');
+        });
+
+        // Add subtle parallax-like effect to hero image on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImg = document.querySelector('img');
+            if(heroImg) {
+                heroImg.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+        });
+    </script>
+</body></html>

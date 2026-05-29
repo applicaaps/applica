@@ -55,7 +55,7 @@ export function PrinciplesCarousel() {
     if (isHovered) return
     const timer = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % principles.length)
-    }, 4500)
+    }, 5000)
     return () => clearInterval(timer)
   }, [isHovered])
 
@@ -147,6 +147,22 @@ export function PrinciplesCarousel() {
           )
         })}
       </AnimatePresence>
+
+      {/* Pagination Indicators */}
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-3">
+        {principles.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setActiveIdx(idx)}
+            className={`h-2 rounded-full transition-all duration-500 ${
+              activeIdx === idx 
+                ? 'w-8 bg-[var(--color-primary)]' 
+                : 'w-2 bg-[var(--color-outline-variant)] hover:bg-[var(--color-outline)]'
+            }`}
+            aria-label={`Vai al principio ${idx + 1}`}
+          />
+        ))}
+      </div>
     </div>
   )
 }

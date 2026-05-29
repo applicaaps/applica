@@ -49,7 +49,7 @@ export default function Home() {
                 {/* Image Placeholder */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-[var(--color-outline)]">
                   <Users size={56} className="mb-3 opacity-40" />
-                  <span className="text-sm font-medium opacity-60">Foto del team</span>
+                  <span className="text-sm font-medium opacity-60">Foto principale</span>
                 </div>
               </div>
             </RevealSection>
@@ -96,10 +96,10 @@ export default function Home() {
             </div>
           </RevealSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-            {/* Large feature block */}
-            <RevealSection className="md:col-span-7" stagger={1}>
-              <div className="bg-[var(--color-primary)] p-8 md:p-10 rounded-2xl text-[var(--color-on-primary)] h-full flex flex-col justify-between gap-8">
+          <RevealSection stagger={1}>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+              {/* Large feature block */}
+              <div className="md:col-span-7 bg-[var(--color-primary)] p-8 md:p-10 rounded-2xl text-[var(--color-on-primary)] h-full flex flex-col justify-between gap-8">
                 <Users size={28} />
                 <div className="space-y-3">
                   <h3 className="text-2xl font-bold">Accessibile</h3>
@@ -108,11 +108,9 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </RevealSection>
 
-            {/* Stacked right column */}
-            <div className="md:col-span-5 flex flex-col gap-5">
-              <RevealSection stagger={2}>
+              {/* Stacked right column */}
+              <div className="md:col-span-5 flex flex-col gap-5">
                 <div className="bg-white p-7 rounded-2xl border border-[var(--color-outline-variant)] interactive-card">
                   <Heart size={24} className="text-[var(--color-primary)] mb-5" />
                   <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Umana</h3>
@@ -120,9 +118,7 @@ export default function Home() {
                     La relazione terapeutica è lo strumento più potente che abbiamo. La costruiamo con rispetto, attenzione e continuità.
                   </p>
                 </div>
-              </RevealSection>
 
-              <RevealSection stagger={3}>
                 <div className="bg-white p-7 rounded-2xl border border-[var(--color-outline-variant)] interactive-card">
                   <Brain size={24} className="text-[var(--color-primary)] mb-5" />
                   <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Scientifica</h3>
@@ -130,12 +126,10 @@ export default function Home() {
                     Protocolli evidence-based, formazione continua e supervisione clinica. Ogni intervento ha un fondamento verificabile.
                   </p>
                 </div>
-              </RevealSection>
-            </div>
+              </div>
 
-            {/* Bottom row: wide block */}
-            <RevealSection className="md:col-span-12" stagger={4}>
-              <div className="bg-[var(--color-secondary-container)] p-8 md:p-10 rounded-2xl flex flex-col md:flex-row gap-6 md:items-center">
+              {/* Bottom row: wide block */}
+              <div className="md:col-span-12 bg-[var(--color-secondary-container)] p-8 md:p-10 rounded-2xl flex flex-col md:flex-row gap-6 md:items-center">
                 <div className="flex-shrink-0">
                   <CheckCircle2 size={28} className="text-[var(--color-on-secondary-container)]" />
                 </div>
@@ -146,8 +140,8 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </RevealSection>
-          </div>
+            </div>
+          </RevealSection>
         </div>
       </section>
 

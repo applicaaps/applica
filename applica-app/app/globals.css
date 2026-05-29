@@ -21,26 +21,26 @@
   --color-inverse-on-surface: #f0f0f0;
   --color-outline: #767676;
   --color-outline-variant: #c8c8c8;
-  --color-surface-tint: #0D5C5A;
+  --color-surface-tint: #453e38;
 
-  --color-primary: #0D5C5A;
+  --color-primary: #453e38;
   --color-on-primary: #ffffff;
-  --color-primary-container: #1a6f6d;
-  --color-on-primary-container: #cef5f3;
-  --color-inverse-primary: #7fd0cd;
-  --color-primary-fixed: #b2e8e5;
-  --color-primary-fixed-dim: #7fd0cd;
-  --color-on-primary-fixed: #002020;
-  --color-on-primary-fixed-variant: #004948;
+  --color-primary-container: #5e544c;
+  --color-on-primary-container: #f5e9df;
+  --color-inverse-primary: #bcaaa0;
+  --color-primary-fixed: #dfccc1;
+  --color-primary-fixed-dim: #bcaaa0;
+  --color-on-primary-fixed: #251c16;
+  --color-on-primary-fixed-variant: #3c322b;
 
-  --color-secondary: #5e5041;
+  --color-secondary: #ad7e3e;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #e8d8c8;
-  --color-on-secondary-container: #665848;
-  --color-secondary-fixed: #e8d8c8;
-  --color-secondary-fixed-dim: #ccbcac;
-  --color-on-secondary-fixed: #231a0f;
-  --color-on-secondary-fixed-variant: #4a3e30;
+  --color-secondary-container: #ffddaa;
+  --color-on-secondary-container: #442f00;
+  --color-secondary-fixed: #ffddaa;
+  --color-secondary-fixed-dim: #dfad67;
+  --color-on-secondary-fixed: #2c1b00;
+  --color-on-secondary-fixed-variant: #442f00;
 
   --color-tertiary: #3a4aaa;
   --color-on-tertiary: #ffffff;
@@ -56,8 +56,8 @@
   --color-error-container: #ffdad6;
   --color-on-error-container: #93000a;
 
-  --color-deep-teal: #0D5C5A;
-  --color-soft-clay: #ccbcac;
+  --color-deep-teal: #453e38; /* Mantenuto il nome variabile per non rompere classi esistenti, ma colore aggiornato */
+  --color-soft-clay: #ffddaa; /* Idem */
   --color-clinical-blue: #4A5568;
   --color-success-green: #2d8a5e;
   --color-background: #fafafa;
@@ -197,9 +197,9 @@ h1, h2, h3 {
 .reveal {
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 600ms var(--ease-out-expo),
-              transform 600ms var(--ease-out-expo);
-  transition-delay: calc(var(--stagger, 0) * 80ms);
+  transition: opacity 300ms var(--ease-out),
+              transform 300ms var(--ease-out);
+  transition-delay: calc(var(--stagger, 0) * 50ms);
 }
 
 .reveal.is-visible {

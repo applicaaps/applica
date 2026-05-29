@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ArrowRight, Heart, Users, Brain, CheckCircle2 } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
+import { PrinciplesCarousel } from "@/components/PrinciplesCarousel"
 
 export default function Home() {
   return (
@@ -53,36 +54,32 @@ export default function Home() {
                 </div>
               </div>
             </RevealSection>
-
-            <RevealSection stagger={3}>
-              <div className="absolute -bottom-4 -left-4 bg-white p-5 rounded-xl ambient-shadow hidden sm:block max-w-[220px]">
-                <p className="text-sm text-[var(--color-on-surface-variant)] italic leading-relaxed">
-                  &quot;Un percorso concreto, con ascolto vero e strumenti che funzionano nella vita quotidiana.&quot;
-                </p>
-              </div>
-            </RevealSection>
           </div>
         </div>
       </section>
 
       {/* ─── Statement ─── */}
-      <section className="py-20 md:py-28">
+      <section className="py-24 md:py-32">
         <div className="container mx-auto px-4 md:px-6">
           <RevealSection>
-            <div className="max-w-3xl mx-auto text-center space-y-6">
-              <Heart size={32} className="text-[var(--color-primary)] mx-auto" />
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-on-surface)] leading-snug">
-                Crediamo in una psicologia che si fa vicina, concreta e quotidiana.
-              </h2>
-              <p className="text-lg text-[var(--color-on-surface-variant)] leading-relaxed max-w-2xl mx-auto prose-pretty">
-                Ogni percorso parte dall&apos;ascolto della persona, si fonda su evidenze cliniche e si traduce in strumenti reali per la vita di tutti i giorni.
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-end">
+              <div className="md:col-span-8">
+                <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[var(--color-on-surface)] leading-[1.1] tracking-tight">
+                  Crediamo in una psicologia che si fa vicina, concreta e quotidiana.
+                </h2>
+              </div>
+              <div className="md:col-span-4">
+                <div className="w-12 h-1 bg-[var(--color-primary)] mb-6 rounded-full" />
+                <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] leading-relaxed prose-pretty">
+                  Ogni percorso parte dall&apos;ascolto della persona, si fonda su evidenze cliniche e si traduce in strumenti reali per la vita di tutti i giorni.
+                </p>
+              </div>
             </div>
           </RevealSection>
         </div>
       </section>
 
-      {/* ─── Pilastri: layout asimmetrico ─── */}
+      {/* ─── Principi ─── */}
       <section className="py-20 md:py-28 bg-[var(--color-surface-container-low)]">
         <div className="container mx-auto px-4 md:px-6">
           <RevealSection>
@@ -97,50 +94,7 @@ export default function Home() {
           </RevealSection>
 
           <RevealSection stagger={1}>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-              {/* Large feature block */}
-              <div className="md:col-span-7 bg-[var(--color-primary)] p-8 md:p-10 rounded-2xl text-[var(--color-on-primary)] h-full flex flex-col justify-between gap-8">
-                <Users size={28} />
-                <div className="space-y-3">
-                  <h3 className="text-2xl font-bold">Accessibile</h3>
-                  <p className="text-base opacity-85 leading-relaxed max-w-lg">
-                    Tariffe calmierate, percorsi in convenzione, nessun costo nascosto. Il benessere psicologico non è un servizio premium: è un diritto che difendiamo ogni giorno nella pratica.
-                  </p>
-                </div>
-              </div>
-
-              {/* Stacked right column */}
-              <div className="md:col-span-5 flex flex-col gap-5">
-                <div className="bg-white p-7 rounded-2xl border border-[var(--color-outline-variant)] interactive-card">
-                  <Heart size={24} className="text-[var(--color-primary)] mb-5" />
-                  <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Umana</h3>
-                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    La relazione terapeutica è lo strumento più potente che abbiamo. La costruiamo con rispetto, attenzione e continuità.
-                  </p>
-                </div>
-
-                <div className="bg-white p-7 rounded-2xl border border-[var(--color-outline-variant)] interactive-card">
-                  <Brain size={24} className="text-[var(--color-primary)] mb-5" />
-                  <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Scientifica</h3>
-                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    Protocolli evidence-based, formazione continua e supervisione clinica. Ogni intervento ha un fondamento verificabile.
-                  </p>
-                </div>
-              </div>
-
-              {/* Bottom row: wide block */}
-              <div className="md:col-span-12 bg-[var(--color-secondary-container)] p-8 md:p-10 rounded-2xl flex flex-col md:flex-row gap-6 md:items-center">
-                <div className="flex-shrink-0">
-                  <CheckCircle2 size={28} className="text-[var(--color-on-secondary-container)]" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-[var(--color-on-secondary-container)]">Pratica</h3>
-                  <p className="text-base text-[var(--color-on-secondary-container)]/80 leading-relaxed max-w-2xl">
-                    Carte terapeutiche, schede di monitoraggio, kit esperienziali, materiali psicoeducativi. Non ci limitiamo alla seduta: diamo strumenti concreti da usare nella vita di ogni giorno.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <PrinciplesCarousel />
           </RevealSection>
         </div>
       </section>

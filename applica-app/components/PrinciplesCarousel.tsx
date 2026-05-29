@@ -55,7 +55,7 @@ export function PrinciplesCarousel() {
     if (isHovered) return
     const timer = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % principles.length)
-    }, 3500)
+    }, 4000)
     return () => clearInterval(timer)
   }, [isHovered])
 
@@ -63,7 +63,7 @@ export function PrinciplesCarousel() {
   const handlePrev = () => setActiveIdx((prev) => (prev - 1 + principles.length) % principles.length)
 
   return (
-    <div 
+    <div
       className="relative w-full h-[360px] md:h-[420px] flex items-center justify-center overflow-hidden py-10"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -73,10 +73,10 @@ export function PrinciplesCarousel() {
           // Calculate relative position based on activeIdx
           // diff is distance from active center (-1 = left, 0 = center, 1 = right, 2 = hidden)
           let diff = index - activeIdx
-          
+
           // Handle wrapping for a 4-item array
           if (diff < -1) diff += principles.length
-          if (diff > 2) diff -= principles.length 
+          if (diff > 2) diff -= principles.length
           if (diff === 3) diff = -1
 
           let x = 0
@@ -94,7 +94,7 @@ export function PrinciplesCarousel() {
             blur = "blur(0px)"
           } else if (diff === 1) {
             // Right (Next)
-            x = 75 
+            x = 75
             scale = 0.85
             zIndex = 5
             opacity = 0.6
@@ -123,10 +123,10 @@ export function PrinciplesCarousel() {
               key={item.id}
               className={`absolute w-[280px] md:w-[400px] h-[300px] md:h-[340px] p-8 md:p-10 rounded-2xl flex flex-col gap-6 ambient-shadow-lg select-none ${item.colorClass} ${isInteractive ? 'cursor-pointer' : ''}`}
               initial={false}
-              animate={{ 
-                x: `${x}%`, 
-                scale: scale, 
-                zIndex: zIndex, 
+              animate={{
+                x: `${x}%`,
+                scale: scale,
+                zIndex: zIndex,
                 opacity: opacity,
                 filter: blur
               }}
@@ -154,11 +154,10 @@ export function PrinciplesCarousel() {
           <button
             key={idx}
             onClick={() => setActiveIdx(idx)}
-            className={`h-2 rounded-full transition-all duration-500 ${
-              activeIdx === idx 
-                ? 'w-8 bg-[var(--color-primary)]' 
+            className={`h-2 rounded-full transition-all duration-500 ${activeIdx === idx
+                ? 'w-8 bg-[var(--color-primary)]'
                 : 'w-2 bg-[var(--color-outline-variant)] hover:bg-[var(--color-outline)]'
-            }`}
+              }`}
             aria-label={`Vai al principio ${idx + 1}`}
           />
         ))}

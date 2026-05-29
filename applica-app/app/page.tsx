@@ -1,230 +1,262 @@
+"use client"
+
 import Link from "next/link"
-import { ArrowRight, CheckCircle2, Heart, ShieldCheck, Sparkles, Star, Users } from "lucide-react"
+import { ArrowRight, Heart, Users, Brain, CheckCircle2 } from "lucide-react"
+import { RevealSection } from "@/components/RevealSection"
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-4 pb-12 md:pt-8 md:pb-16 flex items-center overflow-hidden hero-gradient">
-        <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
-          <div className="lg:col-span-7 space-y-8 z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary-fixed)]/30 text-[var(--color-on-primary-fixed-variant)]">
-              <ShieldCheck size={18} />
-              <span className="text-sm font-medium tracking-wide">BENVENUTI IN APPLICA</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[var(--color-deep-teal)]">
-              Psicologia concreta, accessibile e trasformativa
-            </h1>
-            
-            <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] max-w-xl">
-              Accogliamo persone e professionisti in uno spazio dedicato alla salute mentale, alla crescita emotiva e allo sviluppo professionale. Un approccio che unisce scienza ed empatia.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link href="/contatti" className="bg-[var(--color-primary)] text-[var(--color-on-primary)] font-medium text-sm px-8 py-4 rounded-xl ambient-shadow hover:bg-[var(--color-primary-container)] transition-all duration-300 flex items-center justify-center gap-2 smooth-btn">
-                RICHIEDI UN COLLOQUIO
-                <ArrowRight size={20} />
-              </Link>
-              <Link href="/chi-siamo" className="bg-[var(--color-surface-container-highest)] text-[var(--color-deep-teal)] font-medium text-sm px-8 py-4 rounded-xl border border-[var(--color-outline-variant)]/30 hover:bg-[var(--color-secondary-container)] transition-all duration-300 flex items-center justify-center smooth-btn">
-                DIVENTA PROFESSIONISTA APPLICA
-              </Link>
-            </div>
-          </div>
-          
-          <div className="lg:col-span-5 relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <div className="aspect-[4/5] rounded-[2rem] overflow-hidden ambient-shadow smooth-card bg-[var(--color-surface-dim)] relative">
-              {/* Image Placeholder */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-[var(--color-outline)]">
-                <Users size={64} className="mb-4 opacity-50" />
-                <span className="font-medium">Immagine Professionista</span>
-              </div>
-            </div>
-            
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl ambient-shadow hidden sm:block max-w-[240px] smooth-card">
-              <div className="flex gap-1 text-[var(--color-primary)] mb-2">
-                <Star size={16} fill="currentColor" />
-                <Star size={16} fill="currentColor" />
-                <Star size={16} fill="currentColor" />
-                <Star size={16} fill="currentColor" />
-                <Star size={16} fill="currentColor" />
-              </div>
-              <p className="text-sm font-medium italic text-[var(--color-on-surface-variant)]">
-                "Un percorso reale verso il benessere. Professionalità e ascolto profondo."
+      {/* ─── Hero ─── */}
+      <section className="relative pt-8 pb-16 md:pt-16 md:pb-24 overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+          <div className="lg:col-span-7 space-y-8">
+            <RevealSection>
+              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] text-[var(--color-on-surface)] tracking-tight">
+                La salute mentale è un diritto,{" "}
+                <span className="text-[var(--color-primary)]">non un lusso</span>
+              </h1>
+            </RevealSection>
+
+            <RevealSection stagger={1}>
+              <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] max-w-xl leading-relaxed prose-pretty">
+                Applica APS è un&apos;associazione di psicologi e psicoterapeuti che offre percorsi clinici fondati sulle evidenze scientifiche, accessibili a tutti e guidati dalla relazione umana.
               </p>
-            </div>
+            </RevealSection>
+
+            <RevealSection stagger={2}>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Link
+                  href="/contatti"
+                  className="bg-[var(--color-primary)] text-[var(--color-on-primary)] font-medium text-sm px-7 py-3.5 rounded-xl flex items-center justify-center gap-2 pressable hover:bg-[var(--color-primary-container)]"
+                >
+                  Prenota un colloquio conoscitivo
+                  <ArrowRight size={18} />
+                </Link>
+                <Link
+                  href="/chi-siamo"
+                  className="bg-[var(--color-surface-container)] text-[var(--color-on-surface)] font-medium text-sm px-7 py-3.5 rounded-xl border border-[var(--color-outline-variant)] flex items-center justify-center pressable hover:bg-[var(--color-surface-container-high)]"
+                >
+                  Scopri il percorso professionale
+                </Link>
+              </div>
+            </RevealSection>
+          </div>
+
+          <div className="lg:col-span-5 relative">
+            <RevealSection stagger={2}>
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden ambient-shadow-lg bg-[var(--color-surface-container)] relative">
+                {/* Image Placeholder */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-[var(--color-outline)]">
+                  <Users size={56} className="mb-3 opacity-40" />
+                  <span className="text-sm font-medium opacity-60">Foto del team</span>
+                </div>
+              </div>
+            </RevealSection>
+
+            <RevealSection stagger={3}>
+              <div className="absolute -bottom-4 -left-4 bg-white p-5 rounded-xl ambient-shadow hidden sm:block max-w-[220px]">
+                <p className="text-sm text-[var(--color-on-surface-variant)] italic leading-relaxed">
+                  &quot;Un percorso concreto, con ascolto vero e strumenti che funzionano nella vita quotidiana.&quot;
+                </p>
+              </div>
+            </RevealSection>
           </div>
         </div>
       </section>
 
-      {/* Emotional Phrase Section */}
-      <section className="py-24 bg-[var(--color-surface)]">
+      {/* ─── Statement ─── */}
+      <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="bg-[var(--color-soft-clay)]/10 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden smooth-card hover:bg-[var(--color-soft-clay)]/15 transition-colors">
-            <div className="absolute top-0 left-0 w-24 h-24 bg-[var(--color-primary)]/5 rounded-full -translate-x-12 -translate-y-12"></div>
-            <div className="absolute bottom-0 right-0 w-48 h-48 bg-[var(--color-secondary)]/5 rounded-full translate-x-24 translate-y-24"></div>
-            
-            <div className="max-w-3xl mx-auto space-y-8 relative z-10 flex flex-col items-center">
-              <Heart size={48} className="text-[var(--color-primary)]" fill="currentColor" />
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-deep-teal)] leading-snug">
-                Non crediamo in una psicologia distante. <br className="hidden md:block"/> 
-                Crediamo in una psicologia umana, vicina e reale.
+          <RevealSection>
+            <div className="max-w-3xl mx-auto text-center space-y-6">
+              <Heart size={32} className="text-[var(--color-primary)] mx-auto" />
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-on-surface)] leading-snug">
+                Crediamo in una psicologia che si fa vicina, concreta e quotidiana.
               </h2>
-              <p className="text-lg md:text-xl text-[var(--color-secondary)] italic">
-                Ogni storia merita uno spazio sicuro, basato sull'evidenza scientifica ma guidato dal calore dell'incontro umano. Siamo qui per accompagnarti in ogni passo della tua trasformazione.
+              <p className="text-lg text-[var(--color-on-surface-variant)] leading-relaxed max-w-2xl mx-auto prose-pretty">
+                Ogni percorso parte dall&apos;ascolto della persona, si fonda su evidenze cliniche e si traduce in strumenti reali per la vita di tutti i giorni.
               </p>
             </div>
-          </div>
+          </RevealSection>
         </div>
       </section>
 
-      {/* Mission/Bento Grid Section */}
-      <section className="py-24 bg-[var(--color-surface-container-low)]">
+      {/* ─── Pilastri: layout asimmetrico ─── */}
+      <section className="py-20 md:py-28 bg-[var(--color-surface-container-low)]">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div className="max-w-2xl">
-              <h2 className="text-sm font-bold text-[var(--color-primary)] mb-4 tracking-wider">I NOSTRI PILASTRI</h2>
-              <h3 className="text-3xl md:text-4xl font-bold text-[var(--color-deep-teal)]">
-                Una missione basata sul valore della persona e del rigore scientifico
-              </h3>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* Column 1: Scientifica */}
-            <div className="md:col-span-4 bg-white p-8 rounded-3xl border border-[var(--color-outline-variant)]/30 ambient-shadow flex flex-col gap-6 smooth-card">
-              <div className="w-12 h-12 rounded-2xl bg-[var(--color-primary)]/10 flex items-center justify-center text-[var(--color-primary)]">
-                <Sparkles size={24} />
-              </div>
-              <h4 className="text-xl font-bold text-[var(--color-deep-teal)]">Scientifica</h4>
-              <p className="text-base text-[var(--color-on-surface-variant)]">
-                Approcci clinici basati sulle evidenze (EBP) per garantire trattamenti efficaci e percorsi di crescita verificabili.
+          <RevealSection>
+            <div className="max-w-2xl mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-on-surface)] mb-4">
+                Quattro principi guidano il nostro lavoro
+              </h2>
+              <p className="text-lg text-[var(--color-on-surface-variant)]">
+                Non sono slogan: sono i criteri con cui valutiamo ogni decisione clinica e organizzativa.
               </p>
             </div>
-            
-            {/* Column 2: Accessibile & Umana (Stacked) */}
-            <div className="md:col-span-4 flex flex-col gap-6">
-              <div className="bg-[var(--color-primary)] p-8 rounded-3xl text-[var(--color-on-primary)] flex-1 flex flex-col gap-6 smooth-card">
-                <Users size={32} />
-                <h4 className="text-xl font-bold">Accessibile</h4>
-                <p className="text-base opacity-90">
-                  Abbattiamo le barriere economiche e sociali per rendere il benessere psicologico un diritto di tutti, non un lusso.
-                </p>
-              </div>
-              <div className="bg-[var(--color-secondary-container)] p-8 rounded-3xl text-[var(--color-on-secondary-container)] flex-1 flex flex-col gap-6 smooth-card">
-                <Heart size={32} />
-                <h4 className="text-xl font-bold">Umana</h4>
-                <p className="text-base opacity-90">
-                  L'accoglienza è il cuore del nostro lavoro. Mettiamo la relazione al centro di ogni intervento.
-                </p>
-              </div>
-            </div>
-            
-            {/* Column 3: Pratica & Image */}
-            <div className="md:col-span-4 flex flex-col gap-6">
-              <div className="relative rounded-3xl overflow-hidden h-48 ambient-shadow smooth-card bg-[var(--color-surface-dim)] flex items-center justify-center text-[var(--color-outline)]">
-                <div className="flex flex-col items-center">
-                  <Users size={32} className="mb-2 opacity-50" />
-                  <span className="text-sm font-medium">Immagine Pratica</span>
+          </RevealSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+            {/* Large feature block */}
+            <RevealSection className="md:col-span-7" stagger={1}>
+              <div className="bg-[var(--color-primary)] p-8 md:p-10 rounded-2xl text-[var(--color-on-primary)] h-full flex flex-col justify-between gap-8">
+                <Users size={28} />
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-bold">Accessibile</h3>
+                  <p className="text-base opacity-85 leading-relaxed max-w-lg">
+                    Tariffe calmierate, percorsi in convenzione, nessun costo nascosto. Il benessere psicologico non è un servizio premium: è un diritto che difendiamo ogni giorno nella pratica.
+                  </p>
                 </div>
               </div>
-              <div className="bg-white p-8 rounded-3xl border border-[var(--color-outline-variant)]/30 ambient-shadow flex flex-col gap-6 flex-1 smooth-card">
-                <div className="w-12 h-12 rounded-2xl bg-[var(--color-secondary)]/10 flex items-center justify-center text-[var(--color-secondary)]">
-                  <CheckCircle2 size={24} />
+            </RevealSection>
+
+            {/* Stacked right column */}
+            <div className="md:col-span-5 flex flex-col gap-5">
+              <RevealSection stagger={2}>
+                <div className="bg-white p-7 rounded-2xl border border-[var(--color-outline-variant)] interactive-card">
+                  <Heart size={24} className="text-[var(--color-primary)] mb-5" />
+                  <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Umana</h3>
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                    La relazione terapeutica è lo strumento più potente che abbiamo. La costruiamo con rispetto, attenzione e continuità.
+                  </p>
                 </div>
-                <h4 className="text-xl font-bold text-[var(--color-deep-teal)]">Pratica</h4>
-                <p className="text-base text-[var(--color-on-surface-variant)]">
-                  Soluzioni concrete e strumenti quotidiani per gestire le sfide emotive e migliorare la qualità della vita.
-                </p>
-              </div>
+              </RevealSection>
+
+              <RevealSection stagger={3}>
+                <div className="bg-white p-7 rounded-2xl border border-[var(--color-outline-variant)] interactive-card">
+                  <Brain size={24} className="text-[var(--color-primary)] mb-5" />
+                  <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Scientifica</h3>
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                    Protocolli evidence-based, formazione continua e supervisione clinica. Ogni intervento ha un fondamento verificabile.
+                  </p>
+                </div>
+              </RevealSection>
             </div>
+
+            {/* Bottom row: wide block */}
+            <RevealSection className="md:col-span-12" stagger={4}>
+              <div className="bg-[var(--color-secondary-container)] p-8 md:p-10 rounded-2xl flex flex-col md:flex-row gap-6 md:items-center">
+                <div className="flex-shrink-0">
+                  <CheckCircle2 size={28} className="text-[var(--color-on-secondary-container)]" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-bold text-[var(--color-on-secondary-container)]">Pratica</h3>
+                  <p className="text-base text-[var(--color-on-secondary-container)]/80 leading-relaxed max-w-2xl">
+                    Carte terapeutiche, schede di monitoraggio, kit esperienziali, materiali psicoeducativi. Non ci limitiamo alla seduta: diamo strumenti concreti da usare nella vita di ogni giorno.
+                  </p>
+                </div>
+              </div>
+            </RevealSection>
           </div>
         </div>
       </section>
 
-      {/* Visual Collaboration Section */}
-      <section className="py-24 bg-[var(--color-surface)] overflow-hidden">
+      {/* ─── Professionisti ─── */}
+      <section className="py-20 md:py-28 overflow-hidden">
         <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4 pt-12">
-                <div className="rounded-2xl w-full h-64 bg-[var(--color-surface-dim)] flex items-center justify-center text-[var(--color-outline)] ambient-shadow smooth-card relative overflow-hidden">
-                   <div className="flex flex-col items-center">
-                      <Users size={32} className="mb-2 opacity-50" />
-                      <span className="text-sm font-medium">Community</span>
+            <RevealSection>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4 pt-10">
+                  <div className="rounded-2xl w-full aspect-[3/4] bg-[var(--color-surface-container)] flex items-center justify-center text-[var(--color-outline)] ambient-shadow relative overflow-hidden">
+                    <div className="flex flex-col items-center">
+                      <Users size={28} className="mb-2 opacity-40" />
+                      <span className="text-xs font-medium opacity-50">Community</span>
                     </div>
+                  </div>
                 </div>
-                <div className="bg-[var(--color-deep-teal)] p-6 rounded-2xl text-[var(--color-on-primary)] smooth-card">
-                  <p className="text-4xl font-bold mb-2">150+</p>
-                  <p className="text-sm font-medium opacity-80">Professionisti in Rete</p>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="bg-[var(--color-soft-clay)] p-6 rounded-2xl text-[var(--color-on-secondary-fixed)] smooth-card">
-                  <p className="text-4xl font-bold mb-2">2k+</p>
-                  <p className="text-sm font-medium opacity-80">Percorsi Avviati</p>
-                </div>
-                <div className="rounded-2xl w-full h-64 bg-[var(--color-surface-dim)] flex items-center justify-center text-[var(--color-outline)] ambient-shadow smooth-card relative overflow-hidden">
-                  <div className="flex flex-col items-center">
-                      <Heart size={32} className="mb-2 opacity-50" />
-                      <span className="text-sm font-medium">Colloquio</span>
+                <div className="space-y-4">
+                  <div className="rounded-2xl w-full aspect-[3/4] bg-[var(--color-surface-container)] flex items-center justify-center text-[var(--color-outline)] ambient-shadow relative overflow-hidden">
+                    <div className="flex flex-col items-center">
+                      <Heart size={28} className="mb-2 opacity-40" />
+                      <span className="text-xs font-medium opacity-50">Supervisione</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </RevealSection>
           </div>
-          
-          <div className="order-1 md:order-2 space-y-8">
-            <h2 className="text-sm font-bold text-[var(--color-primary)] tracking-wider">LAVORA CON NOI</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-[var(--color-deep-teal)] leading-tight">
-              Uno spazio di crescita per chi sceglie di prendersi cura
-            </h3>
-            <p className="text-lg text-[var(--color-on-surface-variant)]">
-              Entrare nel network Applica significa far parte di una comunità di professionisti che condividono valori di rigore scientifico e accessibilità. Offriamo supervisione, formazione e una piattaforma per far crescere la tua pratica professionale.
-            </p>
-            <ul className="space-y-4">
-              <li className="flex gap-3 items-start smooth-card p-2 -ml-2 rounded-lg hover:bg-[var(--color-surface-container-low)] transition-colors cursor-default">
-                <CheckCircle2 className="text-[var(--color-success-green)] shrink-0" size={24} />
-                <span className="text-base text-[var(--color-on-surface)]">Supervisione clinica costante e intervisione tra pari.</span>
-              </li>
-              <li className="flex gap-3 items-start smooth-card p-2 -ml-2 rounded-lg hover:bg-[var(--color-surface-container-low)] transition-colors cursor-default">
-                <CheckCircle2 className="text-[var(--color-success-green)] shrink-0" size={24} />
-                <span className="text-base text-[var(--color-on-surface)]">Formazione continua su approcci basati sull'evidenza.</span>
-              </li>
-              <li className="flex gap-3 items-start smooth-card p-2 -ml-2 rounded-lg hover:bg-[var(--color-surface-container-low)] transition-colors cursor-default">
-                <CheckCircle2 className="text-[var(--color-success-green)] shrink-0" size={24} />
-                <span className="text-base text-[var(--color-on-surface)]">Strumenti digitali integrati per la gestione dei pazienti.</span>
-              </li>
-            </ul>
-            <div className="pt-4">
-              <Link href="/chi-siamo" className="inline-flex items-center gap-2 text-[var(--color-deep-teal)] font-bold border-b-2 border-[var(--color-deep-teal)] pb-1 hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-all smooth-btn">
-                Scopri come collaborare
-                <ArrowRight size={18} />
-              </Link>
-            </div>
+
+          <div className="order-1 md:order-2 space-y-6">
+            <RevealSection>
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-on-surface)] leading-tight">
+                Uno spazio di crescita per chi sceglie la professione clinica
+              </h2>
+            </RevealSection>
+
+            <RevealSection stagger={1}>
+              <p className="text-lg text-[var(--color-on-surface-variant)] leading-relaxed prose-pretty">
+                Entrare nella rete Applica significa accedere a supervisione, formazione e strumenti condivisi con altri professionisti che lavorano con lo stesso rigore.
+              </p>
+            </RevealSection>
+
+            <RevealSection stagger={2}>
+              <ul className="space-y-3">
+                <li className="flex gap-3 items-start">
+                  <CheckCircle2 className="text-[var(--color-success-green)] shrink-0 mt-0.5" size={20} />
+                  <span className="text-base text-[var(--color-on-surface)]">Supervisione clinica e intervisione tra pari, ogni mese</span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <CheckCircle2 className="text-[var(--color-success-green)] shrink-0 mt-0.5" size={20} />
+                  <span className="text-base text-[var(--color-on-surface)]">Formazione continua su protocolli evidence-based</span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <CheckCircle2 className="text-[var(--color-success-green)] shrink-0 mt-0.5" size={20} />
+                  <span className="text-base text-[var(--color-on-surface)]">Strumenti digitali e materiali clinici condivisi</span>
+                </li>
+              </ul>
+            </RevealSection>
+
+            <RevealSection stagger={3}>
+              <div className="pt-2">
+                <Link
+                  href="/chi-siamo"
+                  className="inline-flex items-center gap-2 text-[var(--color-primary)] font-semibold text-base hover:gap-3 transition-[gap] duration-200"
+                  style={{ transitionTimingFunction: "var(--ease-out)" }}
+                >
+                  Scopri come collaborare
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+            </RevealSection>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-[var(--color-deep-teal)] text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[var(--color-primary-fixed)] rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
+      {/* ─── CTA Finale ─── */}
+      <section className="py-20 md:py-28 bg-[var(--color-primary)] text-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full -translate-y-1/2 translate-x-1/4 blur-[120px]"></div>
         </div>
-        <div className="container mx-auto px-4 md:px-6 text-center relative z-10 space-y-10">
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">Iniziamo un percorso insieme?</h2>
-          <p className="text-lg md:text-xl opacity-80 max-w-2xl mx-auto">
-            Che tu sia una persona in cerca di supporto o un professionista desideroso di unirsi a noi, abbiamo uno spazio pronto ad accoglierti.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/contatti" className="bg-white text-[var(--color-deep-teal)] font-bold text-sm px-10 py-5 rounded-full hover:bg-[var(--color-surface-container-high)] transition-all shadow-lg smooth-btn text-center w-full sm:w-auto">
-              RICHIEDI UN COLLOQUIO
-            </Link>
-            <Link href="/chi-siamo" className="bg-transparent border-2 border-white/30 text-white font-bold text-sm px-10 py-5 rounded-full hover:bg-white/10 transition-all smooth-btn text-center w-full sm:w-auto">
-              DIVENTA PROFESSIONISTA
-            </Link>
-          </div>
+        <div className="container mx-auto px-4 md:px-6 text-center relative space-y-8" style={{ zIndex: 1 }}>
+          <RevealSection>
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight max-w-2xl mx-auto">
+              Iniziamo un percorso insieme?
+            </h2>
+          </RevealSection>
+
+          <RevealSection stagger={1}>
+            <p className="text-lg md:text-xl opacity-80 max-w-xl mx-auto leading-relaxed">
+              Che tu stia cercando supporto psicologico o voglia unirti alla nostra rete di professionisti, siamo qui.
+            </p>
+          </RevealSection>
+
+          <RevealSection stagger={2}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2">
+              <Link
+                href="/contatti"
+                className="bg-white text-[var(--color-primary)] font-semibold text-sm px-8 py-4 rounded-xl pressable hover:bg-white/90 text-center w-full sm:w-auto"
+              >
+                Prenota un colloquio conoscitivo
+              </Link>
+              <Link
+                href="/chi-siamo"
+                className="border-2 border-white/25 text-white font-semibold text-sm px-8 py-4 rounded-xl pressable hover:bg-white/10 text-center w-full sm:w-auto"
+              >
+                Diventa professionista Applica
+              </Link>
+            </div>
+          </RevealSection>
         </div>
       </section>
     </>

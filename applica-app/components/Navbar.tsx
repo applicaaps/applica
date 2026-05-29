@@ -22,102 +22,117 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Close mobile menu on route change
+  React.useEffect(() => {
+    setMobileMenuOpen(false)
+  }, [pathname])
 
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent",
+        "fixed top-0 w-full border-b border-transparent",
+        "transition-[background-color,border-color,padding,box-shadow] duration-300",
         isScrolled
-          ? "bg-white/70 backdrop-blur-md border-[var(--color-outline-variant)] shadow-sm py-3"
+          ? "bg-white/80 backdrop-blur-xl border-[var(--color-outline-variant)]/50 shadow-[0_1px_3px_rgba(0,0,0,0.04)] py-3"
           : "bg-transparent py-5"
       )}
+      style={{ zIndex: "var(--z-sticky)" }}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-[var(--color-primary)] flex items-center justify-center text-white font-bold font-serif text-xl group-hover:bg-[var(--color-primary-container)] transition-colors">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 rounded-lg bg-[var(--color-primary)] flex items-center justify-center text-white font-bold font-serif text-lg transition-colors duration-200 group-hover:bg-[var(--color-primary-container)]">
               A
             </div>
-            <span className="font-serif font-bold text-xl text-[var(--color-on-surface)]">
+            <span className="font-serif font-bold text-lg text-[var(--color-on-surface)]">
               Applica APS
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-[var(--color-primary)]",
+                  "px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200",
                   pathname === link.href
-                    ? "text-[var(--color-primary)] font-semibold"
-                    : "text-[var(--color-on-surface-variant)]"
+                    ? "text-[var(--color-primary)] bg-[var(--color-primary)]/5"
+                    : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container)]"
                 )}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="ml-4 flex items-center gap-3">
+            <div className="ml-3 flex items-center gap-2">
               <Link href="/login">
                 <Button variant="ghost" size="sm" className="hidden lg:flex">
                   Area Riservata
                 </Button>
               </Link>
               <Link href="/contatti">
-                <Button size="sm">Prenota colloquio</Button>
+                <Button size="sm">Prenota un colloquio</Button>
               </Link>
             </div>
           </nav>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 text-[var(--color-on-surface)]"
+            className="md:hidden p-2 rounded-lg text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container)] transition-colors duration-200 pressable"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Chiudi menu" : "Apri menu"}
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-[var(--color-outline-variant)] shadow-lg animate-in slide-in-from-top-2">
-          <div className="flex flex-col p-4 space-y-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={cn(
-                  "px-4 py-2 rounded-md text-base font-medium transition-colors hover:bg-[var(--color-surface-container)]",
-                  pathname === link.href
-                    ? "text-[var(--color-primary)] font-semibold bg-[var(--color-surface-container-low)]"
-                    : "text-[var(--color-on-surface)]"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <hr className="border-[var(--color-outline-variant)]" />
-            <div className="flex flex-col gap-2 p-4 pt-0">
-              <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
-                <Button variant="outline" className="w-full justify-start">
-                  Area Riservata
-                </Button>
-              </Link>
-              <Link href="/contatti" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="w-full justify-start">Prenota colloquio</Button>
-              </Link>
-            </div>
+      <div
+        className={cn(
+          "md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-[var(--color-outline-variant)]/50 shadow-lg",
+          "transition-[opacity,transform] duration-200",
+          mobileMenuOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-2 pointer-events-none"
+        )}
+        style={{ transitionTimingFunction: "var(--ease-out)" }}
+      >
+        <div className="flex flex-col p-4 space-y-1">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "px-4 py-3 rounded-xl text-base font-medium transition-colors duration-200",
+                pathname === link.href
+                  ? "text-[var(--color-primary)] font-semibold bg-[var(--color-primary)]/5"
+                  : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container)]"
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <hr className="border-[var(--color-outline-variant)]/50 my-2" />
+          <div className="flex flex-col gap-2 px-4 pt-1 pb-2">
+            <Link href="/login">
+              <Button variant="outline" className="w-full justify-center">
+                Area Riservata
+              </Button>
+            </Link>
+            <Link href="/contatti">
+              <Button className="w-full justify-center">Prenota un colloquio</Button>
+            </Link>
           </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }

@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { LayoutDashboard, CalendarDays, FileText, LogOut, User as UserIcon } from "lucide-react"
+import { LayoutDashboard, CalendarDays, FileText, LogOut } from "lucide-react"
 
 export default function AreaRiservataLayout({
   children,
@@ -28,33 +28,33 @@ export default function AreaRiservataLayout({
   return (
     <div className="min-h-screen bg-[var(--color-surface-container-low)] pt-8 pb-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-6">
           
           {/* Sidebar */}
-          <aside className="w-full md:w-64 shrink-0">
-            <div className="bg-[var(--color-surface-container-lowest)] rounded-3xl p-6 border border-[var(--color-outline-variant)] ambient-shadow smooth-card sticky top-28">
+          <aside className="w-full md:w-60 shrink-0">
+            <div className="bg-white rounded-2xl p-5 border border-[var(--color-outline-variant)] ambient-shadow sticky top-24">
               
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] text-[var(--color-on-primary)] flex items-center justify-center font-bold text-lg shrink-0">
+              <div className="flex items-center gap-3 mb-6 pb-6 border-b border-[var(--color-outline-variant)]/50">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] text-[var(--color-on-primary)] flex items-center justify-center font-semibold text-sm shrink-0">
                   MR
                 </div>
-                <div>
-                  <h3 className="font-bold text-[var(--color-deep-teal)] text-sm">Dott. Mario Rossi</h3>
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-[var(--color-on-surface)] text-sm truncate">Dott. Mario Rossi</h3>
                   <p className="text-xs text-[var(--color-on-surface-variant)]">Professionista</p>
                 </div>
               </div>
 
-              <nav className="space-y-2">
+              <nav className="space-y-1">
                 {navItems.map((item) => {
                   const isActive = pathname === item.href
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all smooth-btn ${
+                      className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 ${
                         isActive 
                           ? "bg-[var(--color-primary)] text-[var(--color-on-primary)]" 
-                          : "text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container-high)]"
+                          : "text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container-high)] hover:text-[var(--color-on-surface)]"
                       }`}
                     >
                       <item.icon size={18} />
@@ -64,10 +64,10 @@ export default function AreaRiservataLayout({
                 })}
               </nav>
 
-              <div className="mt-8 pt-8 border-t border-[var(--color-outline-variant)]">
+              <div className="mt-6 pt-6 border-t border-[var(--color-outline-variant)]/50">
                 <button 
                   onClick={handleLogout}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold text-[var(--color-error)] hover:bg-[var(--color-error)]/10 transition-colors smooth-btn"
+                  className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--color-error)] hover:bg-[var(--color-error)]/8 transition-colors duration-200 pressable"
                 >
                   <LogOut size={18} />
                   Esci

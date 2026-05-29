@@ -55,7 +55,7 @@ export function PrinciplesCarousel() {
     if (isHovered) return
     const timer = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % principles.length)
-    }, 5000)
+    }, 3500)
     return () => clearInterval(timer)
   }, [isHovered])
 

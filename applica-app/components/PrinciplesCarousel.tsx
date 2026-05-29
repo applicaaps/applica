@@ -41,7 +41,7 @@ const principles = [
 
 // The spring animation definition per SKILL.md guidelines
 const springConfig = {
-  type: "spring",
+  type: "spring" as const,
   stiffness: 260,
   damping: 20
 }

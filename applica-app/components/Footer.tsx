@@ -41,21 +41,7 @@ export function Footer() {
                   Chi Siamo
                 </Link>
               </li>
-              <li>
-                <Link href="/cosa-facciamo" className="text-sm text-[var(--color-outline-variant)] hover:text-[var(--color-primary-fixed)] transition-colors">
-                  Cosa Facciamo
-                </Link>
-              </li>
-              <li>
-                <Link href="/materiali" className="text-sm text-[var(--color-outline-variant)] hover:text-[var(--color-primary-fixed)] transition-colors">
-                  Materiali Psicoeducativi
-                </Link>
-              </li>
-              <li>
-                <Link href="/community" className="text-sm text-[var(--color-outline-variant)] hover:text-[var(--color-primary-fixed)] transition-colors">
-                  La Community
-                </Link>
-              </li>
+
             </ul>
           </div>
 

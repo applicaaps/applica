@@ -44,16 +44,16 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-[var(--color-inverse-on-surface)]/60">
                 <MapPin size={16} className="text-[var(--color-primary-fixed)] shrink-0 mt-0.5" />
-                <span>Via Esempio 123, 00100 Roma (RM)</span>
+                <span>---</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-[var(--color-inverse-on-surface)]/60">
                 <Phone size={16} className="text-[var(--color-primary-fixed)] shrink-0" />
-                <span>+39 06 12345678</span>
+                <span>---</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-[var(--color-inverse-on-surface)]/60">
                 <Mail size={16} className="text-[var(--color-primary-fixed)] shrink-0" />
-                <a href="mailto:info@applica-aps.it" className="hover:text-white transition-colors duration-200">
-                  info@applica-aps.it
+                <a href="mailto:applicapsicologia@gmail.com" className="hover:text-white transition-colors duration-200">
+                  applicapsicologia@gmail.com
                 </a>
               </li>
             </ul>

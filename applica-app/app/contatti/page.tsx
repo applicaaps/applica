@@ -56,8 +56,8 @@ export default function Contatti() {
                     <div>
                       <h3 className="text-base font-bold text-[var(--color-on-surface)] mb-1">La nostra sede</h3>
                       <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                        Via Esempio, 123<br />
-                        00100 Roma (RM)
+                        ---<br />
+                        ---
                       </p>
                     </div>
                   </div>
@@ -71,7 +71,7 @@ export default function Contatti() {
                     <div>
                       <h3 className="text-base font-bold text-[var(--color-on-surface)] mb-1">Telefono</h3>
                       <p className="text-sm text-[var(--color-on-surface-variant)] mb-0.5">
-                        Segreteria: <a href="tel:+390612345678" className="hover:text-[var(--color-primary)] transition-colors duration-200">+39 06 1234 5678</a>
+                        Segreteria: <span className="hover:text-[var(--color-primary)] transition-colors duration-200">---</span>
                       </p>
                       <p className="text-xs text-[var(--color-outline)]">
                         Lunedì – Venerdì: 09:00 – 18:00
@@ -88,10 +88,10 @@ export default function Contatti() {
                     <div>
                       <h3 className="text-base font-bold text-[var(--color-on-surface)] mb-1">Email</h3>
                       <p className="text-sm text-[var(--color-on-surface-variant)] mb-0.5">
-                        Informazioni: <a href="mailto:info@applica-aps.it" className="hover:text-[var(--color-primary)] transition-colors duration-200">info@applica-aps.it</a>
+                        Informazioni: <a href="mailto:applicapsicologia@gmail.com" className="hover:text-[var(--color-primary)] transition-colors duration-200">applicapsicologia@gmail.com</a>
                       </p>
                       <p className="text-sm text-[var(--color-on-surface-variant)]">
-                        Professionisti: <a href="mailto:rete@applica-aps.it" className="hover:text-[var(--color-primary)] transition-colors duration-200">rete@applica-aps.it</a>
+                        Professionisti: <a href="mailto:applicapsicologia@gmail.com" className="hover:text-[var(--color-primary)] transition-colors duration-200">applicapsicologia@gmail.com</a>
                       </p>
                     </div>
                   </div>

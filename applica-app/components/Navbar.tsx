@@ -77,7 +77,7 @@ export function Navbar() {
                 </Button>
               </Link>
               <Link href="/contatti">
-                <Button size="sm">Prenota un colloquio</Button>
+                <Button size="sm">Unisciti ad Applica</Button>
               </Link>
             </div>
           </nav>
@@ -127,8 +127,8 @@ export function Navbar() {
                 Area Riservata
               </Button>
             </Link>
-            <Link href="/contatti">
-              <Button className="w-full justify-center">Prenota un colloquio</Button>
+            <Link href="/contatti" onClick={() => setMobileMenuOpen(false)}>
+              <Button className="w-full justify-center">Unisciti ad Applica</Button>
             </Link>
           </div>
         </div>

@@ -4,6 +4,7 @@ import Link from "next/link"
 import { ArrowRight, Heart, Users, Brain, CheckCircle2 } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 import { PrinciplesCarousel } from "@/components/PrinciplesCarousel"
+import { Button } from "@/components/ui/Button"
 
 export default function Home() {
   return (
@@ -27,12 +28,11 @@ export default function Home() {
 
             <RevealSection stagger={2}>
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Link
-                  href="/contatti"
-                  className="bg-[var(--color-primary)] text-[var(--color-on-primary)] font-medium text-sm px-7 py-3.5 rounded-xl flex items-center justify-center gap-2 pressable hover:bg-[var(--color-primary-container)]"
-                >
-                  Prenota un colloquio conoscitivo
-                  <ArrowRight size={18} />
+                <Link href="/contatti">
+                  <Button size="lg" className="w-full sm:w-auto h-12 text-base shadow-xl shadow-[var(--color-primary)]/20">
+                    Unisciti ad Applica
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
                 </Link>
                 <Link
                   href="/chi-siamo"
@@ -195,7 +195,7 @@ export default function Home() {
                 href="/contatti"
                 className="bg-white text-[var(--color-primary)] font-semibold text-sm px-8 py-4 rounded-xl pressable hover:bg-white/90 text-center w-full sm:w-auto"
               >
-                Prenota un colloquio conoscitivo
+                Unisciti ad Applica
               </Link>
               <Link
                 href="/chi-siamo"

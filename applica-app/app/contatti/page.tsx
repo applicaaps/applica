@@ -1,7 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { MapPin, Phone, Mail, Send, CheckCircle2, ChevronDown } from "lucide-react"
+import Link from "next/link"
+import { MapPin, Phone, Mail, Send, CheckCircle2, ChevronDown, Heart, Brain } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 import { useForm, ValidationError } from '@formspree/react'
 
@@ -20,19 +21,73 @@ export default function Contatti() {
 
   return (
     <>
-      {/* ─── Hero ─── */}
-      <section className="bg-[var(--color-surface-container-low)] py-16 md:py-20 px-4 md:px-6 border-b border-[var(--color-outline-variant)]/50">
-        <div className="container mx-auto max-w-4xl text-center">
+      {/* ─── Hero Split ─── */}
+      <section className="relative pt-16 pb-24 md:pt-24 md:pb-32 px-4 md:px-6 overflow-hidden">
+        {/* Background Gradients */}
+        <div className="absolute inset-0 pointer-events-none -z-10">
+          <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-[var(--color-primary-container)]/30 to-transparent opacity-50 blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-blue-100 to-transparent opacity-50 blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto max-w-6xl">
           <RevealSection>
-            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-on-surface)] mb-5 tracking-tight">
-              Siamo qui per ascoltarti
-            </h1>
+            <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[var(--color-on-surface)] mb-5 tracking-tight">
+                Unisciti ad Applica
+              </h1>
+              <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] max-w-2xl mx-auto leading-relaxed">
+                Che tu stia cercando il percorso giusto per te o che tu voglia crescere professionalmente nella nostra rete.
+              </p>
+            </div>
           </RevealSection>
-          <RevealSection stagger={1}>
-            <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] max-w-2xl mx-auto leading-relaxed">
-              Che tu voglia iniziare un percorso terapeutico o unirti alla nostra rete di professionisti, il team Applica è pronto a rispondere.
-            </p>
-          </RevealSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative">
+            {/* Divider for desktop */}
+            <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-px bg-gradient-to-b from-transparent via-[var(--color-outline-variant)] to-transparent -translate-x-1/2"></div>
+
+            {/* Pazienti */}
+            <RevealSection stagger={1}>
+              <div className="group h-full bg-white/60 backdrop-blur-md rounded-3xl p-8 lg:p-10 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden text-center md:text-left flex flex-col items-center md:items-start">
+                <div className="w-16 h-16 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Heart size={32} />
+                </div>
+                <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-4">
+                  Per i Pazienti
+                </h2>
+                <p className="text-base text-[var(--color-on-surface-variant)] leading-relaxed mb-8 flex-1">
+                  Inizia un percorso terapeutico su misura, basato su evidenze scientifiche e un approccio profondamente umano. Siamo qui per ascoltarti.
+                </p>
+                <Link 
+                  href="/pazienti"
+                  className="inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] text-[var(--color-on-primary)] px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-[var(--color-primary-container)] transition-colors w-full sm:w-auto"
+                >
+                  Richiedi informazioni
+                </Link>
+              </div>
+            </RevealSection>
+
+            {/* Professionisti */}
+            <RevealSection stagger={2}>
+              <div className="group h-full bg-white/60 backdrop-blur-md rounded-3xl p-8 lg:p-10 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden text-center md:text-left flex flex-col items-center md:items-start">
+                <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Brain size={32} />
+                </div>
+                <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-4">
+                  Per i Professionisti
+                </h2>
+                <p className="text-base text-[var(--color-on-surface-variant)] leading-relaxed mb-8 flex-1">
+                  Entra in una rete di clinici eccellenti. Accedi a supervisione continua, formazione e strumenti condivisi per crescere insieme.
+                </p>
+                <Link 
+                  href="/professionisti"
+                  className="inline-flex items-center justify-center gap-2 bg-[var(--color-surface)] border-2 border-[var(--color-outline-variant)] text-[var(--color-on-surface)] px-6 py-3 rounded-xl font-semibold text-sm pressable hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors w-full sm:w-auto"
+                >
+                  Candidati ora
+                </Link>
+              </div>
+            </RevealSection>
+
+          </div>
         </div>
       </section>
 

@@ -54,7 +54,7 @@ export const mockEventi: Evento[] = [
     title: "Seminario: Uso terapeutico della Cannabis",
     date: "22 Maggio 2024",
     time: "09:00 - 13:00",
-    location: "Sede Applica (Roma)",
+    location: "Online",
     type: "Formazione",
     description: "Approfondimento sulle evidenze scientifiche e le applicazioni cliniche dell'uso terapeutico della cannabis nei disturbi d'ansia e del dolore.",
     status: "upcoming"

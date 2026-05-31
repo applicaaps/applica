@@ -36,10 +36,10 @@ export default function AreaRiservataLayout({
               
               <div className="flex items-center gap-3 mb-6 pb-6 border-b border-[var(--color-outline-variant)]/50">
                 <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] text-[var(--color-on-primary)] flex items-center justify-center font-semibold text-sm shrink-0">
-                  MR
+                  DM
                 </div>
                 <div className="min-w-0">
-                  <h3 className="font-semibold text-[var(--color-on-surface)] text-sm truncate">Dott. Mario Rossi</h3>
+                  <h3 className="font-semibold text-[var(--color-on-surface)] text-sm truncate">Dottoressa Danubia Macario</h3>
                   <p className="text-xs text-[var(--color-on-surface-variant)]">Professionista</p>
                 </div>
               </div>

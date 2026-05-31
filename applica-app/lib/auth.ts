@@ -8,13 +8,12 @@ export type User = {
   avatar?: string;
 };
 
-// Mock User Data
 export const mockUser: User = {
   id: "usr_001",
-  name: "Dott. Mario Rossi",
-  email: "mario.rossi@applica-aps.it",
+  name: "Dottoressa Danubia Macario",
+  email: "danubia.macario@applica-aps.it",
   role: "professionista",
-  avatar: "MR"
+  avatar: "DM"
 };
 
 // Mock Auth Check
@@ -40,24 +39,24 @@ export type Evento = {
 export const mockEventi: Evento[] = [
   {
     id: "evt_001",
-    slug: "supervisione-clinica-maggio",
-    title: "Supervisione Clinica di Gruppo",
+    slug: "workshop-schema-therapy",
+    title: "Workshop: Introduzione alla Schema Therapy",
     date: "15 Maggio 2024",
     time: "18:00 - 20:00",
     location: "Online (Google Meet)",
-    type: "Supervisione",
-    description: "Incontro mensile di supervisione su casi clinici complessi. La sessione sarà guidata dal Dott. Verdi con focus sui disturbi d'ansia.",
+    type: "Formazione",
+    description: "Incontro introduttivo sui fondamenti della Schema Therapy, esplorando i bisogni emotivi primari e i maladaptive schemas.",
     status: "upcoming"
   },
   {
     id: "evt_002",
-    slug: "workshop-cbt-adolescenti",
-    title: "Workshop: CBT in adolescenza",
+    slug: "uso-terapeutico-cannabis",
+    title: "Seminario: Uso terapeutico della Cannabis",
     date: "22 Maggio 2024",
     time: "09:00 - 13:00",
     location: "Sede Applica (Roma)",
     type: "Formazione",
-    description: "Approfondimento sugli strumenti cognitivo-comportamentali più efficaci nella pratica clinica con adolescenti.",
+    description: "Approfondimento sulle evidenze scientifiche e le applicazioni cliniche dell'uso terapeutico della cannabis nei disturbi d'ansia e del dolore.",
     status: "upcoming"
   },
   {
@@ -98,14 +97,6 @@ export const mockDocumenti: Documento[] = [
     category: "Materiali",
     dateAdded: "28 Aprile 2024",
     size: "1.1 MB",
-    downloadUrl: "#"
-  },
-  {
-    id: "doc_003",
-    title: "Vademecum Fatturazione 2024.pdf",
-    category: "Amministrazione",
-    dateAdded: "15 Gennaio 2024",
-    size: "3.5 MB",
     downloadUrl: "#"
   }
 ];

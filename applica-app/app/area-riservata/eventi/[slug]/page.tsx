@@ -93,10 +93,7 @@ export default async function DettaglioEvento({ params }: { params: Promise<{ sl
                 <h3 className="text-base font-bold text-[var(--color-on-surface)] mb-4">Iscrizione</h3>
                 
                 <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-2.5 text-sm text-[var(--color-on-surface-variant)]">
-                    <Users size={16} className="text-[var(--color-primary)]" />
-                    <span>Posti limitati (max 15)</span>
-                  </div>
+
                   <div className="flex items-center gap-2.5 text-sm text-[var(--color-on-surface-variant)]">
                     <CheckCircle2 size={16} className="text-[var(--color-success-green)]" />
                     <span>Riservato ai soci Applica</span>

@@ -44,7 +44,7 @@ export default function Login() {
               <input 
                 type="email" 
                 required
-                defaultValue="mario.rossi@applica-aps.it"
+                defaultValue="danubia.macario@applica-aps.it"
                 className="w-full pl-11 pr-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
                 placeholder="Inserisci la tua email"
               />

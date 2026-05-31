@@ -1,17 +1,22 @@
 "use client"
 
 import * as React from "react"
-import { MapPin, Phone, Mail, Send, CheckCircle2 } from "lucide-react"
+import { MapPin, Phone, Mail, Send, CheckCircle2, ChevronDown } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
+import { useForm, ValidationError } from '@formspree/react'
 
 export default function Contatti() {
-  const [isSubmitted, setIsSubmitted] = React.useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 5000)
-  }
+  const [state, handleSubmit] = useForm("mjgzdlqo")
+  const [isSelectOpen, setIsSelectOpen] = React.useState(false)
+  const [selectedMotivo, setSelectedMotivo] = React.useState("")
+
+  const motivi = [
+    { value: "paziente", label: "Informazioni per iniziare un percorso (Pazienti)" },
+    { value: "professionista", label: "Candidatura rete (Professionisti)" },
+    { value: "materiali", label: "Informazioni sui materiali" },
+    { value: "altro", label: "Altro" },
+  ]
 
   return (
     <>
@@ -104,7 +109,7 @@ export default function Contatti() {
               <div className="bg-white p-7 md:p-9 rounded-2xl border border-[var(--color-outline-variant)] ambient-shadow">
                 <h2 className="text-xl font-bold text-[var(--color-on-surface)] mb-6">Inviaci un messaggio</h2>
                 
-                {isSubmitted ? (
+                {state.succeeded ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center">
                     <div className="w-14 h-14 bg-[var(--color-success-green)]/12 text-[var(--color-success-green)] rounded-full flex items-center justify-center mb-5">
                       <CheckCircle2 size={28} />
@@ -122,6 +127,7 @@ export default function Contatti() {
                         <input 
                           type="text" 
                           id="nome" 
+                          name="nome"
                           required
                           className="w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
                           placeholder="Il tuo nome"
@@ -132,6 +138,7 @@ export default function Contatti() {
                         <input 
                           type="text" 
                           id="cognome" 
+                          name="cognome"
                           required
                           className="w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
                           placeholder="Il tuo cognome"
@@ -144,44 +151,81 @@ export default function Contatti() {
                       <input 
                         type="email" 
                         id="email" 
+                        name="email"
                         required
                         className="w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
                         placeholder="la.tua@email.com"
                       />
+                      <ValidationError prefix="Email" field="email" errors={state.errors} />
                     </div>
 
-                    <div className="space-y-1.5">
+                    <div className="space-y-1.5 relative">
                       <label htmlFor="motivo" className="text-sm font-semibold text-[var(--color-on-surface)]">Motivo del contatto</label>
-                      <select 
-                        id="motivo" 
-                        required
-                        className="w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
-                        defaultValue=""
+                      <input type="hidden" id="motivo" name="motivo" value={selectedMotivo} required />
+                      
+                      <div 
+                        className={`w-full px-4 py-3 bg-[var(--color-surface)] border rounded-xl outline-none text-base cursor-pointer flex items-center justify-between transition-colors ${
+                          isSelectOpen ? "border-[var(--color-primary)] ring-2 ring-[var(--color-primary)]/20" : "border-[var(--color-outline-variant)]"
+                        }`}
+                        onClick={() => setIsSelectOpen(!isSelectOpen)}
+                        tabIndex={0}
+                        onBlur={(e) => {
+                          if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                            setIsSelectOpen(false)
+                          }
+                        }}
                       >
-                        <option value="" disabled>Seleziona un&apos;opzione</option>
-                        <option value="paziente">Informazioni per iniziare un percorso (Pazienti)</option>
-                        <option value="professionista">Candidatura rete (Professionisti)</option>
-                        <option value="materiali">Informazioni sui materiali</option>
-                        <option value="altro">Altro</option>
-                      </select>
+                        <span className={selectedMotivo ? "text-[var(--color-on-surface)]" : "text-[var(--color-on-surface-variant)]"}>
+                          {selectedMotivo ? motivi.find(m => m.value === selectedMotivo)?.label : "Seleziona un'opzione"}
+                        </span>
+                        <ChevronDown 
+                          size={20} 
+                          className={`text-[var(--color-on-surface-variant)] transition-transform duration-200 ${isSelectOpen ? "rotate-180" : ""}`} 
+                        />
+                      </div>
+
+                      {isSelectOpen && (
+                        <div className="absolute top-full left-0 z-10 w-full mt-1 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] overflow-hidden animate-in fade-in zoom-in-95 duration-100">
+                          {motivi.map((motivo) => (
+                            <button
+                              key={motivo.value}
+                              type="button"
+                              className={`w-full text-left px-4 py-3 text-base transition-colors focus:outline-none ${
+                                selectedMotivo === motivo.value 
+                                  ? "bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] font-medium" 
+                                  : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container-high)] focus:bg-[var(--color-surface-container-high)]"
+                              }`}
+                              onClick={() => {
+                                setSelectedMotivo(motivo.value)
+                                setIsSelectOpen(false)
+                              }}
+                            >
+                              {motivo.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     <div className="space-y-1.5">
                       <label htmlFor="messaggio" className="text-sm font-semibold text-[var(--color-on-surface)]">Messaggio</label>
                       <textarea 
                         id="messaggio" 
+                        name="messaggio"
                         rows={5}
                         required
                         className="w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base resize-none text-[var(--color-on-surface)]"
                         placeholder="Come possiamo aiutarti?"
                       ></textarea>
+                      <ValidationError prefix="Messaggio" field="messaggio" errors={state.errors} />
                     </div>
 
                     <button 
                       type="submit" 
-                      className="w-full flex items-center justify-center gap-2 bg-[var(--color-primary)] text-[var(--color-on-primary)] px-8 py-3.5 rounded-xl font-semibold text-sm pressable hover:bg-[var(--color-primary-container)]"
+                      disabled={state.submitting}
+                      className="w-full flex items-center justify-center gap-2 bg-[var(--color-primary)] text-[var(--color-on-primary)] px-8 py-3.5 rounded-xl font-semibold text-sm pressable hover:bg-[var(--color-primary-container)] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Invia il messaggio
+                      {state.submitting ? "Invio in corso..." : "Invia il messaggio"}
                       <Send size={16} />
                     </button>
                     <p className="text-xs text-[var(--color-outline)] text-center">

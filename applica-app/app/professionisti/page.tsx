@@ -28,18 +28,9 @@ export default function ProfessionistiPage() {
               </RevealSection>
               
               <RevealSection stagger={1}>
-                <div className="text-lg md:text-xl text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
-                  <p>
-                    <strong>Benvenuto/a in Applica APS.</strong><br/>
-                    Applica APS nasce con l’obiettivo di creare una rete di psicologi orientata alla crescita professionale, alla pratica clinica supervisionata e ad una psicologia più accessibile, concreta e umana.
-                  </p>
-                  <p>
-                    Cerchiamo professionisti motivati a: crescere nella pratica clinica, lavorare in rete, partecipare a supervisioni, contribuire ad un progetto sociale innovativo e sviluppare una psicologia più vicina alle persone.
-                  </p>
-                  <p>
-                    Compilando questo modulo potrai candidarti per collaborare con Applica APS nelle attività cliniche, formative e sociali.
-                  </p>
-                </div>
+                <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] leading-relaxed max-w-2xl">
+                  Una rete clinica orientata alla crescita professionale, alla pratica supervisionata e allo sviluppo di una psicologia più accessibile, concreta e umana.
+                </p>
               </RevealSection>
 
               <RevealSection stagger={2}>
@@ -109,6 +100,9 @@ export default function ProfessionistiPage() {
              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-on-surface)] mb-6">Informazioni sulle Attività</h2>
              <div className="bg-[var(--color-surface-container)] rounded-3xl p-8 md:p-10 border border-[var(--color-outline-variant)] border-dashed text-left">
                 <div className="text-[var(--color-on-surface-variant)] space-y-4">
+                  <p>
+                    <strong>Cerchiamo professionisti motivati a:</strong> crescere nella pratica clinica, lavorare in rete, partecipare a supervisioni e contribuire a un progetto sociale innovativo.
+                  </p>
                   <p>
                     La partecipazione alle attività associative prevede un contributo mensile riservato ai professionisti. I dettagli sui costi saranno forniti nel modulo di candidatura.
                   </p>

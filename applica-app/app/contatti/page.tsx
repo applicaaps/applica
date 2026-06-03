@@ -148,10 +148,7 @@ export default function Contatti() {
                     <div>
                       <h3 className="text-base font-bold text-[var(--color-on-surface)] mb-1">Email</h3>
                       <p className="text-sm text-[var(--color-on-surface-variant)] mb-0.5">
-                        Informazioni: <a href="mailto:applicapsicologia@gmail.com" className="hover:text-[var(--color-primary)] transition-colors duration-200">applicapsicologia@gmail.com</a>
-                      </p>
-                      <p className="text-sm text-[var(--color-on-surface-variant)]">
-                        Professionisti: <a href="mailto:applicapsicologia@gmail.com" className="hover:text-[var(--color-primary)] transition-colors duration-200">applicapsicologia@gmail.com</a>
+                        <a href="mailto:applicapsicologia@gmail.com" className="hover:text-[var(--color-primary)] transition-colors duration-200">applicapsicologia@gmail.com</a>
                       </p>
                     </div>
                   </div>

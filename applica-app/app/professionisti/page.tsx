@@ -28,14 +28,23 @@ export default function ProfessionistiPage() {
               </RevealSection>
               
               <RevealSection stagger={1}>
-                <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] leading-relaxed">
-                  [Placeholder: Descrizione di cosa significa lavorare in Applica, il valore della supervisione, la formazione continua e il lavoro in un team multidisciplinare.]
-                </p>
+                <div className="text-lg md:text-xl text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
+                  <p>
+                    <strong>Benvenuto/a in Applica APS.</strong><br/>
+                    Applica APS nasce con l’obiettivo di creare una rete di psicologi orientata alla crescita professionale, alla pratica clinica supervisionata e ad una psicologia più accessibile, concreta e umana.
+                  </p>
+                  <p>
+                    Cerchiamo professionisti motivati a: crescere nella pratica clinica, lavorare in rete, partecipare a supervisioni, contribuire ad un progetto sociale innovativo e sviluppare una psicologia più vicina alle persone.
+                  </p>
+                  <p>
+                    Compilando questo modulo potrai candidarti per collaborare con Applica APS nelle attività cliniche, formative e sociali.
+                  </p>
+                </div>
               </RevealSection>
 
               <RevealSection stagger={2}>
                 <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                  <Link href="/contatti">
+                  <Link href="https://forms.gle/mg2apJoAuGdDYHZY8" target="_blank" rel="noopener noreferrer">
                     <Button size="lg" className="w-full sm:w-auto h-12 text-base shadow-xl shadow-[var(--color-primary)]/20">
                       Invia la tua Candidatura
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -93,15 +102,20 @@ export default function ProfessionistiPage() {
         </div>
       </section>
       
-      {/* ─── Requisiti Placeholder ─── */}
+      {/* ─── Informazioni sulle Attività ─── */}
       <section className="py-20 md:py-32">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
            <RevealSection>
-             <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-on-surface)] mb-6">Requisiti di Ammissione</h2>
-             <div className="bg-[var(--color-surface-container)] rounded-3xl p-10 border border-[var(--color-outline-variant)] border-dashed">
-                <p className="text-[var(--color-on-surface-variant)]">
-                  [Placeholder per i requisiti: Iscrizione albo, orientamento CBT/evidence-based, disponibilità di ore mensili per la rete ecc.]
-                </p>
+             <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-on-surface)] mb-6">Informazioni sulle Attività</h2>
+             <div className="bg-[var(--color-surface-container)] rounded-3xl p-8 md:p-10 border border-[var(--color-outline-variant)] border-dashed text-left">
+                <div className="text-[var(--color-on-surface-variant)] space-y-4">
+                  <p>
+                    La partecipazione alle attività associative prevede un contributo mensile riservato ai professionisti. I dettagli sui costi saranno forniti nel modulo di candidatura.
+                  </p>
+                  <p>
+                    Eventuali corsi, supervisioni, eventi o attività con formatori esterni potranno prevedere un contributo aggiuntivo, comunicato preventivamente in base ai costi dell'iniziativa.
+                  </p>
+                </div>
              </div>
            </RevealSection>
         </div>

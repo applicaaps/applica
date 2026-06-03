@@ -28,16 +28,28 @@ export default function PazientiPage() {
               </RevealSection>
               
               <RevealSection stagger={1}>
-                <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] leading-relaxed">
-                  [Placeholder: Descrizione introduttiva su come Applica accoglie i pazienti, spiegando che offriamo supporto psicologico evidence-based con grande attenzione alla dimensione umana.]
-                </p>
+                <div className="text-lg md:text-xl text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
+                  <p>
+                    <strong>Benvenuto/a in Applica APS.</strong><br/>
+                    Applica APS nasce con l’obiettivo di rendere il supporto psicologico più accessibile, umano e sostenibile, offrendo percorsi psicologici attraverso professionisti della salute mentale.
+                  </p>
+                  <p>
+                    Il nostro progetto unisce: <strong>accoglienza umana, crescita personale, qualità clinica e accessibilità economica.</strong>
+                  </p>
+                  <p>
+                    Le tariffe possono essere adattate anche in base alla situazione economica della persona (ISEE), per permettere a più persone di accedere ad un percorso psicologico.
+                  </p>
+                  <p>
+                    Compilando il modulo ci aiuterai a comprendere meglio la tua richiesta, individuare il professionista più adatto e proporti il percorso più adeguato alle tue esigenze.
+                  </p>
+                </div>
               </RevealSection>
 
               <RevealSection stagger={2}>
                 <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                  <Link href="/contatti">
+                  <Link href="https://forms.gle/M43RgMztTVpMapbYA" target="_blank" rel="noopener noreferrer">
                     <Button size="lg" className="w-full sm:w-auto h-12 text-base shadow-xl shadow-[var(--color-primary)]/20">
-                      Prenota una consulenza
+                      Compila il modulo
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
@@ -93,15 +105,32 @@ export default function PazientiPage() {
         </div>
       </section>
       
-      {/* ─── Info/FAQ Placeholder ─── */}
+      {/* ─── Info/FAQ ─── */}
       <section className="py-20 md:py-32">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
            <RevealSection>
-             <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-on-surface)] mb-6">Domande Frequenti</h2>
-             <div className="bg-[var(--color-surface-container)] rounded-3xl p-10 border border-[var(--color-outline-variant)] border-dashed">
-                <p className="text-[var(--color-on-surface-variant)]">
-                  [Placeholder per accordion o lista di FAQ: Costi, durata sedute, modalità online/presenza]
-                </p>
+             <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-on-surface)] mb-6">Informazioni sui Servizi</h2>
+             <div className="bg-[var(--color-surface-container)] rounded-3xl p-8 md:p-10 border border-[var(--color-outline-variant)] border-dashed text-left">
+                <div className="space-y-4 text-[var(--color-on-surface-variant)]">
+                  <p>
+                    Applica APS promuove l'accessibilità ai propri servizi. Le persone prive di reddito o che si trovano in una situazione di particolare difficoltà economica possono richiedere l'esenzione totale o parziale del contributo associativo, previa valutazione da parte dell'Associazione.
+                  </p>
+                  <p>
+                    Il contributo associativo non coincide necessariamente con il costo del percorso psicologico, che verrà definito successivamente in base al servizio richiesto, alla disponibilità dei professionisti e alla situazione economica della persona.
+                  </p>
+                  <p>
+                    Il contributo associativo consente di sostenere le attività istituzionali di Applica APS e di accedere alle iniziative dedicate ai soci, tra cui:
+                  </p>
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li><strong>Incontro di Benvenuto Applica</strong> – accoglienza, orientamento e presentazione dei servizi dell'Associazione;</li>
+                    <li><strong>Gruppi Psicoeducativi</strong> su temi legati al benessere psicologico e alla crescita personale;</li>
+                    <li><strong>Laboratorio di Metafore e Narrazione</strong> per esplorare la propria storia personale attraverso strumenti esperienziali;</li>
+                    <li><strong>Sportello di Orientamento Psicologico</strong> per ricevere informazioni e orientamento rispetto ai percorsi più adatti alle proprie esigenze.</li>
+                  </ul>
+                  <p className="mt-4 text-sm">
+                    <em>Nota: Tutte le informazioni fornite nei moduli saranno trattate nel rispetto della normativa privacy (GDPR – Reg. UE 2016/679). Il contributo associativo non comprende le eventuali prestazioni psicologiche individuali, di coppia o familiari.</em>
+                  </p>
+                </div>
              </div>
            </RevealSection>
         </div>

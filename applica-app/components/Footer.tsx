@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Mail, MapPin, Phone } from "lucide-react"
 
 export function Footer() {
@@ -9,9 +10,7 @@ export function Footer() {
           {/* Brand & Intro */}
           <div className="space-y-4 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded bg-[var(--color-primary-fixed)] flex items-center justify-center text-[var(--color-on-primary-fixed)] font-bold font-serif">
-                A
-              </div>
+              <Image src="/logo.png" alt="Applica APS" width={72} height={72} className="object-contain" />
               <span className="font-serif font-bold text-lg text-white">
                 Applica APS
               </span>
@@ -44,7 +43,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-[var(--color-inverse-on-surface)]/60">
                 <MapPin size={16} className="text-[var(--color-primary-fixed)] shrink-0 mt-0.5" />
-                <span>---</span>
+                <span>Via Roma 69, 70029 Santeramo in Colle (BA)</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-[var(--color-inverse-on-surface)]/60">
                 <Phone size={16} className="text-[var(--color-primary-fixed)] shrink-0" />

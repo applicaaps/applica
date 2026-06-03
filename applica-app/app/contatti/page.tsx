@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { MapPin, Phone, Mail, Send, CheckCircle2, ChevronDown, Heart, Brain } from "lucide-react"
+import { MapPin, Phone, Mail, Send, CheckCircle2, ChevronDown, User, Brain } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 import { useForm, ValidationError } from '@formspree/react'
 
@@ -49,7 +49,7 @@ export default function Contatti() {
             <RevealSection stagger={1}>
               <div className="group h-full bg-white/60 backdrop-blur-md rounded-3xl p-8 lg:p-10 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden text-center md:text-left flex flex-col items-center md:items-start">
                 <div className="w-16 h-16 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Heart size={32} />
+                  <User size={32} />
                 </div>
                 <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-4">
                   Per i Pazienti
@@ -59,7 +59,7 @@ export default function Contatti() {
                 </p>
                 <Link 
                   href="/pazienti"
-                  className="inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] text-[var(--color-on-primary)] px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-[var(--color-primary-container)] transition-colors w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-orange-600 transition-colors w-full sm:w-auto shadow-sm shadow-orange-500/20"
                 >
                   Richiedi informazioni
                 </Link>
@@ -80,7 +80,7 @@ export default function Contatti() {
                 </p>
                 <Link 
                   href="/professionisti"
-                  className="inline-flex items-center justify-center gap-2 bg-[var(--color-surface)] border-2 border-[var(--color-outline-variant)] text-[var(--color-on-surface)] px-6 py-3 rounded-xl font-semibold text-sm pressable hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-blue-600 transition-colors w-full sm:w-auto shadow-sm shadow-blue-500/20"
                 >
                   Candidati ora
                 </Link>
@@ -116,8 +116,8 @@ export default function Contatti() {
                     <div>
                       <h3 className="text-base font-bold text-[var(--color-on-surface)] mb-1">La nostra sede</h3>
                       <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                        ---<br />
-                        ---
+                        Via Roma 69<br />
+                        70029 Santeramo in Colle (BA)
                       </p>
                     </div>
                   </div>
@@ -247,7 +247,8 @@ export default function Contatti() {
                                   ? "bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] font-medium" 
                                   : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container-high)] focus:bg-[var(--color-surface-container-high)]"
                               }`}
-                              onClick={() => {
+                              onMouseDown={(e) => {
+                                e.preventDefault();
                                 setSelectedMotivo(motivo.value)
                                 setIsSelectOpen(false)
                               }}

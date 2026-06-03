@@ -86,7 +86,7 @@ export default function ChiSiamo() {
                 <div>
                   <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Rigore scientifico</h3>
                   <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    Protocolli evidence-based e aggiornamento continuo. Ogni intervento ha un fondamento verificabile.
+                    Protocolli basati su evidenze scientifiche e aggiornamento continuo. Ogni intervento ha un fondamento verificabile.
                   </p>
                 </div>
               </div>

@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -45,8 +46,8 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-lg bg-[var(--color-primary)] flex items-center justify-center text-white font-bold font-serif text-lg transition-colors duration-200 group-hover:bg-[var(--color-primary-container)]">
-              A
+            <div className="flex items-center justify-center h-10 w-10">
+              <Image src="/logo.png" alt="Applica APS" width={100} height={100} className="object-contain scale-[1.8] md:scale-[2]" />
             </div>
             <span className="font-serif font-bold text-lg text-[var(--color-on-surface)]">
               Applica APS

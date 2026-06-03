@@ -146,7 +146,7 @@ export default function Home() {
                 </li>
                 <li className="flex gap-3 items-start">
                   <CheckCircle2 className="text-[var(--color-success-green)] shrink-0 mt-0.5" size={20} />
-                  <span className="text-base text-[var(--color-on-surface)]">Formazione continua su protocolli evidence-based</span>
+                  <span className="text-base text-[var(--color-on-surface)]">Formazione continua su protocolli basati su evidenze scientifiche</span>
                 </li>
                 <li className="flex gap-3 items-start">
                   <CheckCircle2 className="text-[var(--color-success-green)] shrink-0 mt-0.5" size={20} />
@@ -192,13 +192,13 @@ export default function Home() {
           <RevealSection stagger={2}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2">
               <Link
-                href="/contatti"
+                href="/pazienti"
                 className="bg-white text-[var(--color-primary)] font-semibold text-sm px-8 py-4 rounded-xl pressable hover:bg-white/90 text-center w-full sm:w-auto"
               >
                 Unisciti ad Applica
               </Link>
               <Link
-                href="/chi-siamo"
+                href="/professionisti"
                 className="border-2 border-white/25 text-white font-semibold text-sm px-8 py-4 rounded-xl pressable hover:bg-white/10 text-center w-full sm:w-auto"
               >
                 Diventa professionista Applica

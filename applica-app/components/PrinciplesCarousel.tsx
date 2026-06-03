@@ -24,7 +24,7 @@ const principles = [
   {
     id: 2,
     title: "Scientifica",
-    desc: "Protocolli evidence-based, formazione continua e supervisione clinica. Ogni intervento ha un fondamento verificabile.",
+    desc: "Protocolli basati su evidenze scientifiche, formazione continua e supervisione clinica. Ogni intervento ha un fondamento verificabile.",
     icon: Brain,
     colorClass: "bg-white border border-[var(--color-outline-variant)] text-[var(--color-on-surface)]",
     iconClass: "text-[var(--color-primary)]"

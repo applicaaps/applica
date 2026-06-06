@@ -162,9 +162,9 @@ export default function ChiSiamo() {
                     </div>
                   </div>
                   <div className="space-y-4 pt-10">
-                    <div className="p-5 bg-[var(--color-secondary-container)] rounded-2xl">
-                      <h4 className="text-lg font-bold text-[var(--color-on-secondary-container)] mb-1">Accessibile</h4>
-                      <p className="text-sm text-[var(--color-on-secondary-container)]/70">Senza barriere, per tutti.</p>
+                    <div className="p-5 bg-[#b59540]/20 rounded-2xl">
+                      <h4 className="text-lg font-bold text-[#b59540] mb-1">Accessibile</h4>
+                      <p className="text-sm text-[#b59540]/80">Senza barriere, per tutti.</p>
                     </div>
                     <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[var(--color-secondary-fixed-dim)]/30 flex items-center justify-center text-[var(--color-secondary)]">
                       <Users size={40} className="opacity-40" />

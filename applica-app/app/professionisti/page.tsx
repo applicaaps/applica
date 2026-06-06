@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Brain, Network, BookOpen, Users } from "lucide-react"
+import { ArrowRight, Brain, Network, BookOpen, Users, UsersRound, UserPlus, Target, Library, Award } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 import { Button } from "@/components/ui/Button"
 
@@ -20,16 +20,16 @@ export default function ProfessionistiPage() {
               <RevealSection>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 font-semibold text-sm mb-2">
                   <Brain size={16} />
-                  <span>Per i Professionisti</span>
+                  <span>Per i psicologi</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-on-surface)] leading-tight tracking-tight">
-                  Unisciti alla <span className="text-[var(--color-primary)]">Rete Clinica</span> di Eccellenza.
+                  Una comunità per <span className="text-[var(--color-primary)]">crescere</span> come professionista.
                 </h1>
               </RevealSection>
               
               <RevealSection stagger={1}>
                 <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] leading-relaxed max-w-2xl">
-                  Una rete clinica orientata alla crescita professionale, alla pratica supervisionata e allo sviluppo di una psicologia più accessibile, concreta e umana.
+                  La professione dello psicologo può essere straordinaria, ma anche complessa e solitaria. Applica APS nasce per creare una comunità professionale in cui psicologi e psicoterapeuti possano sentirsi sostenuti, valorizzati e accompagnati nella propria crescita clinica e umana.
                 </p>
               </RevealSection>
 
@@ -63,33 +63,51 @@ export default function ProfessionistiPage() {
           <RevealSection>
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-on-surface)] mb-4">
-                Perché entrare in Applica
+                Entrando in Applica APS potrai accedere a:
               </h2>
-              <p className="text-lg text-[var(--color-on-surface-variant)]">
-                [Placeholder: Testo che introduce i vantaggi dell'adesione per il professionista psicologo o psicoterapeuta.]
-              </p>
             </div>
           </RevealSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Users, title: "Supervisione Costante", desc: "[Placeholder testo vantaggio 1 - intervisioni e supervisioni mensili]" },
-              { icon: BookOpen, title: "Formazione Continua", desc: "[Placeholder testo vantaggio 2 - corsi e aggiornamenti clinici]" },
-              { icon: Network, title: "Materiali e Rete", desc: "[Placeholder testo vantaggio 3 - invio pazienti e condivisione protocolli]" },
+              { icon: Users, title: "Supervisione Clinica", desc: "Supervisione e confronto clinico per sviluppare maggiore sicurezza e competenza nella pratica professionale." },
+              { icon: BookOpen, title: "Formazione Continua", desc: "Formazione continua orientata all'integrazione tra teoria e pratica clinica." },
+              { icon: UsersRound, title: "Comunità", desc: "Comunità professionale basata su collaborazione, supporto reciproco e condivisione di esperienze." },
+              { icon: UserPlus, title: "Invio Pazienti", desc: "Invio di pazienti attraverso i servizi e i progetti dell'Associazione." },
+              { icon: Target, title: "Progetti Sociali", desc: "Opportunità di partecipare a progetti sociali innovativi, contribuendo a rendere la psicologia più accessibile." },
+              { icon: Network, title: "Lavoro in Rete", desc: "Collaborazione con altri professionisti della salute mentale, favorendo il lavoro in rete." },
+              { icon: Library, title: "Risorse Cliniche", desc: "Accesso a materiali, strumenti e risorse psicoeducative utili per il lavoro clinico." },
+              { icon: Award, title: "Visibilità", desc: "Visibilità professionale all'interno della rete Applica APS e delle attività promosse." },
             ].map((step, i) => (
               <RevealSection key={i} stagger={i + 1}>
-                <div className="group bg-white hover:bg-[var(--color-primary)] rounded-3xl p-8 border border-[var(--color-outline-variant)]/50 ambient-shadow h-full transition-colors duration-300">
-                  <div className="w-14 h-14 rounded-2xl bg-blue-50 group-hover:bg-white/20 text-blue-600 group-hover:text-white flex items-center justify-center mb-6 transition-colors duration-300">
-                    <step.icon size={28} />
+                <div className="bg-white rounded-3xl p-6 border border-[var(--color-outline-variant)]/50 ambient-shadow h-full transition-all duration-300 interactive-card hover:-translate-y-[5px] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 transition-colors duration-300">
+                    <step.icon size={24} />
                   </div>
-                  <h3 className="text-xl font-bold text-[var(--color-on-surface)] group-hover:text-white mb-3 transition-colors duration-300">{step.title}</h3>
-                  <p className="text-[var(--color-on-surface-variant)] group-hover:text-white/90 leading-relaxed transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-[var(--color-on-surface)] mb-2 transition-colors duration-300">{step.title}</h3>
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed transition-colors duration-300">
                     {step.desc}
                   </p>
                 </div>
               </RevealSection>
             ))}
           </div>
+
+          <RevealSection stagger={2}>
+            <div className="mt-16 md:mt-24 py-12 md:py-16 max-w-4xl mx-auto text-center px-4 relative">
+              <div className="space-y-10">
+                <p className="text-2xl md:text-[1.75rem] text-[var(--color-on-surface)] leading-[1.6] italic font-light max-w-3xl mx-auto text-balance">
+                  Applica APS non è solo un luogo dove collaborare.
+                </p>
+                
+                <div className="w-12 h-px bg-[var(--color-outline-variant)] mx-auto opacity-70"></div>
+                
+                <p className="text-[0.8rem] md:text-sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-[0.2em] md:tracking-[0.25em] text-balance mx-auto max-w-2xl">
+                  È una comunità in cui crescere, confrontarsi, costruire relazioni professionali significative e contribuire a una psicologia più accessibile, umana e vicina alle persone.
+                </p>
+              </div>
+            </div>
+          </RevealSection>
         </div>
       </section>
       

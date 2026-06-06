@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Users, Heart, Brain, CheckCircle2 } from "lucide-react"
+import { DoorOpen, MessageCircle, LayoutGrid, ClipboardList } from "lucide-react"
 
 const principles = [
   {
     id: 0,
     title: "Accessibile",
     desc: "Tariffe calmierate, percorsi in convenzione, nessun costo nascosto. Il benessere psicologico non è un servizio premium: è un diritto che difendiamo ogni giorno nella pratica.",
-    icon: Users,
+    icon: DoorOpen,
     colorClass: "bg-[var(--color-primary)] text-[var(--color-on-primary)]",
     iconClass: "text-white"
   },
@@ -17,7 +17,7 @@ const principles = [
     id: 1,
     title: "Umana",
     desc: "La relazione terapeutica è lo strumento più potente che abbiamo. La costruiamo con rispetto, attenzione e continuità.",
-    icon: Heart,
+    icon: MessageCircle,
     colorClass: "bg-white border border-[var(--color-outline-variant)] text-[var(--color-on-surface)]",
     iconClass: "text-[var(--color-primary)]"
   },
@@ -25,7 +25,7 @@ const principles = [
     id: 2,
     title: "Scientifica",
     desc: "Protocolli basati su evidenze scientifiche, formazione continua e supervisione clinica. Ogni intervento ha un fondamento verificabile.",
-    icon: Brain,
+    icon: LayoutGrid,
     colorClass: "bg-white border border-[var(--color-outline-variant)] text-[var(--color-on-surface)]",
     iconClass: "text-[var(--color-primary)]"
   },
@@ -33,9 +33,9 @@ const principles = [
     id: 3,
     title: "Pratica",
     desc: "Carte terapeutiche, schede di monitoraggio, kit esperienziali, materiali psicoeducativi. Non ci limitiamo alla seduta: diamo strumenti concreti da usare nella vita di ogni giorno.",
-    icon: CheckCircle2,
-    colorClass: "bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)]",
-    iconClass: "text-[var(--color-on-secondary-container)]"
+    icon: ClipboardList,
+    colorClass: "bg-[#b59540] text-white",
+    iconClass: "text-white"
   }
 ]
 

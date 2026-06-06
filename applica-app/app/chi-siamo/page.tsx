@@ -8,18 +8,23 @@ export default function ChiSiamo() {
   return (
     <>
       {/* ─── Hero ─── */}
-      <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28">
+      <section className="relative overflow-hidden pt-4 pb-20 md:pt-8 md:pb-28">
         <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
             <RevealSection>
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[var(--color-on-surface)] leading-[1.1] tracking-tight">
-                Trasformare la salute mentale in un bene comune
+                La salute mentale è un diritto, non un lusso
               </h1>
             </RevealSection>
             <RevealSection stagger={1}>
-              <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] max-w-xl leading-relaxed prose-pretty">
-                Applica APS nasce dalla convinzione che il benessere psicologico non debba essere un privilegio. Lavoriamo con un approccio fondato sulla scienza e sulla relazione umana.
-              </p>
+              <div className="text-lg md:text-xl text-[var(--color-on-surface-variant)] max-w-xl leading-relaxed prose-pretty space-y-4">
+                <p>
+                  Applica APS nasce dalla convinzione che il benessere psicologico non debba essere un privilegio.
+                </p>
+                <p>
+                  Applica APS è un&apos;associazione di psicologi e psicoterapeuti che offre percorsi clinici fondati sulle evidenze scientifiche, accessibili a tutti e guidati dalla relazione umana. Lavoriamo con un approccio fondato sulla scienza e sulla relazione umana.
+                </p>
+              </div>
             </RevealSection>
           </div>
           <div className="lg:col-span-6 relative">
@@ -31,13 +36,7 @@ export default function ChiSiamo() {
                 </div>
               </div>
             </RevealSection>
-            <RevealSection stagger={3}>
-              <div className="absolute -bottom-5 -left-5 bg-[var(--color-secondary-container)] p-6 rounded-xl ambient-shadow max-w-[220px] hidden md:block">
-                <p className="text-sm text-[var(--color-on-secondary-container)] italic leading-relaxed">
-                  &quot;Insieme, rendiamo la cura un&apos;esperienza quotidiana e condivisa.&quot;
-                </p>
-              </div>
-            </RevealSection>
+
           </div>
         </div>
       </section>

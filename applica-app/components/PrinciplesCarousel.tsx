@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { DoorOpen, MessageCircle, LayoutGrid, ClipboardList } from "lucide-react"
+import { DoorOpen, HandHeart, FileChartColumn, ClipboardList } from "lucide-react"
 
 const principles = [
   {
@@ -17,7 +17,7 @@ const principles = [
     id: 1,
     title: "Umana",
     desc: "La relazione terapeutica è lo strumento più potente che abbiamo. La costruiamo con rispetto, attenzione e continuità.",
-    icon: MessageCircle,
+    icon: HandHeart,
     colorClass: "bg-white border border-[var(--color-outline-variant)] text-[var(--color-on-surface)]",
     iconClass: "text-[var(--color-primary)]"
   },
@@ -25,7 +25,7 @@ const principles = [
     id: 2,
     title: "Scientifica",
     desc: "Protocolli basati su evidenze scientifiche, formazione continua e supervisione clinica. Ogni intervento ha un fondamento verificabile.",
-    icon: LayoutGrid,
+    icon: FileChartColumn,
     colorClass: "bg-white border border-[var(--color-outline-variant)] text-[var(--color-on-surface)]",
     iconClass: "text-[var(--color-primary)]"
   },

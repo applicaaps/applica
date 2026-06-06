@@ -15,14 +15,14 @@ export default function Home() {
           <div className="lg:col-span-7 space-y-8">
             <RevealSection>
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] text-[var(--color-on-surface)] tracking-tight">
-                La salute mentale è un diritto,{" "}
-                <span className="text-[var(--color-primary)]">non un lusso</span>
+                Psicologia concreta, accessibile e{" "}
+                <span className="text-[var(--color-primary)]">trasformativa.</span>
               </h1>
             </RevealSection>
 
             <RevealSection stagger={1}>
               <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] max-w-xl leading-relaxed prose-pretty">
-                Applica APS è un&apos;associazione di psicologi e psicoterapeuti che offre percorsi clinici fondati sulle evidenze scientifiche, accessibili a tutti e guidati dalla relazione umana.
+                Applica APS è una comunità di psicologi e psicoterapeuti che sostiene le persone nel loro percorso di benessere e accompagna i professionisti nella crescita clinica e umana.
               </p>
             </RevealSection>
 

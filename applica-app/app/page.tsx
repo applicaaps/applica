@@ -38,7 +38,7 @@ export default function Home() {
                   href="/chi-siamo"
                   className="bg-[var(--color-surface-container)] text-[var(--color-on-surface)] font-medium text-sm px-7 py-3.5 rounded-xl border border-[var(--color-outline-variant)] flex items-center justify-center pressable hover:bg-[var(--color-surface-container-high)]"
                 >
-                  Scopri il percorso professionale
+                  Il nostro obiettivo e i nostri valori
                 </Link>
               </div>
             </RevealSection>

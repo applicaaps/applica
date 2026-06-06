@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Users, Heart, Brain, GraduationCap, ArrowRight, BookOpen, HeartHandshake, Route, Layers, Network } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 
@@ -110,11 +111,14 @@ export default function ChiSiamo() {
         <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 relative order-2 lg:order-1">
             <RevealSection>
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden ambient-shadow-lg border-4 border-white bg-[var(--color-surface-container)] flex items-center justify-center text-[var(--color-outline)]">
-                <div className="flex flex-col items-center">
-                  <Users size={56} className="mb-3 opacity-40" />
-                  <span className="text-sm font-medium opacity-50">Foto Danubia Macario</span>
-                </div>
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden ambient-shadow-lg border-4 border-white relative">
+                <Image 
+                  src="/fotoDanubia.webp" 
+                  alt="Danubia Macario" 
+                  fill 
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
             </RevealSection>
           </div>

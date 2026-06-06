@@ -33,7 +33,8 @@ export function RevealSection({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
-          observer.unobserve(el)
+        } else {
+          setIsVisible(false)
         }
       },
       { threshold: 0.1, rootMargin: "-40px 0px" }

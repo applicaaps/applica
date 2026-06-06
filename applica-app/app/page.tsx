@@ -16,7 +16,7 @@ export default function Home() {
             <RevealSection>
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] text-[var(--color-on-surface)] tracking-tight">
                 Psicologia concreta, accessibile e{" "}
-                <span className="text-[var(--color-primary)]">trasformativa.</span>
+                <span className="text-[#b59540]">trasformativa.</span>
               </h1>
             </RevealSection>
 

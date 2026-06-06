@@ -23,7 +23,7 @@ export default function PazientiPage() {
                   <span>Per i pazienti</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-on-surface)] leading-tight tracking-tight">
-                  Un percorso per prenderti cura di te
+                  Un percorso per prenderti <span className="text-[#b59540]">cura</span> di te
                 </h1>
               </RevealSection>
 

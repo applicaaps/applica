@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Users, Heart, Brain, GraduationCap, ArrowRight } from "lucide-react"
+import { Users, Heart, Brain, GraduationCap, ArrowRight, BookOpen } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 
 export default function ChiSiamo() {
@@ -53,39 +53,50 @@ export default function ChiSiamo() {
             </div>
           </RevealSection>
 
-          {/* Asymmetric layout instead of identical card grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-            <RevealSection className="md:col-span-4" stagger={1}>
-              <div className="bg-[var(--color-primary)] p-8 rounded-2xl text-[var(--color-on-primary)] h-full flex flex-col gap-6">
-                <Users size={24} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <RevealSection stagger={1}>
+              <div className="bg-[var(--color-primary)] p-8 rounded-2xl text-[var(--color-on-primary)] h-full flex flex-col gap-6 interactive-card hover:scale-[1.02] active:scale-[0.97] transition-transform duration-[160ms] ease-out">
+                <Heart size={24} />
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Comunità inclusiva</h3>
+                  <h3 className="text-xl font-bold mb-2">Clinica sociale</h3>
                   <p className="text-sm opacity-85 leading-relaxed">
-                    Iniziative di sensibilizzazione e supporto reciproco che rendono la salute mentale parte del discorso pubblico.
+                    Percorsi psicologici accessibili e umani per la comunità.
                   </p>
                 </div>
               </div>
             </RevealSection>
 
-            <RevealSection className="md:col-span-4" stagger={2}>
-              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] interactive-card h-full flex flex-col gap-6">
-                <Heart size={24} className="text-[var(--color-primary)]" />
+            <RevealSection stagger={2}>
+              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] h-full flex flex-col gap-6 interactive-card hover:scale-[1.02] active:scale-[0.97] transition-transform duration-[160ms] ease-out">
+                <GraduationCap size={24} className="text-[var(--color-primary)]" />
                 <div>
-                  <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Servizi accessibili</h3>
+                  <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Formazione</h3>
                   <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    Tariffe calmierate e percorsi flessibili. Nessuno viene escluso per motivi economici.
+                    Crescita pratica, formazione, supervisione per professionisti della salute mentale.
                   </p>
                 </div>
               </div>
             </RevealSection>
 
-            <RevealSection className="md:col-span-4" stagger={3}>
-              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] interactive-card h-full flex flex-col gap-6">
-                <Brain size={24} className="text-[var(--color-primary)]" />
+            <RevealSection stagger={3}>
+              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] h-full flex flex-col gap-6 interactive-card hover:scale-[1.02] active:scale-[0.97] transition-transform duration-[160ms] ease-out">
+                <BookOpen size={24} className="text-[var(--color-primary)]" />
                 <div>
-                  <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Rigore scientifico</h3>
+                  <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Materiale didattico</h3>
                   <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    Protocolli basati su evidenze scientifiche e aggiornamento continuo. Ogni intervento ha un fondamento verificabile.
+                    Strumenti psicoeducativi concreti per trasformare teoria e pratica. Innovazione, strumenti terapeutici, kit e materiali digitali.
+                  </p>
+                </div>
+              </div>
+            </RevealSection>
+
+            <RevealSection stagger={4}>
+              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] h-full flex flex-col gap-6 interactive-card hover:scale-[1.02] active:scale-[0.97] transition-transform duration-[160ms] ease-out">
+                <Users size={24} className="text-[var(--color-primary)]" />
+                <div>
+                  <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Comunità</h3>
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                    Una rete di persone e professionisti che condividono valori, sostegno reciproco, collaborazione e crescita, per costruire una psicologia più vicina alle persone.
                   </p>
                 </div>
               </div>

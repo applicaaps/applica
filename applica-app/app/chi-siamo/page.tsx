@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Users, Heart, Brain, GraduationCap, ArrowRight, BookOpen } from "lucide-react"
+import { Users, Heart, Brain, GraduationCap, ArrowRight, BookOpen, HeartHandshake, Route, Layers, Network } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 
 export default function ChiSiamo() {
@@ -55,8 +55,8 @@ export default function ChiSiamo() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <RevealSection stagger={1}>
-              <div className="bg-[var(--color-primary)] p-8 rounded-2xl text-[var(--color-on-primary)] h-full flex flex-col gap-6 interactive-card hover:scale-[1.02] active:scale-[0.97] transition-transform duration-[160ms] ease-out">
-                <Heart size={24} />
+              <div className="bg-[var(--color-primary)] p-8 rounded-2xl text-[var(--color-on-primary)] h-full flex flex-col gap-6 interactive-card">
+                <HeartHandshake size={24} />
                 <div>
                   <h3 className="text-xl font-bold mb-2">Clinica sociale</h3>
                   <p className="text-sm opacity-85 leading-relaxed">
@@ -67,8 +67,8 @@ export default function ChiSiamo() {
             </RevealSection>
 
             <RevealSection stagger={2}>
-              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] h-full flex flex-col gap-6 interactive-card hover:scale-[1.02] active:scale-[0.97] transition-transform duration-[160ms] ease-out">
-                <GraduationCap size={24} className="text-[var(--color-primary)]" />
+              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] h-full flex flex-col gap-6 interactive-card">
+                <Route size={24} className="text-[var(--color-primary)]" />
                 <div>
                   <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Formazione</h3>
                   <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
@@ -79,8 +79,8 @@ export default function ChiSiamo() {
             </RevealSection>
 
             <RevealSection stagger={3}>
-              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] h-full flex flex-col gap-6 interactive-card hover:scale-[1.02] active:scale-[0.97] transition-transform duration-[160ms] ease-out">
-                <BookOpen size={24} className="text-[var(--color-primary)]" />
+              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] h-full flex flex-col gap-6 interactive-card">
+                <Layers size={24} className="text-[var(--color-primary)]" />
                 <div>
                   <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Materiale didattico</h3>
                   <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
@@ -91,8 +91,8 @@ export default function ChiSiamo() {
             </RevealSection>
 
             <RevealSection stagger={4}>
-              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] h-full flex flex-col gap-6 interactive-card hover:scale-[1.02] active:scale-[0.97] transition-transform duration-[160ms] ease-out">
-                <Users size={24} className="text-[var(--color-primary)]" />
+              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] h-full flex flex-col gap-6 interactive-card">
+                <Network size={24} className="text-[var(--color-primary)]" />
                 <div>
                   <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">Comunità</h3>
                   <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">

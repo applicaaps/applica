@@ -105,6 +105,46 @@ export default function ChiSiamo() {
         </div>
       </section>
 
+      {/* ─── Fondatrice ─── */}
+      <section className="py-20 md:py-28 overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 relative order-2 lg:order-1">
+            <RevealSection>
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden ambient-shadow-lg border-4 border-white bg-[var(--color-surface-container)] flex items-center justify-center text-[var(--color-outline)]">
+                <div className="flex flex-col items-center">
+                  <Users size={56} className="mb-3 opacity-40" />
+                  <span className="text-sm font-medium opacity-50">Foto Danubia Macario</span>
+                </div>
+              </div>
+            </RevealSection>
+          </div>
+          <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
+            <RevealSection>
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-on-surface)] leading-tight">
+                La fondatrice
+              </h2>
+            </RevealSection>
+            <RevealSection stagger={1}>
+              <div className="space-y-4 text-lg text-[var(--color-on-surface-variant)] leading-relaxed prose-pretty">
+                <p>
+                  Applica APS nasce dalla visione di Danubia Macario, psicologa iscritta all&apos;Albo degli Psicologi della Puglia (n. 8320), con il desiderio di rendere la psicologia più accessibile, concreta e vicina alle persone.
+                </p>
+                <p>
+                  Nel suo percorso professionale ha sempre creduto che la competenza clinica debba camminare insieme all&apos;umanità, all&apos;etica e alla responsabilità sociale. Per questo Applica è stata costruita su valori come accoglienza, rispetto, professionalità, collaborazione, crescita continua e attenzione alla persona.
+                </p>
+                <p>
+                  L&apos;obiettivo non è soltanto offrire servizi psicologici, ma creare una comunità in cui persone e professionisti possano sentirsi sostenuti, valorizzati e accompagnati nel proprio percorso di sviluppo.
+                </p>
+                <p>
+                  Oggi questi valori guidano ogni progetto, attività e iniziativa promossa da Applica APS, con una convinzione semplice ma profonda: <br />
+                  <span className="font-medium text-[var(--color-primary)]">il benessere psicologico non dovrebbe essere un privilegio, ma una possibilità concreta per tutti.</span>
+                </p>
+              </div>
+            </RevealSection>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Valori ─── */}
       <section className="py-20 md:py-28 overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">

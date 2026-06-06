@@ -23,7 +23,7 @@ export default function ProfessionistiPage() {
                   <span>Per i psicologi</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-on-surface)] leading-tight tracking-tight">
-                  Una comunità per <span className="text-[var(--color-primary)]">crescere</span> come professionista.
+                  Una comunità per <span className="text-[#b59540]">crescere</span> come professionista.
                 </h1>
               </RevealSection>
               

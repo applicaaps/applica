@@ -13,7 +13,7 @@ export default function ChiSiamo() {
           <div className="lg:col-span-6 space-y-6">
             <RevealSection>
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[var(--color-on-surface)] leading-[1.1] tracking-tight">
-                La salute mentale è un diritto, non un lusso
+                La salute mentale è un <span className="text-[#b59540]">diritto</span>, non un lusso
               </h1>
             </RevealSection>
             <RevealSection stagger={1}>

@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "eventi",
+  "info": {
+    "singularName": "evento",
+    "pluralName": "eventi",
+    "displayName": "Evento"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titolo": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titolo"
+    },
+    "data_inizio": {
+      "type": "datetime"
+    },
+    "data_fine": {
+      "type": "datetime"
+    },
+    "stato": {
+      "type": "enumeration",
+      "enum": [
+        "programmato",
+        "svolto",
+        "annullato"
+      ]
+    },
+    "tipologia": {
+      "type": "enumeration",
+      "enum": [
+        "online",
+        "in presenza",
+        "misto"
+      ]
+    },
+    "luogo": {
+      "type": "string"
+    },
+    "link_meeting": {
+      "type": "string"
+    },
+    "descrizione_breve": {
+      "type": "text"
+    },
+    "descrizione_completa": {
+      "type": "blocks"
+    },
+    "link_registrazione_video": {
+      "type": "string"
+    },
+    "visibilita": {
+      "type": "enumeration",
+      "enum": [
+        "pubblico",
+        "riservato"
+      ]
+    },
+    "documenti": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::documento.documento",
+      "mappedBy": "eventi"
+    }
+  }
+}

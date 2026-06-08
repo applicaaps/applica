@@ -440,6 +440,84 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDocumentoDocumento extends Struct.CollectionTypeSchema {
+  collectionName: 'documenti';
+  info: {
+    displayName: 'documento';
+    pluralName: 'documenti';
+    singularName: 'documento';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categoria: Schema.Attribute.Enumeration<
+      ['questionario', 'scheda', 'materiale_esperienziale', 'altro']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descrizione: Schema.Attribute.Text;
+    eventi: Schema.Attribute.Relation<'manyToMany', 'api::evento.evento'>;
+    file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::documento.documento'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titolo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    visibilita: Schema.Attribute.Enumeration<['visibilita']>;
+  };
+}
+
+export interface ApiEventoEvento extends Struct.CollectionTypeSchema {
+  collectionName: 'eventi';
+  info: {
+    displayName: 'Evento';
+    pluralName: 'eventi';
+    singularName: 'evento';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    data_fine: Schema.Attribute.DateTime;
+    data_inizio: Schema.Attribute.DateTime;
+    descrizione_breve: Schema.Attribute.Text;
+    descrizione_completa: Schema.Attribute.Blocks;
+    documenti: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::documento.documento'
+    >;
+    link_meeting: Schema.Attribute.String;
+    link_registrazione_video: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::evento.evento'
+    > &
+      Schema.Attribute.Private;
+    luogo: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'titolo'>;
+    stato: Schema.Attribute.Enumeration<['programmato', 'svolto', 'annullato']>;
+    tipologia: Schema.Attribute.Enumeration<['online', 'in presenza', 'misto']>;
+    titolo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    visibilita: Schema.Attribute.Enumeration<['pubblico', 'riservato']>;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -951,6 +1029,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::documento.documento': ApiDocumentoDocumento;
+      'api::evento.evento': ApiEventoEvento;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

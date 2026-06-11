@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, Heart, Calendars, UsersRound, NotebookPen, Compass, Route, UserRound } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 import { Button } from "@/components/ui/Button"
@@ -46,11 +47,14 @@ export default function PazientiPage() {
             </div>
 
             <RevealSection stagger={2}>
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex items-center justify-center">
-                <div className="text-center p-6 opacity-50">
-                  <Heart size={64} className="mx-auto mb-4 text-[var(--color-primary)]" />
-                  <p className="text-sm font-medium uppercase tracking-widest text-[var(--color-on-surface-variant)]">[Placeholder Immagine Accoglienza/Terapia]</p>
-                </div>
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
+                <Image 
+                  src="/pazienti.jpg" 
+                  alt="Accoglienza e Terapia" 
+                  fill 
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
             </RevealSection>
           </div>

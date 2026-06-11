@@ -13,7 +13,8 @@ export default function Login() {
     setIsLoading(true)
     
     setTimeout(() => {
-      document.cookie = "applica_session=authenticated_mock_token; path=/; max-age=86400"
+      const mockToken = process.env.NEXT_PUBLIC_MOCK_SESSION_TOKEN || "authenticated_mock_token";
+      document.cookie = `applica_session=${mockToken}; path=/; max-age=86400`
       router.push("/area-riservata")
       router.refresh()
     }, 1500)
@@ -44,7 +45,7 @@ export default function Login() {
               <input 
                 type="email" 
                 required
-                defaultValue="danubia.macario@applica-aps.it"
+                defaultValue={process.env.NEXT_PUBLIC_MOCK_EMAIL || "danubia.macario@applica-aps.it"}
                 className="w-full pl-11 pr-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
                 placeholder="Inserisci la tua email"
               />
@@ -63,7 +64,7 @@ export default function Login() {
               <input 
                 type="password" 
                 required
-                defaultValue="password123"
+                defaultValue={process.env.NEXT_PUBLIC_MOCK_PASSWORD || "password123"}
                 className="w-full pl-11 pr-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
                 placeholder="Inserisci la tua password"
               />

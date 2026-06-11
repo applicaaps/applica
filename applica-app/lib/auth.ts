@@ -11,7 +11,7 @@ export type User = {
 export const mockUser: User = {
   id: "usr_001",
   name: "Dottoressa Danubia Macario",
-  email: "danubia.macario@applica-aps.it",
+  email: process.env.NEXT_PUBLIC_MOCK_EMAIL || "danubia.macario@applica-aps.it",
   role: "professionista",
   avatar: "DM"
 };
@@ -20,7 +20,8 @@ export const mockUser: User = {
 // In a real app, this would verify a JWT or session cookie
 export function isAuthenticated(cookieStore: any): boolean {
   const sessionCookie = cookieStore.get("applica_session");
-  return sessionCookie?.value === "authenticated_mock_token";
+  const expectedToken = process.env.NEXT_PUBLIC_MOCK_SESSION_TOKEN || "authenticated_mock_token";
+  return sessionCookie?.value === expectedToken;
 }
 
 // Mock Data: Eventi

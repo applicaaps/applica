@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { ArrowRight, Heart, Users, Brain, CheckCircle2 } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 import { PrinciplesCarousel } from "@/components/PrinciplesCarousel"
@@ -47,15 +46,11 @@ export default function Home() {
 
           <div className="lg:col-span-5 relative">
             <RevealSection stagger={2}>
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden ambient-shadow-lg bg-[var(--color-surface-container)] relative border-4 border-white">
-                <Image
-                  src="/home-hero.jpg"
-                  alt="Applica Associazione di Psicologia e Psicoterapia"
-                  fill
-                  priority
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden ambient-shadow-lg bg-[var(--color-surface-container)] relative border-4 border-white flex items-center justify-center text-[var(--color-outline)]">
+                <div className="text-center p-6 opacity-50">
+                  <Brain size={64} className="mx-auto mb-4 text-[var(--color-primary)]" />
+                  <span className="text-sm font-medium uppercase tracking-widest text-[var(--color-on-surface-variant)]">Foto Applica Associazione</span>
+                </div>
               </div>
             </RevealSection>
           </div>

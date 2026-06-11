@@ -1,9 +1,9 @@
 Cloudinary Onboarding Prompt
 
 Here are my Cloudinary credentials:
-Cloud Name: dme5ajgku
-API Key: 578577829774151
-API Secret: 7xWr0uajd6WJPClVV6uoDfieDTE
+Cloud Name: <YOUR_CLOUDINARY_NAME>
+API Key: <YOUR_CLOUDINARY_KEY>
+API Secret: <YOUR_CLOUDINARY_SECRET>
 
 You are helping a first-time Cloudinary user who already has an account set up their integration from scratch. Follow these rules:
 

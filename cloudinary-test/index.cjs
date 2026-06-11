@@ -1,10 +1,39 @@
+const fs = require('fs');
+const path = require('path');
 const cloudinary = require('cloudinary').v2;
 
-// 1. Configure Cloudinary (inline credentials as required by onboarding flow)
+// Load env variables from backend .env as a fallback for standalone execution
+function loadEnv() {
+  const paths = [
+    path.resolve(__dirname, '../applica-backend/.env'),
+    path.resolve(__dirname, './.env')
+  ];
+  for (const envPath of paths) {
+    if (fs.existsSync(envPath)) {
+      const content = fs.readFileSync(envPath, 'utf8');
+      content.split('\n').forEach(line => {
+        const match = line.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/);
+        if (match) {
+          const key = match[1];
+          let value = (match[2] || '').trim();
+          if (value.startsWith('"') && value.endsWith('"')) {
+            value = value.substring(1, value.length - 1);
+          } else if (value.startsWith("'") && value.endsWith("'")) {
+            value = value.substring(1, value.length - 1);
+          }
+          process.env[key] = value;
+        }
+      });
+      break;
+    }
+  }
+}
+loadEnv();
+
 cloudinary.config({
-  cloud_name: 'dme5ajgku',
-  api_key: '578577829774151',
-  api_secret: '7xWr0uajd6WJPClVV6uoDfieDTE',
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
   secure: true
 });
 

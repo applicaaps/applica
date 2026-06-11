@@ -74,8 +74,8 @@ In Render, vai nella scheda **Environment** del tuo Web Service e aggiungi le ch
 * `JWT_SECRET` = (copia il valore dal tuo `.env` locale)
 
 E se vuoi usare Cloudinary anche in produzione:
-* `CLOUDINARY_NAME` = `dme5ajgku`
-* `CLOUDINARY_KEY` = `578577829774151`
-* `CLOUDINARY_SECRET` = `7xWr0uajd6WJPClVV6uoDfieDTE`
+* `CLOUDINARY_NAME` = `il_tuo_cloud_name`
+* `CLOUDINARY_KEY` = `la_tua_api_key`
+* `CLOUDINARY_SECRET` = `la_tua_api_secret`
 
 Clicca su **Save Changes**. Render avvierà il build e il deploy automatico. Una volta completato (ci vorranno circa 5-7 minuti), avrai il tuo Strapi online all'indirizzo fornito da Render (es. `https://applica-backend.onrender.com/admin`).

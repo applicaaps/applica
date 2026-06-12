@@ -11,7 +11,7 @@ export default function ChiSiamo() {
       {/* ─── Hero ─── */}
       <section className="relative overflow-hidden pt-4 pb-20 md:pt-8 md:pb-28">
         <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-7 space-y-6">
             <RevealSection>
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[var(--color-on-surface)] leading-[1.1] tracking-tight">
                 La salute mentale è un <span className="text-[#b59540]">diritto</span>, non un lusso
@@ -28,16 +28,19 @@ export default function ChiSiamo() {
               </div>
             </RevealSection>
           </div>
-          <div className="lg:col-span-6 relative">
+          <div className="lg:col-span-5 relative">
             <RevealSection stagger={2}>
-              <div className="aspect-square rounded-2xl overflow-hidden ambient-shadow-lg border-4 border-white bg-[var(--color-surface-container)] flex items-center justify-center text-[var(--color-outline)]">
-                <div className="flex flex-col items-center">
-                  <Users size={56} className="mb-3 opacity-40" />
-                  <span className="text-sm font-medium opacity-50">Foto Community</span>
-                </div>
+              <div className="aspect-square rounded-2xl overflow-hidden ambient-shadow-lg border-4 border-white relative">
+                <Image
+                  src="/immaginechisiamo.jpeg"
+                  alt="Community Applica"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                  priority
+                />
               </div>
             </RevealSection>
-
           </div>
         </div>
       </section>
@@ -155,30 +158,28 @@ export default function ChiSiamo() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div className="order-2 lg:order-1 relative">
               <RevealSection>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-4">
-                    <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[var(--color-primary)]/8 flex items-center justify-center text-[var(--color-primary)]">
-                      <Heart size={40} className="opacity-40" />
-                    </div>
-                    <div className="p-5 bg-[var(--color-tertiary-fixed)]/20 rounded-2xl">
-                      <h4 className="text-lg font-bold text-[var(--color-on-surface)] mb-1">Umana</h4>
-                      <p className="text-sm text-[var(--color-on-surface-variant)]">L&apos;ascolto prima di tutto.</p>
-                    </div>
+                <div className="relative max-w-[420px] mx-auto py-8 px-6">
+                  {/* Image container */}
+                  <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[var(--color-secondary-fixed-dim)]/30 relative border border-[var(--color-outline-variant)]">
+                    <Image
+                      src="/fotoMockup.webp"
+                      alt="Valori di Applica"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 30vw"
+                      className="object-cover"
+                    />
                   </div>
-                  <div className="space-y-4 pt-10">
-                    <div className="p-5 bg-[#b59540]/20 rounded-2xl">
-                      <h4 className="text-lg font-bold text-[#b59540] mb-1">Accessibile</h4>
-                      <p className="text-sm text-[#b59540]/80">Senza barriere, per tutti.</p>
-                    </div>
-                    <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[var(--color-secondary-fixed-dim)]/30 relative border border-[var(--color-outline-variant)]">
-                      <Image
-                        src="/fotoMockup.webp"
-                        alt="Accessibilità"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 20vw"
-                        className="object-cover"
-                      />
-                    </div>
+
+                  {/* Umana textbox: absolute top-left overlapping */}
+                  <div className="absolute top-2 left-2 p-5 bg-[var(--color-tertiary-fixed)]/90 backdrop-blur-md rounded-2xl shadow-xl border border-[var(--color-outline-variant)]/20 max-w-[200px]">
+                    <h4 className="text-lg font-bold text-[var(--color-on-surface)] mb-1">Umana</h4>
+                    <p className="text-sm text-[var(--color-on-surface-variant)] leading-snug">L&apos;ascolto prima di tutto.</p>
+                  </div>
+
+                  {/* Accessibile textbox: absolute bottom-right overlapping */}
+                  <div className="absolute bottom-2 right-2 p-5 bg-[#f4ebd0]/95 backdrop-blur-md rounded-2xl shadow-xl border border-[#b59540]/30 max-w-[200px]">
+                    <h4 className="text-lg font-bold text-[#b59540] mb-1">Accessibile</h4>
+                    <p className="text-sm text-[#b59540]/90 leading-snug">Senza barriere, per tutti.</p>
                   </div>
                 </div>
               </RevealSection>

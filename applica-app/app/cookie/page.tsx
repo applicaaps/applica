@@ -108,9 +108,21 @@ export default function CookiePolicy() {
                 Di seguito i link alle istruzioni di disabilitazione dei cookie per i browser più comuni:
               </p>
               <ul className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm font-semibold">
-                {["Google Chrome", "Mozilla Firefox", "Apple Safari", "Microsoft Edge"].map((browser) => (
-                  <li key={browser} className="p-3 bg-white border border-[var(--color-outline-variant)]/50 rounded-xl text-center shadow-sm">
-                    {browser}
+                {[
+                  { name: "Google Chrome", url: "https://support.google.com/chrome/answer/95647?hl=it" },
+                  { name: "Mozilla Firefox", url: "https://support.mozilla.org/it/kb/gestione-cookie" },
+                  { name: "Apple Safari", url: "https://support.apple.com/it-it/guide/safari/sfri11471/mac" },
+                  { name: "Microsoft Edge", url: "https://support.microsoft.com/it-it/edge/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use" }
+                ].map((browser) => (
+                  <li key={browser.name}>
+                    <a
+                      href={browser.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-white border border-[var(--color-outline-variant)]/50 rounded-xl text-center shadow-sm block hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-container-low)] transition-all duration-200"
+                    >
+                      {browser.name}
+                    </a>
                   </li>
                 ))}
               </ul>

@@ -108,26 +108,14 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1">
             <RevealSection>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4 pt-10">
-                  <div className="rounded-2xl w-full aspect-[3/4] bg-[var(--color-surface-container)] ambient-shadow relative border border-[var(--color-outline-variant)] overflow-hidden">
-                    <Image
-                      src="/fotoGroup.webp"
-                      alt="Community Applica"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="rounded-2xl w-full aspect-[3/4] bg-[var(--color-surface-container)] flex items-center justify-center text-[var(--color-outline)] ambient-shadow relative overflow-hidden">
-                    <div className="flex flex-col items-center">
-                      <Heart size={28} className="mb-2 opacity-40" />
-                      <span className="text-xs font-medium opacity-50">Supervisione</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
+                <Image
+                  src="/fotoGroup.webp"
+                  alt="Community Applica"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
               </div>
             </RevealSection>
           </div>

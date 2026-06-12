@@ -131,7 +131,7 @@ export default function Contatti() {
                     <div>
                       <h3 className="text-base font-bold text-[var(--color-on-surface)] mb-1">Telefono</h3>
                       <p className="text-sm text-[var(--color-on-surface-variant)] mb-0.5">
-                        Segreteria: <span className="hover:text-[var(--color-primary)] transition-colors duration-200">---</span>
+                        Segreteria: <a href="tel:+393319434879" className="hover:text-[var(--color-primary)] transition-colors duration-200 font-semibold">+39 331 943 4879</a>
                       </p>
                       <p className="text-xs text-[var(--color-outline)]">
                         Lunedì – Venerdì: 09:00 – 18:00

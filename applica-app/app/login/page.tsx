@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
-import { Lock, Mail, ArrowRight } from "lucide-react"
+import { Lock, Mail, ArrowRight, Info } from "lucide-react"
 
 export default function Login() {
   const router = useRouter()
@@ -30,11 +30,22 @@ export default function Login() {
 
       <div className="w-full max-w-md bg-white p-8 md:p-10 rounded-2xl border border-[var(--color-outline-variant)] ambient-shadow relative" style={{ zIndex: 1 }}>
         
-        <div className="text-center mb-9">
+        <div className="text-center mb-6">
           <h1 className="text-2xl font-bold text-[var(--color-on-surface)] mb-2">Area Riservata</h1>
           <p className="text-sm text-[var(--color-on-surface-variant)]">
             Accedi per gestire eventi e materiali clinici
           </p>
+        </div>
+
+        {/* Disclaimer Demo */}
+        <div className="bg-amber-50/80 border border-amber-200/50 rounded-xl p-4 flex items-start gap-2.5 mb-6 text-left">
+          <Info className="text-amber-800 shrink-0 mt-0.5" size={16} />
+          <div>
+            <h4 className="font-bold text-xs text-amber-950">Anteprima Dimostrativa (DEMO)</h4>
+            <p className="text-[11px] text-amber-800/95 leading-relaxed mt-0.5">
+              Stai visualizzando una demo di anteprima. Puoi accedere liberamente con le credenziali precompilate per esplorare le funzionalità dell&apos;area riservata.
+            </p>
+          </div>
         </div>
 
         <form className="space-y-5" onSubmit={handleLogin}>

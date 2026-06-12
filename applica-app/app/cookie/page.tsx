@@ -110,7 +110,7 @@ export default function CookiePolicy() {
               <ul className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm font-semibold">
                 {[
                   { name: "Google Chrome", url: "https://support.google.com/chrome/answer/95647?hl=it" },
-                  { name: "Mozilla Firefox", url: "https://support.mozilla.org/it/kb/gestione-cookie" },
+                  { name: "Mozilla Firefox", url: "https://support.mozilla.org/it/kb/Siti%20web%20e%20avviso%20di%20blocco%20dei%20cookie#w_controllare-le-impostazioni-dei-cookie" },
                   { name: "Apple Safari", url: "https://support.apple.com/it-it/guide/safari/sfri11471/mac" },
                   { name: "Microsoft Edge", url: "https://support.microsoft.com/it-it/edge/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use" }
                 ].map((browser) => (

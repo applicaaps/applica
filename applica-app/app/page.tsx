@@ -110,11 +110,14 @@ export default function Home() {
             <RevealSection>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4 pt-10">
-                  <div className="rounded-2xl w-full aspect-[3/4] bg-[var(--color-surface-container)] flex items-center justify-center text-[var(--color-outline)] ambient-shadow relative overflow-hidden">
-                    <div className="flex flex-col items-center">
-                      <Users size={28} className="mb-2 opacity-40" />
-                      <span className="text-xs font-medium opacity-50">Community</span>
-                    </div>
+                  <div className="rounded-2xl w-full aspect-[3/4] bg-[var(--color-surface-container)] ambient-shadow relative border border-[var(--color-outline-variant)] overflow-hidden">
+                    <Image
+                      src="/fotoGroup.webp"
+                      alt="Community Applica"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                      className="object-cover"
+                    />
                   </div>
                 </div>
                 <div className="space-y-4">

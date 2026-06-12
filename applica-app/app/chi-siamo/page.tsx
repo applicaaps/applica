@@ -56,11 +56,11 @@ export default function ChiSiamo() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <RevealSection stagger={1}>
-              <div className="bg-[var(--color-primary)] p-8 rounded-2xl text-[var(--color-on-primary)] h-full flex flex-col gap-6 interactive-card">
-                <HeartHandshake size={24} />
+              <div className="bg-white p-8 rounded-2xl border border-[var(--color-outline-variant)] h-full flex flex-col gap-6 interactive-card text-[var(--color-on-surface)]">
+                <HeartHandshake size={24} className="text-[var(--color-primary)]" />
                 <div>
                   <h3 className="text-xl font-bold mb-2">Clinica sociale</h3>
-                  <p className="text-sm opacity-85 leading-relaxed">
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     Percorsi psicologici accessibili e umani per la comunità.
                   </p>
                 </div>
@@ -170,8 +170,14 @@ export default function ChiSiamo() {
                       <h4 className="text-lg font-bold text-[#b59540] mb-1">Accessibile</h4>
                       <p className="text-sm text-[#b59540]/80">Senza barriere, per tutti.</p>
                     </div>
-                    <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[var(--color-secondary-fixed-dim)]/30 flex items-center justify-center text-[var(--color-secondary)]">
-                      <Users size={40} className="opacity-40" />
+                    <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[var(--color-secondary-fixed-dim)]/30 relative border border-[var(--color-outline-variant)]">
+                      <Image
+                        src="/fotoMockup.webp"
+                        alt="Accessibilità"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 20vw"
+                        className="object-cover"
+                      />
                     </div>
                   </div>
                 </div>

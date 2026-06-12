@@ -27,14 +27,20 @@ export default function PrivacyPolicy() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200
+      // If at the very bottom of the page, force active section to be the last one
+      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60
+      if (isAtBottom) {
+        setActiveSection(sections[sections.length - 1].id)
+        return
+      }
+
+      const scrollThreshold = 180 // px from the top of the viewport
 
       for (const section of sections) {
         const el = document.getElementById(section.id)
         if (el) {
-          const top = el.offsetTop
-          const height = el.offsetHeight
-          if (scrollPosition >= top && scrollPosition < top + height) {
+          const rect = el.getBoundingClientRect()
+          if (rect.top <= scrollThreshold && rect.bottom > scrollThreshold) {
             setActiveSection(section.id)
             break
           }
@@ -49,7 +55,9 @@ export default function PrivacyPolicy() {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id)
     if (el) {
-      const offset = el.offsetTop - 120
+      const rect = el.getBoundingClientRect()
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      const offset = rect.top + scrollTop - 120
       window.scrollTo({
         top: offset,
         behavior: "smooth",
@@ -111,10 +119,10 @@ export default function PrivacyPolicy() {
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
-                      className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200 block ${
+                      className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200 block border-l-2 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/20 ${
                         activeSection === section.id
-                          ? "bg-[var(--color-primary-container)]/10 text-[var(--color-primary)] font-semibold border-l-2 border-[var(--color-primary)] pl-4"
-                          : "text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container-low)] pl-3"
+                          ? "bg-[var(--color-primary-container)]/10 text-[var(--color-primary)] font-semibold border-[var(--color-primary)] pl-4"
+                          : "border-transparent text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container-low)] pl-4"
                       }`}
                     >
                       {section.title}

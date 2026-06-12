@@ -135,18 +135,15 @@ export default function PrivacyPolicy() {
                   </h2>
                   <div className="bg-white p-6 rounded-2xl border border-[var(--color-outline-variant)]/50 space-y-4 shadow-sm">
                     <p className="text-base text-[var(--color-on-surface-variant)] leading-relaxed">
-                      Ai sensi dell&apos;art. 13 del Regolamento (UE) 2016/679 (&quot;GDPR&quot;), Applica APS, con sede in Via Roma 69, 70029 Santeramo in Colle (BA), email:{" "}
+                      Ai sensi dell&apos;art. 13 del Regolamento (UE) 2016/679 (&quot;GDPR&quot;), Applica APS, con domicilio fiscale in Via Stazione 163, 70029 Santeramo in Colle (BA), sede operativa/di contatto in Via Roma 69, 70029 Santeramo in Colle (BA), email:{" "}
                       <a href="mailto:applicapsicologia@gmail.com" className="text-[var(--color-primary)] hover:underline font-medium">
                         applicapsicologia@gmail.com
                       </a>
-                      , in qualità di Titolare del trattamento, informa gli utenti in merito al trattamento dei dati personali effettuato tramite il sito web{" "}
+                      , codice fiscale: <strong>91152320726</strong>, in qualità di Titolare del trattamento, informa gli utenti in merito al trattamento dei dati personali effettuato tramite il sito web{" "}
                       <a href="https://applicaaps.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline font-medium inline-flex items-center gap-0.5">
                         applicaaps.com <ExternalLink size={12} />
                       </a>.
                     </p>
-                    <div className="p-4 bg-orange-50/50 border border-orange-200/50 rounded-xl text-xs text-orange-800">
-                      <strong>C.F. / P. IVA:</strong> [INSERIRE P. IVA O CODICE FISCALE DI APPLICA APS]
-                    </div>
                   </div>
                 </div>
               </RevealSection>
@@ -271,7 +268,7 @@ export default function PrivacyPolicy() {
                   </h2>
                   <div className="prose text-base text-[var(--color-on-surface-variant)] leading-relaxed">
                     <p>
-                      I dati sono trattati presso la sede del Titolare e presso i fornitori di servizi tecnologici utilizzati per il funzionamento del sito e delle relative funzionalità. Alcuni fornitori potrebbero trattare dati al di fuori dello Spazio Economico Europeo; in tali casi il trasferimento avverrà nel rispetto degli artt. 44 e ss. del GDPR, mediante l&apos;adozione di garanzie adeguate, quali decisioni di adeguatezza, clausole contrattuali standard o altri strumenti previsti dalla normativa applicabile.
+                      I dati sono trattati presso il domicilio fiscale del Titolare e presso i fornitori di servizi tecnologici utilizzati per il funzionamento del sito e delle relative funzionalità. Alcuni fornitori potrebbero trattare dati al di fuori dello Spazio Economico Europeo; in tali casi il trasferimento avverrà nel rispetto degli artt. 44 e ss. del GDPR, mediante l&apos;adozione di garanzie adeguate, quali decisioni di adeguatezza, clausole contrattuali standard o altri strumenti previsti dalla normativa applicabile.
                     </p>
                   </div>
                 </div>
@@ -288,7 +285,7 @@ export default function PrivacyPolicy() {
                       I dati di navigazione sono conservati per il tempo strettamente necessario al perseguimento delle finalità tecniche e di sicurezza del sito, salvo esigenze ulteriori di accertamento di reati o tutela dei diritti del Titolare.
                     </p>
                     <p>
-                      I dati trasmessi tramite Google Forms sono conservati per il tempo necessario a gestire la richiesta o il percorso di adesione e, successivamente, per il periodo coerente con le finalità amministrative, organizzative e legali dell&apos;associazione. I dati relativi all&apos;area riservata degli psicologi sono conservati per tutta la durata del rapporto con l&apos;associazione e, successivamente, per il tempo necessario all&apos;adempimento di obblighi di legge, alla gestione di eventuali contestazioni o alla tutela dei diritti del Titolare.
+                      I dati trasmessi tramite Google Forms sono conservati per il tempo necessario a gestire la richiesta o il percorso di adesione e, successivamente, per il periodo coerente con le finalità amministrative, organizzative e legali dell&apos;associazione. I dati relativi all&apos;area riservata degli psicologi sono conservati per tutta la durata del rapporto con l&apos;associazione; in caso di disiscrizione o cessazione del rapporto, tali dati saranno cancellati entro una settimana, salvo l&apos;eventuale ulteriore conservazione strettamente necessaria per adempiere a obblighi di legge o per la tutela dei diritti del Titolare.
                     </p>
                   </div>
                 </div>
@@ -316,7 +313,10 @@ export default function PrivacyPolicy() {
                   </h2>
                   <div className="prose text-base text-[var(--color-on-surface-variant)] leading-relaxed">
                     <p>
-                      Alla data dell&apos;ultimo aggiornamento della presente informativa, il sito non utilizza strumenti di tracciamento pubblicitario, profilazione o analytics come Google Analytics. Eventuali futuri strumenti ulteriori rispetto a quelli qui indicati saranno valutati sotto il profilo privacy e, se necessario, comporteranno l&apos;aggiornamento della presente informativa e degli eventuali meccanismi di raccolta del consenso.
+                      Alla data dell&apos;ultimo aggiornamento della presente informativa, il sito non utilizza strumenti di tracciamento pubblicitario, profilazione o analytics come Google Analytics.
+                    </p>
+                    <p>
+                      Eventuali futuri strumenti ulteriori rispetto a quelli qui indicati saranno valutati sotto il profilo privacy e, se necessario, comporteranno l&apos;aggiornamento della presente informativa e degli eventuali meccanismi di raccolta del consenso.
                     </p>
                   </div>
                 </div>
@@ -353,22 +353,27 @@ export default function PrivacyPolicy() {
                       <div className="flex items-start gap-3 text-sm text-[var(--color-on-surface-variant)]">
                         <MapPin size={18} className="text-[var(--color-primary)] shrink-0 mt-0.5" />
                         <div>
-                          <strong className="block text-[var(--color-on-surface)] font-serif">Sede legale</strong>
-                          <span>Applica APS<br />Via Roma 69, 70029 Santeramo in Colle (BA)</span>
+                          <strong className="block text-[var(--color-on-surface)] font-serif">Sedi dell&apos;associazione</strong>
+                          <span>
+                            <strong>Domicilio fiscale:</strong> Via Stazione 163, 70029 Santeramo in Colle (BA)<br />
+                            <strong>Sede operativa/contatti:</strong> Via Roma 69, 70029 Santeramo in Colle (BA)
+                          </span>
                         </div>
                       </div>
                       <div className="flex items-start gap-3 text-sm text-[var(--color-on-surface-variant)]">
                         <Mail size={18} className="text-[var(--color-primary)] shrink-0 mt-0.5" />
                         <div>
-                          <strong className="block text-[var(--color-on-surface)] font-serif">Email di contatto</strong>
-                          <a href="mailto:applicapsicologia@gmail.com" className="text-[var(--color-primary)] hover:underline">
-                            applicapsicologia@gmail.com
-                          </a>
+                          <strong className="block text-[var(--color-on-surface)] font-serif">Contatti</strong>
+                          <span>
+                            Email:{" "}
+                            <a href="mailto:applicapsicologia@gmail.com" className="text-[var(--color-primary)] hover:underline">
+                              applicapsicologia@gmail.com
+                            </a>
+                            <br />
+                            Codice fiscale: 91152320726
+                          </span>
                         </div>
                       </div>
-                    </div>
-                    <div className="p-4 bg-orange-50/50 border border-orange-200/50 rounded-xl text-xs text-orange-800">
-                      <strong>C.F. / P. IVA:</strong> [INSERIRE P. IVA O CODICE FISCALE DI APPLICA APS]
                     </div>
                   </div>
                 </div>

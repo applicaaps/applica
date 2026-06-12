@@ -130,17 +130,25 @@ export default function CookiePolicy() {
                   <div className="flex items-start gap-3 text-sm text-[var(--color-on-surface-variant)]">
                     <MapPin size={18} className="text-[var(--color-primary)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[var(--color-on-surface)] font-serif">Sede legale</strong>
-                      <span>Applica APS<br />Via Roma 69, 70029 Santeramo in Colle (BA)</span>
+                      <strong className="block text-[var(--color-on-surface)] font-serif">Sedi dell&apos;associazione</strong>
+                      <span>
+                        <strong>Domicilio fiscale:</strong> Via Stazione 163, 70029 Santeramo in Colle (BA)<br />
+                        <strong>Sede operativa/contatti:</strong> Via Roma 69, 70029 Santeramo in Colle (BA)
+                      </span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 text-sm text-[var(--color-on-surface-variant)]">
                     <Mail size={18} className="text-[var(--color-primary)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[var(--color-on-surface)] font-serif">Email di contatto</strong>
-                      <a href="mailto:applicapsicologia@gmail.com" className="text-[var(--color-primary)] hover:underline">
-                        applicapsicologia@gmail.com
-                      </a>
+                      <strong className="block text-[var(--color-on-surface)] font-serif">Contatti</strong>
+                      <span>
+                        Email:{" "}
+                        <a href="mailto:applicapsicologia@gmail.com" className="text-[var(--color-primary)] hover:underline">
+                          applicapsicologia@gmail.com
+                        </a>
+                        <br />
+                        Codice fiscale: 91152320726
+                      </span>
                     </div>
                   </div>
                 </div>

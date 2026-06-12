@@ -355,7 +355,7 @@ export default function PrivacyPolicy() {
                   </h2>
                   <div className="bg-white p-6 rounded-2xl border border-[var(--color-outline-variant)]/50 space-y-4 shadow-sm">
                     <p className="text-base text-[var(--color-on-surface-variant)] leading-relaxed">
-                      Per esercitare i propri diritti o richiedere informazioni sul trattamento dei dati personali, è possibile contattare il Titolare ai seguenti recapiti:
+                      Per esercitare i propri diritti o richiedere informazioni sul trattamento dei dati personali, è possibile contattarci ai seguenti recapiti:
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                       <div className="flex items-start gap-3 text-sm text-[var(--color-on-surface-variant)]">

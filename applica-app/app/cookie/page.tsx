@@ -136,7 +136,7 @@ export default function CookiePolicy() {
               </h2>
               <div className="bg-white p-6 rounded-2xl border border-[var(--color-outline-variant)]/50 space-y-4 shadow-sm">
                 <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  Per qualsiasi chiarimento in merito all&apos;utilizzo dei cookie, puoi contattare il Titolare:
+                  Per qualsiasi chiarimento in merito all&apos;utilizzo dei cookie, puoi contattarci:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                   <div className="flex items-start gap-3 text-sm text-[var(--color-on-surface-variant)]">

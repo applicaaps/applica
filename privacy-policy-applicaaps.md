@@ -74,7 +74,7 @@ Gli interessati hanno inoltre il diritto di proporre reclamo al Garante per la p
 
 ## 12. Modalità di esercizio dei diritti
 
-Per esercitare i propri diritti o richiedere informazioni sul trattamento dei dati personali, è possibile contattare il Titolare ai seguenti recapiti:
+Per esercitare i propri diritti o richiedere informazioni sul trattamento dei dati personali, è possibile contattarci ai seguenti recapiti:
 
 - **Applica APS**
 - **Domicilio fiscale:** Via Stazione 163, 70029 Santeramo in Colle (BA)

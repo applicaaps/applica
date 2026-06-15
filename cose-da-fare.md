@@ -18,16 +18,19 @@ Ecco la lista delle attività da completare per far avanzare il progetto:
   - Configura i permessi per il ruolo **Public** (es. lettura dei Single Types per il sito pubblico).
   - Configura i permessi per il ruolo **Authenticated** (es. lettura di `eventi` e `documenti` protetti).
 
-## 2. Integrazione Cloudinary (Opzionale)
-- [ ] **Ottieni credenziali Cloudinary**:
-  - Crea un account su Cloudinary (gratuito per iniziare).
-  - Copia le credenziali: Cloud Name, API Key, API Secret.
+## 2. Configurazione Storage (Supabase Storage via S3 API)
+- [ ] **Ottieni credenziali S3 da Supabase**:
+  - Nel pannello di Supabase, vai su *Project Settings -> Storage*.
+  - Abilita la compatibilità S3 e genera una nuova coppia di chiavi S3 (Access Key ID e Secret Access Key).
+  - Crea un bucket (es. `applica-media`) impostando la visibilità su *Public* (per gli asset pubblici) o *Private* (per i documenti sensibili) come specificato in [backedRules.md](file:///c:/Users/elton_kvh7ex/Desktop/applicaAPS/backedRules.md).
 - [ ] **Aggiungi le chiavi a Strapi**:
-  - Inseriscile nel file `applica-backend/.env` con queste chiavi:
+  - Inseriscile nel file `applica-backend/.env` compilando le chiavi S3 configurate:
     ```env
-    CLOUDINARY_NAME=il_tuo_cloud_name
-    CLOUDINARY_KEY=la_tua_api_key
-    CLOUDINARY_SECRET=la_tua_api_secret
+    SUPABASE_S3_ACCESS_KEY_ID=la_tua_access_key_id
+    SUPABASE_S3_SECRET_ACCESS_KEY=la_tua_secret_access_key
+    SUPABASE_REGION=la_tua_regione_db (es. eu-central-1 o la regione del DB)
+    SUPABASE_S3_ENDPOINT=il_tuo_endpoint_s3 (es. https://[project-ref].supabase.co/storage/v1/s3)
+    SUPABASE_STORAGE_BUCKET=il_nome_del_bucket
     ```
 
 ## 3. Gestione Utenti (Per Test dell'Area Riservata)

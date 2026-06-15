@@ -1,26 +1,29 @@
 import type { Core } from '@strapi/strapi';
 
 const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin => {
-  if (env('CLOUDINARY_NAME')) {
-    return {
-      upload: {
-        config: {
-          provider: 'cloudinary',
-          providerOptions: {
-            cloud_name: env('CLOUDINARY_NAME'),
-            api_key: env('CLOUDINARY_KEY'),
-            api_secret: env('CLOUDINARY_SECRET'),
+  return {
+    upload: {
+      config: {
+        provider: '@strapi/provider-upload-aws-s3',
+        providerOptions: {
+          credentials: {
+            accessKeyId: env('SUPABASE_S3_ACCESS_KEY_ID'),
+            secretAccessKey: env('SUPABASE_S3_SECRET_ACCESS_KEY'),
           },
-          actionOptions: {
-            upload: {},
-            delete: {},
+          region: env('SUPABASE_REGION'),
+          endpoint: env('SUPABASE_S3_ENDPOINT'),
+          params: {
+            Bucket: env('SUPABASE_STORAGE_BUCKET'),
           },
         },
+        actionOptions: {
+          upload: {},
+          uploadStream: {},
+          delete: {},
+        },
       },
-    };
-  }
-
-  return {};
+    },
+  };
 };
 
 export default config;

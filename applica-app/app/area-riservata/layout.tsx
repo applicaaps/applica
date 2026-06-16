@@ -3,7 +3,8 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { LayoutDashboard, CalendarDays, FileText, LogOut, Info } from "lucide-react"
+import { LayoutDashboard, CalendarDays, FileText, LogOut } from "lucide-react"
+import { logoutAction } from "../login/actions"
 
 export default function AreaRiservataLayout({
   children,
@@ -13,10 +14,28 @@ export default function AreaRiservataLayout({
   const pathname = usePathname()
   const router = useRouter()
 
-  const handleLogout = () => {
-    document.cookie = "applica_session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-    router.push("/login")
-    router.refresh()
+  // Leggi dati utente dal cookie (impostato al login)
+  const [userData, setUserData] = React.useState({ username: "Utente", email: "", avatar: "U" })
+  React.useEffect(() => {
+    try {
+      const cookie = document.cookie
+        .split("; ")
+        .find(c => c.startsWith("applica_user="))
+      if (cookie) {
+        const data = JSON.parse(decodeURIComponent(cookie.split("=").slice(1).join("=")))
+        const avatar = (data.username || "U")
+          .split(" ")
+          .map((n: string) => n[0])
+          .join("")
+          .toUpperCase()
+          .slice(0, 2)
+        setUserData({ username: data.username || "Utente", email: data.email || "", avatar })
+      }
+    } catch {}
+  }, [])
+
+  const handleLogout = async () => {
+    await logoutAction()
   }
 
   const navItems = [
@@ -36,10 +55,10 @@ export default function AreaRiservataLayout({
               
               <div className="flex items-center gap-3 mb-6 pb-6 border-b border-[var(--color-outline-variant)]/50">
                 <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] text-[var(--color-on-primary)] flex items-center justify-center font-semibold text-sm shrink-0">
-                  DM
+                  {userData.avatar}
                 </div>
                 <div className="min-w-0">
-                  <h3 className="font-semibold text-[var(--color-on-surface)] text-sm truncate">Dottoressa Danubia Macario</h3>
+                  <h3 className="font-semibold text-[var(--color-on-surface)] text-sm truncate">{userData.username}</h3>
                   <p className="text-xs text-[var(--color-on-surface-variant)]">Professionista</p>
                 </div>
               </div>
@@ -79,18 +98,6 @@ export default function AreaRiservataLayout({
 
           {/* Main Content */}
           <main className="flex-1 min-w-0">
-            {/* Disclaimer Demo */}
-            <div className="bg-amber-50/80 border border-amber-200/50 rounded-2xl p-5 flex items-start gap-3.5 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-amber-100/60 text-amber-800 flex items-center justify-center shrink-0 mt-0.5">
-                <Info size={16} />
-              </div>
-              <div className="space-y-1">
-                <h4 className="font-bold text-sm text-amber-950 leading-none">Anteprima Dimostrativa (DEMO)</h4>
-                <p className="text-xs text-amber-800/90 leading-relaxed">
-                  Stai navigando una versione dimostrativa di anteprima. I dati clinici, gli eventi e la documentazione sono simulati e fittizi; la piattaforma reale integrata con i servizi interni sarà resa pienamente operativa a breve.
-                </p>
-              </div>
-            </div>
             {children}
           </main>
 

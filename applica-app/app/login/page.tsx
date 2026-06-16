@@ -2,22 +2,26 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
-import { Lock, Mail, ArrowRight, Info } from "lucide-react"
+import { Lock, Mail, ArrowRight } from "lucide-react"
+import { loginAction } from "./actions"
 
 export default function Login() {
   const router = useRouter()
   const [isLoading, setIsLoading] = React.useState(false)
+  const [error, setError] = React.useState<string | null>(null)
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsLoading(true)
+    setError(null)
     
-    setTimeout(() => {
-      const mockToken = process.env.NEXT_PUBLIC_MOCK_SESSION_TOKEN || "authenticated_mock_token";
-      document.cookie = `applica_session=${mockToken}; path=/; max-age=86400`
-      router.push("/area-riservata")
-      router.refresh()
-    }, 1500)
+    const formData = new FormData(e.currentTarget)
+    const res = await loginAction(null, formData)
+    
+    if (res && !res.success) {
+      setError(res.error)
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -37,16 +41,12 @@ export default function Login() {
           </p>
         </div>
 
-        {/* Disclaimer Demo */}
-        <div className="bg-amber-50/80 border border-amber-200/50 rounded-xl p-4 flex items-start gap-2.5 mb-6 text-left">
-          <Info className="text-amber-800 shrink-0 mt-0.5" size={16} />
-          <div>
-            <h4 className="font-bold text-xs text-amber-950">Anteprima Dimostrativa (DEMO)</h4>
-            <p className="text-[11px] text-amber-800/95 leading-relaxed mt-0.5">
-              Stai visualizzando una demo di anteprima. Puoi accedere liberamente con le credenziali precompilate per esplorare le funzionalità dell&apos;area riservata.
-            </p>
+        {/* Error Alert */}
+        {error && (
+          <div className="bg-red-50 border border-red-200/50 text-red-800 rounded-xl p-4 text-xs text-left mb-5">
+            <strong>Errore di accesso:</strong> {error}
           </div>
-        </div>
+        )}
 
         <form className="space-y-5" onSubmit={handleLogin}>
           <div className="space-y-1.5">
@@ -55,8 +55,8 @@ export default function Login() {
               <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-outline)]" size={18} />
               <input 
                 type="email" 
+                name="email"
                 required
-                defaultValue={process.env.NEXT_PUBLIC_MOCK_EMAIL || "danubia.macario@applica-aps.it"}
                 className="w-full pl-11 pr-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
                 placeholder="Inserisci la tua email"
               />
@@ -74,8 +74,8 @@ export default function Login() {
               <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-outline)]" size={18} />
               <input 
                 type="password" 
+                name="password"
                 required
-                defaultValue={process.env.NEXT_PUBLIC_MOCK_PASSWORD || "password123"}
                 className="w-full pl-11 pr-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
                 placeholder="Inserisci la tua password"
               />

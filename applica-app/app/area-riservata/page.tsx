@@ -1,15 +1,19 @@
 import Link from "next/link"
-import { mockUser, mockEventi, mockDocumenti } from "@/lib/auth"
 import { CalendarDays, FileText, ArrowRight } from "lucide-react"
+import { getCurrentUser, getEventi, getDocumenti } from "@/lib/db"
 
-export default function Dashboard() {
-  const upcomingEvents = mockEventi.filter(e => e.status === "upcoming").slice(0, 2)
-  const recentDocs = mockDocumenti.slice(0, 2)
+export default async function Dashboard() {
+  const user = await getCurrentUser()
+  const eventi = await getEventi()
+  const documenti = await getDocumenti()
+
+  const upcomingEvents = eventi.filter(e => e.status === "upcoming").slice(0, 2)
+  const recentDocs = documenti.slice(0, 2)
 
   return (
     <div className="space-y-6">
       <div className="bg-white rounded-2xl p-7 border border-[var(--color-outline-variant)] ambient-shadow">
-        <h1 className="text-2xl font-bold text-[var(--color-on-surface)] mb-1">Benvenuto, {mockUser.name}</h1>
+        <h1 className="text-2xl font-bold text-[var(--color-on-surface)] mb-1">Benvenuto, {user.name}</h1>
         <p className="text-sm text-[var(--color-on-surface-variant)]">
           Ecco il riepilogo delle tue attività e dei prossimi appuntamenti.
         </p>

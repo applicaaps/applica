@@ -11,20 +11,62 @@ export type User = {
 export const mockUser: User = {
   id: "usr_001",
   name: "Dottoressa Danubia Macario",
-  email: process.env.NEXT_PUBLIC_MOCK_EMAIL || "danubia.macario@applica-aps.it",
+  email: "danubia.macario@applica-aps.it",
   role: "professionista",
   avatar: "DM"
 };
 
-// Mock Auth Check
-// In a real app, this would verify a JWT or session cookie
+// Verifica preliminare dell'autenticazione tramite cookie JWT (solo formato e scadenza)
+// ATTENZIONE: Questa funzione non verifica la firma crittografica del JWT. Usa verifySession per controlli sicuri.
 export function isAuthenticated(cookieStore: any): boolean {
   const sessionCookie = cookieStore.get("applica_session");
-  const expectedToken = process.env.NEXT_PUBLIC_MOCK_SESSION_TOKEN || "authenticated_mock_token";
-  return sessionCookie?.value === expectedToken;
+  if (!sessionCookie?.value) return false;
+  
+  // Verifica che sia un JWT valido (3 parti separate da punti)
+  const parts = sessionCookie.value.split(".");
+  if (parts.length !== 3) return false;
+  
+  // Verifica che non sia scaduto
+  try {
+    const payload = JSON.parse(Buffer.from(parts[1], "base64").toString());
+    if (payload.exp && payload.exp * 1000 < Date.now()) {
+      return false; // JWT scaduto
+    }
+  } catch {
+    return false;
+  }
+  
+  return true;
 }
 
-// Mock Data: Eventi
+// Verifica sicura della sessione interrogando Strapi per la validità della firma del JWT
+export async function verifySession(cookieStore: any): Promise<boolean> {
+  const sessionCookie = cookieStore.get("applica_session");
+  if (!sessionCookie?.value) return false;
+
+  const strapiUrl = process.env.STRAPI_API_URL || "http://localhost:1337";
+  const strapiToken = process.env.STRAPI_API_TOKEN;
+  const isStrapiConfigured = !!(strapiUrl && strapiToken && strapiToken !== "your_strapi_api_token");
+
+  if (isStrapiConfigured) {
+    try {
+      const res = await fetch(`${strapiUrl}/api/users/me`, {
+        headers: {
+          Authorization: `Bearer ${sessionCookie.value}`,
+        },
+        cache: "no-store",
+      });
+      return res.ok;
+    } catch {
+      return false;
+    }
+  }
+
+  // Fallback passivo in ambiente locale/demo se Strapi non è configurato
+  return isAuthenticated(cookieStore);
+}
+
+// Mock Data: Eventi (fallback quando Strapi non ha dati)
 export type Evento = {
   id: string;
   slug: string;
@@ -73,7 +115,7 @@ export const mockEventi: Evento[] = [
   }
 ];
 
-// Mock Data: Documenti
+// Mock Data: Documenti (fallback quando Strapi non ha dati)
 export type Documento = {
   id: string;
   title: string;

@@ -39,8 +39,13 @@ export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
     const ip = getClientIp(ctx);
     const path = ctx.path;
 
-    // Detect login routes
+    // Only rate limit API routes and the admin login endpoint
+    const isApiRoute = path.startsWith('/api/');
     const isLoginRoute = path === '/api/auth/local' || path === '/admin/login';
+
+    if (!isApiRoute && !isLoginRoute) {
+      return next();
+    }
 
     const now = Date.now();
     const windowMs = 15 * 60 * 1000; // 15 minutes

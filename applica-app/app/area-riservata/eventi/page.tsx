@@ -1,10 +1,11 @@
 import Link from "next/link"
-import { mockEventi } from "@/lib/auth"
 import { Calendar, MapPin, Clock, ArrowRight } from "lucide-react"
+import { getEventi } from "@/lib/db"
 
-export default function EventiLista() {
-  const upcomingEvents = mockEventi.filter(e => e.status === "upcoming")
-  const pastEvents = mockEventi.filter(e => e.status === "past")
+export default async function EventiLista() {
+  const eventi = await getEventi()
+  const upcomingEvents = eventi.filter(e => e.status === "upcoming")
+  const pastEvents = eventi.filter(e => e.status === "past")
 
   return (
     <div className="space-y-6">

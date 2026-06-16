@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { mockEventi } from "@/lib/auth"
 import { Calendar, MapPin, Clock, ArrowLeft, Users, CheckCircle2 } from "lucide-react"
+import { getEventoBySlug } from "@/lib/db"
 
 export default async function DettaglioEvento({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const evento = mockEventi.find(e => e.slug === slug)
+  const evento = await getEventoBySlug(slug)
 
   if (!evento) {
     notFound()

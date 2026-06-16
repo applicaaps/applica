@@ -34,6 +34,13 @@ function sanitizeData(data: any): any {
 
 export default (config: any, { strapi }: { strapi: Core.Strapi }) => {
   return async (ctx: any, next: () => Promise<void>) => {
+    const path = ctx.path;
+    const isApiRoute = path.startsWith('/api/') || path.startsWith('/admin/api/') || path === '/admin/login';
+
+    if (!isApiRoute) {
+      return next();
+    }
+
     // 1. Enforce Payload Size Limit (Max 2MB)
     const contentLengthHeader = ctx.headers['content-length'];
     if (contentLengthHeader) {

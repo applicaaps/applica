@@ -116,7 +116,7 @@ export default function Contatti() {
                     <div>
                       <h3 className="text-base font-bold text-[var(--color-on-surface)] mb-1">La nostra sede</h3>
                       <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                        Via Stazione 163<br />
+                        Via Roma 69<br />
                         70029 Santeramo in Colle (BA)
                       </p>
                     </div>

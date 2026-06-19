@@ -43,7 +43,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-[var(--color-inverse-on-surface)]/60">
                 <MapPin size={16} className="text-[var(--color-primary-fixed)] shrink-0 mt-0.5" />
-                <span>Via Stazione 163, 70029 Santeramo in Colle (BA)</span>
+                <span>Via Roma 69, 70029 Santeramo in Colle (BA)</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-[var(--color-inverse-on-surface)]/60">
                 <Phone size={16} className="text-[var(--color-primary-fixed)] shrink-0" />

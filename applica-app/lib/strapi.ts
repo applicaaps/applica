@@ -155,6 +155,7 @@ export async function loginWithStrapi(
   identifier: string,
   password: string
 ): Promise<StrapiAuthResponse> {
+  console.log(`[DEBUG AUTH] Tentativo di connessione a: ${STRAPI_URL}/api/auth/local`);
   const res = await fetch(`${STRAPI_URL}/api/auth/local`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

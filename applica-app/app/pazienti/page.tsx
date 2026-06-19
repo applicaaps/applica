@@ -19,10 +19,7 @@ export default function PazientiPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-8">
               <RevealSection>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 text-orange-600 font-semibold text-sm mb-2">
-                  <UserRound size={16} />
-                  <span>Per i pazienti</span>
-                </div>
+
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-on-surface)] leading-tight tracking-tight">
                   Un percorso per prenderti <span className="text-[#b59540]">cura</span> di te
                 </h1>

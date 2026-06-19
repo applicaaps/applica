@@ -19,10 +19,7 @@ export default function ProfessionistiPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-8">
               <RevealSection>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 font-semibold text-sm mb-2">
-                  <Brain size={16} />
-                  <span>Per i psicologi</span>
-                </div>
+
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-on-surface)] leading-tight tracking-tight">
                   Una comunità per <span className="text-[#b59540]">crescere</span> come professionista.
                 </h1>

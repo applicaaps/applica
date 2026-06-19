@@ -79,21 +79,7 @@ export default async function Dashboard() {
 
       </div>
 
-      {/* Banner */}
-      <div className="bg-[var(--color-primary)] rounded-2xl p-7 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/4 blur-3xl pointer-events-none"></div>
-        <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-5" style={{ zIndex: 1 }}>
-          <div>
-            <h2 className="text-lg font-bold mb-1">Aggiorna il tuo profilo professionale</h2>
-            <p className="text-sm opacity-75 max-w-md">
-              Mantieni aggiornate disponibilità e specializzazioni per facilitare il matching con i pazienti.
-            </p>
-          </div>
-          <button className="bg-white text-[var(--color-primary)] px-5 py-2.5 rounded-lg text-sm font-semibold pressable hover:bg-white/90 shrink-0">
-            Vai al profilo
-          </button>
-        </div>
-      </div>
+
     </div>
   )
 }

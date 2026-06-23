@@ -1,49 +1,36 @@
 import { NextResponse, type NextRequest } from 'next/server'
+import { jwtVerify } from 'jose'
 
-function isStrapiConfigured(): boolean {
-  const strapiUrl = process.env.STRAPI_API_URL || "http://localhost:1337"
-  const strapiToken = process.env.STRAPI_API_TOKEN
-  return !!(strapiUrl && strapiToken && strapiToken !== "your_strapi_api_token")
-}
-
-// Verifica se la sessione (JWT di Strapi) è valida strutturalmente, non scaduta e con firma valida
 async function isSessionValid(token: string | undefined): Promise<boolean> {
   if (!token) return false;
 
-  // Pre-check rapido del formato e della scadenza per evitare chiamate di rete inutili
-  const parts = token.split('.');
-  if (parts.length !== 3) return false;
+  const secretString = process.env.STRAPI_JWT_SECRET;
+
+  if (secretString) {
+    try {
+      const secret = new TextEncoder().encode(secretString);
+      await jwtVerify(token, secret);
+      return true; // Firma JWT valida (non contraffatta) e non scaduta
+    } catch (e) {
+      return false; // Token non valido o scaduto
+    }
+  }
+
+  // Fallback passivo (usato in locale se STRAPI_JWT_SECRET non è configurato)
   try {
+    const parts = token.split('.');
+    if (parts.length !== 3) return false;
     const payload = JSON.parse(Buffer.from(parts[1], 'base64').toString());
     if (payload.exp && payload.exp * 1000 < Date.now()) {
       return false; // JWT scaduto
     }
+    return true;
   } catch {
     return false;
   }
-
-  // Se Strapi è configurato, verifica la firma del JWT contattando l'infrastruttura di backend
-  if (isStrapiConfigured()) {
-    try {
-      const strapiUrl = process.env.STRAPI_API_URL || "http://localhost:1337";
-      const res = await fetch(`${strapiUrl}/api/users/me`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        cache: "no-store",
-      });
-      return res.ok;
-    } catch (e) {
-      console.error("Errore di rete durante la verifica del token in middleware:", e);
-      return false;
-    }
-  }
-
-  // Fallback passivo in ambiente locale/demo se Strapi non è configurato
-  return true;
 }
 
-export async function proxy(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const sessionCookie = request.cookies.get('applica_session');
   const token = sessionCookie?.value;
   const authenticated = await isSessionValid(token);

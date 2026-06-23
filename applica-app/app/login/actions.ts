@@ -1,6 +1,6 @@
 "use server"
 
-import { cookies } from "next/headers"
+import { cookies, headers } from "next/headers"
 import { z } from "zod"
 import { redirect } from "next/navigation"
 import { loginWithStrapi } from "@/lib/strapi"
@@ -28,10 +28,14 @@ export async function loginAction(prevState: any, formData: FormData) {
   let isRedirect = false
 
   try {
+    const headersList = await headers()
+    const clientIp = headersList.get('x-forwarded-for') || headersList.get('x-real-ip') || '127.0.0.1'
+
     // Login tramite Strapi Users & Permissions
     const authResponse = await loginWithStrapi(
       validatedFields.data.email,
-      validatedFields.data.password
+      validatedFields.data.password,
+      clientIp
     )
 
     // Salva il JWT di Strapi nel cookie di sessione

@@ -168,7 +168,11 @@ export async function getEventi(): Promise<Evento[]> {
   }
 
   try {
-    const strapiEventi = await getEventiFromStrapi()
+    const cookieStore = await cookies()
+    const sessionCookie = cookieStore.get("applica_session")
+    const userJwt = sessionCookie?.value
+
+    const strapiEventi = await getEventiFromStrapi(userJwt)
 
     if (strapiEventi.length === 0) {
       // Se non ci sono eventi in Strapi, usa i mock come fallback
@@ -190,7 +194,11 @@ export async function getEventoBySlug(slug: string): Promise<Evento | null> {
   }
 
   try {
-    const strapiEvento = await getEventoBySlugFromStrapi(slug)
+    const cookieStore = await cookies()
+    const sessionCookie = cookieStore.get("applica_session")
+    const userJwt = sessionCookie?.value
+
+    const strapiEvento = await getEventoBySlugFromStrapi(slug, userJwt)
 
     if (!strapiEvento) {
       // Fallback sui mock se non trovato
@@ -211,7 +219,11 @@ export async function getDocumenti(): Promise<Documento[]> {
   }
 
   try {
-    const strapiDocumenti = await getDocumentiFromStrapi()
+    const cookieStore = await cookies()
+    const sessionCookie = cookieStore.get("applica_session")
+    const userJwt = sessionCookie?.value
+
+    const strapiDocumenti = await getDocumentiFromStrapi(userJwt)
 
     if (strapiDocumenti.length === 0) {
       console.log("Nessun documento trovato in Strapi, uso dati mock")

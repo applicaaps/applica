@@ -15,7 +15,8 @@ export function isStrapiConfigured(): boolean {
  */
 async function strapiClient<T = any>(
   endpoint: string,
-  options: RequestInit = {}
+  options: RequestInit = {},
+  userJwt?: string
 ): Promise<T> {
   const url = `${STRAPI_URL}${endpoint}`
 
@@ -23,8 +24,10 @@ async function strapiClient<T = any>(
     "Content-Type": "application/json",
   }
 
-  // Usa il token API per le richieste dati
-  if (STRAPI_TOKEN) {
+  // Usa il JWT dell'utente se disponibile (sicurezza), altrimenti usa il token globale
+  if (userJwt) {
+    defaultHeaders["Authorization"] = `Bearer ${userJwt}`
+  } else if (STRAPI_TOKEN) {
     defaultHeaders["Authorization"] = `Bearer ${STRAPI_TOKEN}`
   }
 
@@ -121,9 +124,11 @@ export interface StrapiAuthResponse {
 /**
  * Recupera tutti gli eventi da Strapi (pubblicati)
  */
-export async function getEventiFromStrapi(): Promise<StrapiEvento[]> {
+export async function getEventiFromStrapi(userJwt?: string): Promise<StrapiEvento[]> {
   const res = await strapiClient<StrapiResponse<StrapiEvento>>(
-    "/api/eventi?populate=documenti&sort=data_inizio:asc&status=published"
+    "/api/eventi?populate=documenti&sort=data_inizio:asc&status=published",
+    {},
+    userJwt
   )
   return res.data
 }
@@ -131,9 +136,11 @@ export async function getEventiFromStrapi(): Promise<StrapiEvento[]> {
 /**
  * Recupera un singolo evento per slug
  */
-export async function getEventoBySlugFromStrapi(slug: string): Promise<StrapiEvento | null> {
+export async function getEventoBySlugFromStrapi(slug: string, userJwt?: string): Promise<StrapiEvento | null> {
   const res = await strapiClient<StrapiResponse<StrapiEvento>>(
-    `/api/eventi?filters[slug][$eq]=${encodeURIComponent(slug)}&populate=documenti&status=published`
+    `/api/eventi?filters[slug][$eq]=${encodeURIComponent(slug)}&populate=documenti&status=published`,
+    {},
+    userJwt
   )
   return res.data.length > 0 ? res.data[0] : null
 }
@@ -141,9 +148,11 @@ export async function getEventoBySlugFromStrapi(slug: string): Promise<StrapiEve
 /**
  * Recupera tutti i documenti da Strapi (pubblicati)
  */
-export async function getDocumentiFromStrapi(): Promise<StrapiDocumento[]> {
+export async function getDocumentiFromStrapi(userJwt?: string): Promise<StrapiDocumento[]> {
   const res = await strapiClient<StrapiResponse<StrapiDocumento>>(
-    "/api/documenti?populate=file&sort=createdAt:desc&status=published"
+    "/api/documenti?populate=file&sort=createdAt:desc&status=published",
+    {},
+    userJwt
   )
   return res.data
 }
@@ -153,12 +162,19 @@ export async function getDocumentiFromStrapi(): Promise<StrapiDocumento[]> {
  */
 export async function loginWithStrapi(
   identifier: string,
-  password: string
+  password: string,
+  clientIp?: string
 ): Promise<StrapiAuthResponse> {
   console.log(`[DEBUG AUTH] Tentativo di connessione a: ${STRAPI_URL}/api/auth/local`);
+  
+  const reqHeaders: Record<string, string> = { "Content-Type": "application/json" }
+  if (clientIp) {
+    reqHeaders["x-forwarded-for"] = clientIp
+  }
+
   const res = await fetch(`${STRAPI_URL}/api/auth/local`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: reqHeaders,
     body: JSON.stringify({ identifier, password }),
   })
 

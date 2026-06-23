@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
-import { Lock, Mail, ArrowRight } from "lucide-react"
+import { Lock, Mail, ArrowRight, Loader2 } from "lucide-react"
 import { loginAction } from "./actions"
 
 export default function Login() {
@@ -88,7 +88,10 @@ export default function Login() {
             className="w-full flex items-center justify-center gap-2 bg-[var(--color-primary)] text-[var(--color-on-primary)] px-8 py-3.5 rounded-xl font-semibold text-sm pressable hover:bg-[var(--color-primary-container)] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
           >
             {isLoading ? (
-              <span className="animate-pulse">Accesso in corso…</span>
+              <>
+                <Loader2 size={18} className="animate-spin" />
+                <span>Accesso in corso…</span>
+              </>
             ) : (
               <>
                 Accedi all&apos;area riservata

@@ -35,14 +35,21 @@ export default async function Dashboard() {
           
           <div className="space-y-3">
             {upcomingEvents.map(evento => (
-              <div key={evento.id} className="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline-variant)] interactive-card">
+              <Link 
+                href={`/area-riservata/eventi/${evento.slug}`} 
+                key={evento.id} 
+                className="block p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline-variant)] interactive-card cursor-pointer group"
+              >
                 <div className="flex justify-between items-start mb-1.5">
                   <span className="text-xs font-semibold text-[var(--color-primary)]">{evento.type}</span>
-                  <span className="text-xs text-[var(--color-outline)]">{evento.date}</span>
+                  <span className="text-xs text-[var(--color-outline)] group-hover:text-[var(--color-primary)] transition-colors duration-200 flex items-center gap-1">
+                    {evento.date}
+                    <ArrowRight size={12} className="opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
+                  </span>
                 </div>
-                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-1">{evento.title}</h3>
+                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-1 group-hover:underline decoration-[var(--color-primary)] underline-offset-2">{evento.title}</h3>
                 <p className="text-xs text-[var(--color-on-surface-variant)]">{evento.time} · {evento.location}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

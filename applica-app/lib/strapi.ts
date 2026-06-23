@@ -126,7 +126,7 @@ export interface StrapiAuthResponse {
  */
 export async function getEventiFromStrapi(userJwt?: string): Promise<StrapiEvento[]> {
   const res = await strapiClient<StrapiResponse<StrapiEvento>>(
-    "/api/eventi?populate=documenti&sort=data_inizio:asc&status=published",
+    "/api/eventi?populate=documenti&sort=data_inizio:asc",
     {},
     userJwt
   )
@@ -138,7 +138,7 @@ export async function getEventiFromStrapi(userJwt?: string): Promise<StrapiEvent
  */
 export async function getEventoBySlugFromStrapi(slug: string, userJwt?: string): Promise<StrapiEvento | null> {
   const res = await strapiClient<StrapiResponse<StrapiEvento>>(
-    `/api/eventi?filters[slug][$eq]=${encodeURIComponent(slug)}&populate=documenti&status=published`,
+    `/api/eventi?filters[slug][$eq]=${encodeURIComponent(slug)}&populate=documenti`,
     {},
     userJwt
   )
@@ -150,7 +150,7 @@ export async function getEventoBySlugFromStrapi(slug: string, userJwt?: string):
  */
 export async function getDocumentiFromStrapi(userJwt?: string): Promise<StrapiDocumento[]> {
   const res = await strapiClient<StrapiResponse<StrapiDocumento>>(
-    "/api/documenti?populate=file&sort=createdAt:desc&status=published",
+    "/api/documenti?populate=file&sort=createdAt:desc",
     {},
     userJwt
   )
@@ -186,4 +186,38 @@ export async function loginWithStrapi(
   }
 
   return res.json()
+}
+
+/**
+ * Cambio password utente autenticato.
+ * Strapi identifica automaticamente l'utente tramite il JWT passato nell'header,
+ * garantendo che l'utente possa modificare SOLO la propria password.
+ */
+export async function changePasswordWithStrapi(
+  currentPassword: string,
+  newPassword: string,
+  newPasswordConfirmation: string,
+  userJwt: string
+) {
+  const res = await fetch(`${STRAPI_URL}/api/auth/change-password`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${userJwt}`,
+    },
+    body: JSON.stringify({
+      currentPassword,
+      password: newPassword,
+      passwordConfirmation: newPasswordConfirmation,
+    }),
+  });
+
+  if (!res.ok) {
+    const errorData = await res.json().catch(() => ({}));
+    const message =
+      errorData?.error?.message || "Errore durante il cambio password.";
+    throw new Error(message);
+  }
+
+  return res.json();
 }

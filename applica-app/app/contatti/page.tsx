@@ -59,7 +59,7 @@ export default function Contatti() {
                 <p className="text-base text-[var(--color-on-surface-variant)] leading-relaxed mb-8 flex-1">
                   Inizia un percorso terapeutico su misura, basato su evidenze scientifiche e un approccio profondamente umano. Siamo qui per ascoltarti.
                 </p>
-                <Link 
+                <Link
                   href="/pazienti"
                   className="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-orange-600 transition-colors w-full sm:w-auto shadow-sm shadow-orange-500/20"
                 >
@@ -80,7 +80,7 @@ export default function Contatti() {
                 <p className="text-base text-[var(--color-on-surface-variant)] leading-relaxed mb-8 flex-1">
                   Entra in una rete di clinici eccellenti. Accedi a supervisione continua, formazione e strumenti condivisi per crescere insieme.
                 </p>
-                <Link 
+                <Link
                   href="/professionisti"
                   className="inline-flex items-center justify-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-blue-600 transition-colors w-full sm:w-auto shadow-sm shadow-blue-500/20"
                 >
@@ -153,7 +153,7 @@ export default function Contatti() {
                   }}
                   className="inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-emerald-700 transition-colors w-full sm:w-auto shadow-sm shadow-emerald-600/20"
                 >
-                  Proponi una partnership
+                  Proponi una collaborazione
                 </button>
               </div>
             </RevealSection>
@@ -165,7 +165,7 @@ export default function Contatti() {
       <section className="py-20 md:py-24 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            
+
             {/* Contact Info */}
             <div className="space-y-10">
               <RevealSection>
@@ -230,7 +230,7 @@ export default function Contatti() {
             <RevealSection stagger={1}>
               <div className="bg-white p-7 md:p-9 rounded-2xl border border-[var(--color-outline-variant)] ambient-shadow">
                 <h2 className="text-xl font-bold text-[var(--color-on-surface)] mb-6">Inviaci un messaggio</h2>
-                
+
                 {state.succeeded ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center">
                     <div className="w-14 h-14 bg-[var(--color-success-green)]/12 text-[var(--color-success-green)] rounded-full flex items-center justify-center mb-5">
@@ -246,9 +246,9 @@ export default function Contatti() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
                         <label htmlFor="nome" className="text-sm font-semibold text-[var(--color-on-surface)]">Nome</label>
-                        <input 
-                          type="text" 
-                          id="nome" 
+                        <input
+                          type="text"
+                          id="nome"
                           name="nome"
                           required
                           className="w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
@@ -257,9 +257,9 @@ export default function Contatti() {
                       </div>
                       <div className="space-y-1.5">
                         <label htmlFor="cognome" className="text-sm font-semibold text-[var(--color-on-surface)]">Cognome</label>
-                        <input 
-                          type="text" 
-                          id="cognome" 
+                        <input
+                          type="text"
+                          id="cognome"
                           name="cognome"
                           required
                           className="w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
@@ -267,12 +267,12 @@ export default function Contatti() {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="space-y-1.5">
                       <label htmlFor="email" className="text-sm font-semibold text-[var(--color-on-surface)]">Email</label>
-                      <input 
-                        type="email" 
-                        id="email" 
+                      <input
+                        type="email"
+                        id="email"
                         name="email"
                         required
                         className="w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-xl outline-none text-base text-[var(--color-on-surface)]"
@@ -284,11 +284,10 @@ export default function Contatti() {
                     <div className="space-y-1.5 relative">
                       <label htmlFor="motivo" className="text-sm font-semibold text-[var(--color-on-surface)]">Motivo del contatto</label>
                       <input type="hidden" id="motivo" name="motivo" value={selectedMotivo} required />
-                      
-                      <div 
-                        className={`w-full px-4 py-3 bg-[var(--color-surface)] border rounded-xl outline-none text-base cursor-pointer flex items-center justify-between transition-colors ${
-                          isSelectOpen ? "border-[var(--color-primary)] ring-2 ring-[var(--color-primary)]/20" : "border-[var(--color-outline-variant)]"
-                        }`}
+
+                      <div
+                        className={`w-full px-4 py-3 bg-[var(--color-surface)] border rounded-xl outline-none text-base cursor-pointer flex items-center justify-between transition-colors ${isSelectOpen ? "border-[var(--color-primary)] ring-2 ring-[var(--color-primary)]/20" : "border-[var(--color-outline-variant)]"
+                          }`}
                         onClick={() => setIsSelectOpen(!isSelectOpen)}
                         tabIndex={0}
                         onBlur={(e) => {
@@ -300,9 +299,9 @@ export default function Contatti() {
                         <span className={selectedMotivo ? "text-[var(--color-on-surface)]" : "text-[var(--color-on-surface-variant)]"}>
                           {selectedMotivo ? motivi.find(m => m.value === selectedMotivo)?.label : "Seleziona un'opzione"}
                         </span>
-                        <ChevronDown 
-                          size={20} 
-                          className={`text-[var(--color-on-surface-variant)] transition-transform duration-200 ${isSelectOpen ? "rotate-180" : ""}`} 
+                        <ChevronDown
+                          size={20}
+                          className={`text-[var(--color-on-surface-variant)] transition-transform duration-200 ${isSelectOpen ? "rotate-180" : ""}`}
                         />
                       </div>
 
@@ -312,11 +311,10 @@ export default function Contatti() {
                             <button
                               key={motivo.value}
                               type="button"
-                              className={`w-full text-left px-4 py-3 text-base transition-colors focus:outline-none ${
-                                selectedMotivo === motivo.value 
-                                  ? "bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] font-medium" 
+                              className={`w-full text-left px-4 py-3 text-base transition-colors focus:outline-none ${selectedMotivo === motivo.value
+                                  ? "bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] font-medium"
                                   : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container-high)] focus:bg-[var(--color-surface-container-high)]"
-                              }`}
+                                }`}
                               onMouseDown={(e) => {
                                 e.preventDefault();
                                 setSelectedMotivo(motivo.value)
@@ -332,8 +330,8 @@ export default function Contatti() {
 
                     <div className="space-y-1.5">
                       <label htmlFor="messaggio" className="text-sm font-semibold text-[var(--color-on-surface)]">Messaggio</label>
-                      <textarea 
-                        id="messaggio" 
+                      <textarea
+                        id="messaggio"
                         name="messaggio"
                         rows={5}
                         required
@@ -343,8 +341,8 @@ export default function Contatti() {
                       <ValidationError prefix="Messaggio" field="messaggio" errors={state.errors} />
                     </div>
 
-                    <button 
-                      type="submit" 
+                    <button
+                      type="submit"
                       disabled={state.submitting}
                       className="w-full flex items-center justify-center gap-2 bg-[var(--color-primary)] text-[var(--color-on-primary)] px-8 py-3.5 rounded-xl font-semibold text-sm pressable hover:bg-[var(--color-primary-container)] disabled:opacity-50 disabled:cursor-not-allowed"
                     >

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { MapPin, Phone, Mail, Send, CheckCircle2, ChevronDown, User, Brain } from "lucide-react"
+import { MapPin, Phone, Mail, Send, CheckCircle2, ChevronDown, User, Brain, GraduationCap, Building2 } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 import { useForm, ValidationError } from '@formspree/react'
 
@@ -15,6 +15,8 @@ export default function Contatti() {
   const motivi = [
     { value: "paziente", label: "Informazioni per iniziare un percorso (Pazienti)" },
     { value: "professionista", label: "Candidatura rete (Professionisti)" },
+    { value: "docente", label: "Collaborazione come Docente / Formatore" },
+    { value: "associazione", label: "Partnership come Associazione / Ente" },
     { value: "materiali", label: "Informazioni sui materiali" },
     { value: "altro", label: "Altro" },
   ]
@@ -87,6 +89,74 @@ export default function Contatti() {
               </div>
             </RevealSection>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Opzioni Secondarie ─── */}
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-[var(--color-surface-container-low)] border-y border-[var(--color-outline-variant)]/40">
+        <div className="container mx-auto max-w-6xl">
+          <RevealSection>
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-on-surface)] mb-3">
+                Altre modalità di collaborazione
+              </h2>
+              <p className="text-base text-[var(--color-on-surface-variant)] max-w-xl mx-auto">
+                Accogliamo sinergie ed esperienze diverse per arricchire la proposta formativa e la rete di supporto.
+              </p>
+            </div>
+          </RevealSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {/* Come Docente */}
+            <RevealSection stagger={1}>
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-[var(--color-outline-variant)] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-start h-full">
+                <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
+                  <GraduationCap size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">
+                  Come Docente / Formatore
+                </h3>
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-6 flex-1">
+                  Condividi le tue competenze e la tua esperienza clinica o di ricerca guidando corsi, workshop e momenti formativi dedicati ai nostri professionisti e alla comunità.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedMotivo("docente");
+                    document.getElementById("messaggio")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="inline-flex items-center gap-2 text-amber-700 font-semibold text-sm hover:underline"
+                >
+                  Propongiti come docente &rarr;
+                </button>
+              </div>
+            </RevealSection>
+
+            {/* Come Associazione */}
+            <RevealSection stagger={2}>
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-[var(--color-outline-variant)] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-start h-full">
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+                  <Building2 size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">
+                  Come Associazione / Ente
+                </h3>
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-6 flex-1">
+                  Attiva collaborazioni territoriali, progetti integrati di sensibilizzazione, convenzioni o iniziative culturali con la nostra associazione.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedMotivo("associazione");
+                    document.getElementById("messaggio")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="inline-flex items-center gap-2 text-emerald-700 font-semibold text-sm hover:underline"
+                >
+                  Proponi una partnership &rarr;
+                </button>
+              </div>
+            </RevealSection>
           </div>
         </div>
       </section>

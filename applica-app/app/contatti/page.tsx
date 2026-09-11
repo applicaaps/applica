@@ -98,12 +98,9 @@ export default function Contatti() {
         <div className="container mx-auto max-w-6xl">
           <RevealSection>
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-on-surface)] mb-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-on-surface)]">
                 Altre modalità di collaborazione
               </h2>
-              <p className="text-base text-[var(--color-on-surface-variant)] max-w-xl mx-auto">
-                Accogliamo sinergie ed esperienze diverse per arricchire la proposta formativa e la rete di supporto.
-              </p>
             </div>
           </RevealSection>
 

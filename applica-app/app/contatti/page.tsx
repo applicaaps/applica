@@ -110,11 +110,11 @@ export default function Contatti() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {/* Come Docente */}
             <RevealSection stagger={1}>
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-[var(--color-outline-variant)] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-start h-full">
-                <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
-                  <GraduationCap size={24} />
+              <div className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-[var(--color-outline-variant)] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center md:items-start text-center md:text-left h-full">
+                <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                  <GraduationCap size={28} />
                 </div>
-                <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">
+                <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-3">
                   Come Docente / Formatore
                 </h3>
                 <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-6 flex-1">
@@ -126,20 +126,20 @@ export default function Contatti() {
                     setSelectedMotivo("docente");
                     document.getElementById("messaggio")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="inline-flex items-center gap-2 text-amber-700 font-semibold text-sm hover:underline"
+                  className="inline-flex items-center justify-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-amber-700 transition-colors w-full sm:w-auto shadow-sm shadow-amber-600/20"
                 >
-                  Propongiti come docente &rarr;
+                  Proponiti come docente
                 </button>
               </div>
             </RevealSection>
 
             {/* Come Associazione */}
             <RevealSection stagger={2}>
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-[var(--color-outline-variant)] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-start h-full">
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
-                  <Building2 size={24} />
+              <div className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-[var(--color-outline-variant)] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center md:items-start text-center md:text-left h-full">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                  <Building2 size={28} />
                 </div>
-                <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-2">
+                <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-3">
                   Come Associazione / Ente
                 </h3>
                 <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-6 flex-1">
@@ -151,9 +151,9 @@ export default function Contatti() {
                     setSelectedMotivo("associazione");
                     document.getElementById("messaggio")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="inline-flex items-center gap-2 text-emerald-700 font-semibold text-sm hover:underline"
+                  className="inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-emerald-700 transition-colors w-full sm:w-auto shadow-sm shadow-emerald-600/20"
                 >
-                  Proponi una partnership &rarr;
+                  Proponi una partnership
                 </button>
               </div>
             </RevealSection>

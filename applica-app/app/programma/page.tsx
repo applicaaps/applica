@@ -5,9 +5,7 @@ import Link from "next/link"
 import { 
   Calendar, 
   Clock, 
-  MapPin, 
-  CheckCircle2,
-  MessageSquare,
+  MessageSquare, 
   Bell
 } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
@@ -36,20 +34,22 @@ export interface EventItem {
   incontro: string
   dateDisplay: string
   timeDisplay: string
-  tema: string
+  title: string
+  description?: string
   year: number
   month: number
   day: number
 }
 
-// Struttura dati ufficiale caricata da ListaIncontri.md
+// Struttura dati ufficiale caricata da ListaIncontri.md con titolo e descrizione separati
 const eventsData: EventItem[] = [
   {
     id: 1,
     incontro: "Incontro 1 PA",
     dateDisplay: "3 Ottobre 2026",
     timeDisplay: "08:30",
-    tema: "Benvenuto Applica - Burocrazia e apertura dello studio — Partita IVA; regime fiscale; ENPAP; Sistema Tessera Sanitaria; fatturazione; principali scadenze; errori da evitare.",
+    title: "Benvenuto Applica - Burocrazia e apertura dello studio",
+    description: "Partita IVA; regime fiscale; ENPAP; Sistema Tessera Sanitaria; fatturazione; principali scadenze; errori da evitare.",
     year: 2026,
     month: 10,
     day: 3
@@ -59,7 +59,8 @@ const eventsData: EventItem[] = [
     incontro: "Incontro 2 PA",
     dateDisplay: "17 Ottobre 2026",
     timeDisplay: "08:30",
-    tema: "Codice Deontologico nella pratica — pubblicità, social, confini, segreto professionale, responsabilità",
+    title: "Codice Deontologico nella pratica",
+    description: "pubblicità, social, confini, segreto professionale, responsabilità",
     year: 2026,
     month: 10,
     day: 17
@@ -69,7 +70,8 @@ const eventsData: EventItem[] = [
     incontro: "Incontro 3 PA",
     dateDisplay: "31 Ottobre 2026",
     timeDisplay: "08:30",
-    tema: "Da psicologo a professionista: come iniziare davvero — privacy, consenso informato, documentazione, primi passi, assicurazione professionale, organizzazione, identità professionale",
+    title: "Da psicologo a professionista: come iniziare davvero",
+    description: "privacy, consenso informato, documentazione, primi passi, assicurazione professionale, organizzazione, identità professionale",
     year: 2026,
     month: 10,
     day: 31
@@ -79,7 +81,8 @@ const eventsData: EventItem[] = [
     incontro: "Incontro 4 PA",
     dateDisplay: "14 Novembre 2026",
     timeDisplay: "08:30",
-    tema: "Costruire uno studio professionale — presenza online/offline, agenda, strumenti, organizzazione e gestione del paziente",
+    title: "Costruire uno studio professionale",
+    description: "presenza online/offline, agenda, strumenti, organizzazione e gestione del paziente",
     year: 2026,
     month: 11,
     day: 14
@@ -89,7 +92,8 @@ const eventsData: EventItem[] = [
     incontro: "Incontro 5 PA - PB",
     dateDisplay: "28 Novembre 2026",
     timeDisplay: "08:30",
-    tema: "Quanto e come farsi pagare — tariffe, ricevute, cancellazioni, pacchetti, gestione economica ed etica",
+    title: "Quanto e come farsi pagare",
+    description: "tariffe, ricevute, cancellazioni, pacchetti, gestione economica ed etica",
     year: 2026,
     month: 11,
     day: 28
@@ -99,7 +103,8 @@ const eventsData: EventItem[] = [
     incontro: "Incontro 6 PA",
     dateDisplay: "12 Dicembre 2026",
     timeDisplay: "08:30",
-    tema: "Il contratto terapeutico — regole, consenso, setting, assenze, contatti fuori seduta e gestione dei confini",
+    title: "Il contratto terapeutico",
+    description: "regole, consenso, setting, assenze, contatti fuori seduta e gestione dei confini",
     year: 2026,
     month: 12,
     day: 12
@@ -109,7 +114,8 @@ const eventsData: EventItem[] = [
     incontro: "Incontro 7 PA",
     dateDisplay: "14 Dicembre 2026",
     timeDisplay: "08:30",
-    tema: "Transfert e controtransfert — quello che accade nella relazione terapeutica",
+    title: "Transfert e controtransfert",
+    description: "quello che accade nella relazione terapeutica",
     year: 2026,
     month: 12,
     day: 14
@@ -119,7 +125,8 @@ const eventsData: EventItem[] = [
     incontro: "Incontro 8 PA",
     dateDisplay: "9 Gennaio 2027",
     timeDisplay: "08:30",
-    tema: "Dalla raccolta dati alla formulazione del caso — trasformare le informazioni in ragionamento clinico",
+    title: "Dalla raccolta dati alla formulazione del caso",
+    description: "trasformare le informazioni in ragionamento clinico",
     year: 2027,
     month: 1,
     day: 9
@@ -129,7 +136,8 @@ const eventsData: EventItem[] = [
     incontro: "Incontro 9 PA - PB",
     dateDisplay: "23 Gennaio 2027",
     timeDisplay: "08:30",
-    tema: "Ragionamento clinico — capire cosa sta réellement mantenendo il problema del paziente",
+    title: "Ragionamento clinico",
+    description: "capire cosa sta realmente mantenendo il problema del paziente",
     year: 2027,
     month: 1,
     day: 23
@@ -137,9 +145,10 @@ const eventsData: EventItem[] = [
   {
     id: 10,
     incontro: "Incontro 10 PA - PB",
-    dateDisplay: "20 Febbraio 2027",
+    dateDisplay: "6 Febbraio 2027",
     timeDisplay: "08:30",
-    tema: "Obiettivi e piano terapeutico — da “parlare del problema” a costruire un percorso",
+    title: "Obiettivi e piano terapeutico",
+    description: "da “parlare del problema” a costruire un percorso",
     year: 2027,
     month: 2,
     day: 6
@@ -147,96 +156,105 @@ const eventsData: EventItem[] = [
   {
     id: 11,
     incontro: "Incontro 11 PA - PB",
+    dateDisplay: "20 Febbraio 2027",
+    timeDisplay: "08:30",
+    title: "Quando il terapeuta non sa cosa fare",
+    description: "blocchi, errori, dubbi clinici e supervisione",
+    year: 2027,
+    month: 2,
+    day: 20
+  },
+  {
+    id: 12,
+    incontro: "Incontro 12 PA - PB",
     dateDisplay: "6 Marzo 2027",
     timeDisplay: "08:30",
-    tema: "Quando il terapeuta non sa cosa fare — blocchi, errori, dubbi clinici e supervisione",
+    title: "Il primo colloquio",
+    description: "cosa chiedere, cosa osservare, come strutturare l'incontro",
     year: 2027,
     month: 3,
     day: 6
   },
   {
-    id: 12,
-    incontro: "Incontro 12 PA - PB",
+    id: 13,
+    incontro: "Incontro 13 PA - PB",
     dateDisplay: "20 Marzo 2027",
     timeDisplay: "08:30",
-    tema: "Il primo colloquio — cosa chiedere, cosa osservare, come strutturare l'incontro",
+    title: "Come trovare pazienti in modo etico",
+    description: "networking, territorio, collaborazioni, social e reputazione",
     year: 2027,
     month: 3,
     day: 20
   },
   {
-    id: 13,
-    incontro: "Incontro 13 PA - PB",
+    id: 14,
+    incontro: "Incontro 14 PA - PB",
     dateDisplay: "3 Aprile 2027",
     timeDisplay: "08:30",
-    tema: "Come trovare pazienti in modo etico — networking, territorio, collaborazioni, social e reputazione",
+    title: "I casi difficili",
+    description: "paziente resistente, dipendente, aggressivo, evitante, che interrompe",
     year: 2027,
     month: 4,
     day: 3
   },
   {
-    id: 14,
-    incontro: "Incontro 14 PA - PB",
+    id: 15,
+    incontro: "Incontro 15 PA - PB",
     dateDisplay: "17 Aprile 2027",
     timeDisplay: "08:30",
-    tema: "I casi difficili — paziente resistente, dipendente, aggressivo, evitante, che interrompe",
+    title: "Gestire crisi e situazioni complesse",
+    description: "limiti delle competenze, rete, invio e collaborazione con altri professionisti",
     year: 2027,
     month: 4,
     day: 17
   },
   {
-    id: 15,
-    incontro: "Incontro 15 PA - PB",
+    id: 16,
+    incontro: "Incontro 16 PA",
     dateDisplay: "2 Maggio 2027",
     timeDisplay: "08:30",
-    tema: "Gestire crisi e situazioni complesse — limiti delle competenze, rete, invio e collaborazione con altri professionisti",
+    title: "Costruire la propria identità professionale",
+    description: "orientamento teorico, nicchia, popolazione e aree di interesse",
     year: 2027,
     month: 5,
     day: 2
   },
   {
-    id: 16,
-    incontro: "Incontro 16 PA",
+    id: 17,
+    incontro: "Incontro 17 PA - PB",
     dateDisplay: "15 Maggio 2027",
     timeDisplay: "08:30",
-    tema: "Costruire la propria identità professionale — orientamento teorico, nicchia, popolazione e aree di interesse",
+    title: "Il terapeuta dentro la terapia",
+    description: "emozioni, schemi personali, paura di sbagliare e senso di inadeguatezza",
     year: 2027,
     month: 5,
     day: 15
   },
   {
-    id: 17,
-    incontro: "Incontro 17 PA - PB",
+    id: 18,
+    incontro: "Incontro 18 PA - PB",
     dateDisplay: "29 Maggio 2027",
     timeDisplay: "08:30",
-    tema: "Il terapeuta dentro la terapia — emozioni, schemi personali, paura di sbagliare e senso di inadeguatezza",
+    title: "Vivere di psicologia",
+    description: "costruire una professione sostenibile, rete professionale e piano di crescita",
     year: 2027,
     month: 5,
     day: 29
-  },
-  {
-    id: 18,
-    incontro: "Incontro 18 PA - PB",
-    dateDisplay: "7 Giugno 2027",
-    timeDisplay: "08:30",
-    tema: "Vivere di psicologia — costruire una professione sostenibile, rete professionale e piano di crescita",
-    year: 2027,
-    month: 6,
-    day: 7
   },
   {
     id: 19,
     incontro: "Incontro 19 PA",
     dateDisplay: "7 Giugno 2027",
     timeDisplay: "08:30",
-    tema: "Costruire la propria identità professionale — orientamento teorico, nicchia, popolazione e aree di interesse",
+    title: "Costruire la propria identità professionale",
+    description: "orientamento teorico, nicchia, popolazione e aree di interesse",
     year: 2027,
     month: 6,
     day: 7
   }
 ]
 
-// Calcola le date ISO per il calendario (Data + Tema, senza il campo "Incontro" nel titolo del calendario)
+// Calcola le date ISO per il calendario
 function getEventDates(event: EventItem) {
   const start = new Date(event.year, event.month - 1, event.day, 8, 30, 0)
   const end = new Date(start.getTime() + 2 * 60 * 60 * 1000) // 2 ore di durata predefinita
@@ -248,19 +266,23 @@ function getEventDates(event: EventItem) {
   }
 }
 
-// Genera link Google Calendar contenente solo Tema e Data (esclude "Incontro" dal titolo dell'evento calendario)
+// Genera link Google Calendar: Titolo = titolo dell'evento, Descrizione = dettagli dell'evento
 function getGoogleCalendarLink(event: EventItem) {
   const { startIso, endIso } = getEventDates(event)
-  const title = encodeURIComponent(event.tema)
-  const details = encodeURIComponent(`Tema: ${event.tema}\n\nOrganizzato da Applica APS (https://applicaaps.it)`)
+  const title = encodeURIComponent(event.title)
+  const detailsContent = event.description 
+    ? `${event.description}\n\nOrganizzato da Applica APS (https://applicaaps.com)`
+    : `Organizzato da Applica APS (https://applicaaps.com)`
+  const details = encodeURIComponent(detailsContent)
   const location = encodeURIComponent("Applica APS")
 
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${startIso}/${endIso}`
 }
 
-// Genera e scarica file .ics per Apple / iOS Calendar contenente solo Tema e Data (esclude "Incontro" dal titolo)
+// Genera e scarica file .ics per Apple / iOS Calendar: Summary = titolo, Description = dettagli
 function downloadAppleIcs(event: EventItem) {
   const { startIso, endIso } = getEventDates(event)
+  const descText = event.description ? `${event.description} - Organizzato da Applica APS` : "Organizzato da Applica APS"
 
   const icsContent = [
     "BEGIN:VCALENDAR",
@@ -268,8 +290,8 @@ function downloadAppleIcs(event: EventItem) {
     "PRODID:-//Applica APS//Incontri//IT",
     "CALSCALE:GREGORIAN",
     "BEGIN:VEVENT",
-    `SUMMARY:${event.tema.replace(/\n/g, " ")}`,
-    `DESCRIPTION:${event.tema.replace(/\n/g, " ")} - Organizzato da Applica APS`,
+    `SUMMARY:${event.title.replace(/\n/g, " ")}`,
+    `DESCRIPTION:${descText.replace(/\n/g, " ")}`,
     "LOCATION:Applica APS",
     `DTSTART:${startIso}`,
     `DTEND:${endIso}`,
@@ -306,19 +328,6 @@ export default function ProgrammaPage() {
               Percorsi di formazione, affiancamento e pratica clinica dedicati a psicologi e psicoterapeuti. Salva gli appuntamenti e i temi del percorso direttamente sul tuo calendario!
             </p>
           </RevealSection>
-
-          <RevealSection stagger={2}>
-            <div className="pt-2 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-2.5 sm:gap-4 text-xs sm:text-sm text-[var(--color-on-surface-variant)] font-medium">
-              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-lg border border-[var(--color-outline-variant)] shadow-sm w-full sm:w-auto justify-center font-semibold text-[var(--color-primary)]">
-                <CheckCircle2 size={16} className="text-[var(--color-primary)] shrink-0" />
-                <span>Riservato a Psicologi &amp; Psicoterapeuti</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-lg border border-[var(--color-outline-variant)] shadow-sm w-full sm:w-auto justify-center">
-                <Clock size={16} className="text-[var(--color-primary)] shrink-0" />
-                <span>Orario fisso 8:30</span>
-              </div>
-            </div>
-          </RevealSection>
         </div>
       </section>
 
@@ -326,7 +335,7 @@ export default function ProgrammaPage() {
       <section className="py-8 sm:py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
 
-          {/* Listadegli Incontri */}
+          {/* Lista degli Incontri */}
           <div className="space-y-5 sm:space-y-6">
             <div className="flex items-center justify-between flex-wrap gap-2">
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[var(--color-on-surface)]">
@@ -352,8 +361,14 @@ export default function ProgrammaPage() {
                       </div>
 
                       <h4 className="text-base sm:text-lg font-bold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors leading-snug">
-                        {event.tema}
+                        {event.title}
                       </h4>
+
+                      {event.description && (
+                        <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                          {event.description}
+                        </p>
+                      )}
 
                       <div className="pt-3 border-t border-[var(--color-outline-variant)]/40 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[var(--color-on-surface-variant)]">
                         <div className="flex items-center gap-2">

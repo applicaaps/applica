@@ -117,16 +117,14 @@ export default function Contatti() {
                 <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-6 flex-1">
                   Condividi le tue competenze e la tua esperienza clinica o di ricerca guidando corsi, workshop e momenti formativi dedicati ai nostri professionisti e alla comunità.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedMotivo("docente");
-                    document.getElementById("messaggio")?.scrollIntoView({ behavior: "smooth" });
-                  }}
+                <a
+                  href="https://forms.gle/KEqqAek9MKDijTHW7"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-amber-700 transition-colors w-full sm:w-auto shadow-sm shadow-amber-600/20"
                 >
                   Proponiti come docente
-                </button>
+                </a>
               </div>
             </RevealSection>
 
@@ -142,16 +140,14 @@ export default function Contatti() {
                 <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-6 flex-1">
                   Attiva collaborazioni territoriali, progetti integrati di sensibilizzazione, convenzioni o iniziative culturali con la nostra associazione.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedMotivo("associazione");
-                    document.getElementById("messaggio")?.scrollIntoView({ behavior: "smooth" });
-                  }}
+                <a
+                  href="https://forms.gle/iVx25PizgZV6m8B97"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-emerald-700 transition-colors w-full sm:w-auto shadow-sm shadow-emerald-600/20"
                 >
                   Proponi una collaborazione
-                </button>
+                </a>
               </div>
             </RevealSection>
           </div>

@@ -71,11 +71,13 @@ export function Navbar() {
               </Link>
             ))}
             <div className="ml-3 flex items-center gap-2">
+              {/* Login nascosto temporaneamente:
               <Link href="/login">
                 <Button variant="ghost" size="sm" className="hidden lg:flex">
                   Area Riservata
                 </Button>
               </Link>
+              */}
               <Link href="/contatti">
                 <Button size="sm">Unisciti ad Applica</Button>
               </Link>
@@ -122,11 +124,13 @@ export function Navbar() {
           ))}
           <hr className="border-[var(--color-outline-variant)]/50 my-2" />
           <div className="flex flex-col gap-2 px-4 pt-1 pb-2">
+            {/* Login nascosto temporaneamente:
             <Link href="/login">
               <Button variant="outline" className="w-full justify-center">
                 Area Riservata
               </Button>
             </Link>
+            */}
             <Link href="/contatti" onClick={() => setMobileMenuOpen(false)}>
               <Button className="w-full justify-center">Unisciti ad Applica</Button>
             </Link>

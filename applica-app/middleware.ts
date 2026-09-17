@@ -32,22 +32,12 @@ async function isSessionValid(token: string | undefined): Promise<boolean> {
 
 export async function middleware(request: NextRequest) {
   const sessionCookie = request.cookies.get('applica_session');
-  const token = sessionCookie?.value;
-  const authenticated = await isSessionValid(token);
-
   const path = request.nextUrl.pathname;
 
-  // Protezione dell'area riservata: se non autenticato, reindirizza al login
-  if (path.startsWith('/area-riservata') && !authenticated) {
+  // Disabilitazione temporanea login e area riservata: reindirizza sempre alla home
+  if (path === '/login' || path.startsWith('/area-riservata')) {
     const url = request.nextUrl.clone();
-    url.pathname = '/login';
-    return NextResponse.redirect(url);
-  }
-
-  // Se l'utente è già loggato e tenta di andare alla pagina di login, lo manda alla dashboard
-  if (path === '/login' && authenticated) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/area-riservata';
+    url.pathname = '/';
     return NextResponse.redirect(url);
   }
 

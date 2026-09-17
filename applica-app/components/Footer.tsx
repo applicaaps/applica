@@ -60,7 +60,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Area Riservata */}
+          {/* Area Riservata (Nascosta temporaneamente)
           <div className="space-y-4">
             <h4 className="font-semibold text-white font-serif text-base">Area Riservata</h4>
             <p className="text-sm text-[var(--color-inverse-on-surface)]/60 mb-4">
@@ -73,6 +73,7 @@ export function Footer() {
               Accedi all&apos;area riservata
             </Link>
           </div>
+          */}
         </div>
 
         <div className="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row items-center justify-between gap-4">

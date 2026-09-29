@@ -2,40 +2,31 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { DoorOpen, HandHeart, FileChartColumn, ClipboardList } from "lucide-react"
 
 const principles = [
   {
     id: 0,
     title: "Accessibile",
     desc: "Tariffe calmierate, percorsi in convenzione, nessun costo nascosto. Il benessere psicologico non è un servizio premium: è un diritto che difendiamo ogni giorno nella pratica.",
-    icon: DoorOpen,
-    colorClass: "bg-[var(--color-primary)] text-[var(--color-on-primary)]",
-    iconClass: "text-white"
+    colorClass: "bg-[var(--color-primary)] text-[var(--color-on-primary)]"
   },
   {
     id: 1,
     title: "Umana",
     desc: "La relazione terapeutica è lo strumento più potente che abbiamo. La costruiamo con rispetto, attenzione e continuità.",
-    icon: HandHeart,
-    colorClass: "bg-white border border-[var(--color-outline-variant)] text-[var(--color-on-surface)]",
-    iconClass: "text-[var(--color-primary)]"
+    colorClass: "bg-white border border-[var(--color-outline-variant)] text-[var(--color-on-surface)]"
   },
   {
     id: 2,
     title: "Scientifica",
     desc: "Protocolli basati su evidenze scientifiche, formazione continua e supervisione clinica. Ogni intervento ha un fondamento verificabile.",
-    icon: FileChartColumn,
-    colorClass: "bg-white border border-[var(--color-outline-variant)] text-[var(--color-on-surface)]",
-    iconClass: "text-[var(--color-primary)]"
+    colorClass: "bg-white border border-[var(--color-outline-variant)] text-[var(--color-on-surface)]"
   },
   {
     id: 3,
     title: "Pratica",
     desc: "Carte terapeutiche, schede di monitoraggio, kit esperienziali, materiali psicoeducativi. Non ci limitiamo alla seduta: diamo strumenti concreti da usare nella vita di ogni giorno.",
-    icon: ClipboardList,
-    colorClass: "bg-[#b59540] text-white",
-    iconClass: "text-white"
+    colorClass: "bg-[#b59540] text-white"
   }
 ]
 
@@ -115,13 +106,12 @@ export function PrinciplesCarousel() {
             blur = "blur(4px)"
           }
 
-          const Icon = item.icon
           const isInteractive = diff !== 0
 
           return (
             <motion.div
               key={item.id}
-              className={`absolute w-[280px] md:w-[400px] h-[300px] md:h-[340px] p-8 md:p-10 rounded-2xl flex flex-col gap-6 ambient-shadow-lg select-none ${item.colorClass} ${isInteractive ? 'cursor-pointer' : ''}`}
+              className={`absolute w-[280px] md:w-[400px] h-[300px] md:h-[340px] p-8 md:p-10 rounded-2xl flex flex-col justify-center text-center ambient-shadow-lg select-none ${item.colorClass} ${isInteractive ? 'cursor-pointer' : ''}`}
               initial={false}
               animate={{
                 x: `${x}%`,
@@ -136,9 +126,8 @@ export function PrinciplesCarousel() {
                 else if (diff === -1) handlePrev()
               }}
             >
-              <Icon size={32} className={item.iconClass} />
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+              <div>
+                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
                 <p className="text-sm md:text-base opacity-90 leading-relaxed md:leading-relaxed">
                   {item.desc}
                 </p>

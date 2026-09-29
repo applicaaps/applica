@@ -6,7 +6,8 @@ import {
   Calendar, 
   Clock, 
   MessageSquare, 
-  Bell
+  Bell,
+  MapPin
 } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 import { Button } from "@/components/ui/Button"
@@ -39,10 +40,33 @@ export interface EventItem {
   year: number
   month: number
   day: number
+  startHour?: number
+  startMinute?: number
+  endHour?: number
+  endMinute?: number
+  location?: string
+  locationUrl?: string
 }
 
 // Struttura dati ufficiale caricata da ListaIncontri.md con titolo e descrizione separati
 const eventsData: EventItem[] = [
+  {
+    id: 0,
+    incontro: "Evento speciale",
+    dateDisplay: "2 Ottobre 2026",
+    timeDisplay: "18:30",
+    title: "Inaugurazione Applica",
+    description: "Inaugurazione ufficiale di Applica presso la Biblioteca Comunale di Santeramo.",
+    year: 2026,
+    month: 10,
+    day: 2,
+    startHour: 18,
+    startMinute: 30,
+    endHour: 20,
+    endMinute: 30,
+    location: "Biblioteca Comunale di Santeramo",
+    locationUrl: "https://maps.app.goo.gl/yiWQ3Q95DcAWJ6xx7"
+  },
   {
     id: 1,
     incontro: "Incontro 1 PA",
@@ -256,8 +280,13 @@ const eventsData: EventItem[] = [
 
 // Calcola le date ISO per il calendario
 function getEventDates(event: EventItem) {
-  const start = new Date(event.year, event.month - 1, event.day, 8, 30, 0)
-  const end = new Date(start.getTime() + 2 * 60 * 60 * 1000) // 2 ore di durata predefinita
+  const startH = event.startHour ?? 8
+  const startM = event.startMinute ?? 30
+  const endH = event.endHour ?? (startH + 2)
+  const endM = event.endMinute ?? startM
+
+  const start = new Date(event.year, event.month - 1, event.day, startH, startM, 0)
+  const end = new Date(event.year, event.month - 1, event.day, endH, endM, 0)
 
   const toIsoBasic = (d: Date) => d.toISOString().replace(/-|:|\.\d\d\d/g, "")
   return {
@@ -274,7 +303,7 @@ function getGoogleCalendarLink(event: EventItem) {
     ? `${event.description}\n\nOrganizzato da Applica APS (https://applicaaps.com)`
     : `Organizzato da Applica APS (https://applicaaps.com)`
   const details = encodeURIComponent(detailsContent)
-  const location = encodeURIComponent("Applica APS")
+  const location = encodeURIComponent(event.location || "Applica APS")
 
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${startIso}/${endIso}`
 }
@@ -283,6 +312,7 @@ function getGoogleCalendarLink(event: EventItem) {
 function downloadAppleIcs(event: EventItem) {
   const { startIso, endIso } = getEventDates(event)
   const descText = event.description ? `${event.description} - Organizzato da Applica APS` : "Organizzato da Applica APS"
+  const locText = event.location || "Applica APS"
 
   const icsContent = [
     "BEGIN:VCALENDAR",
@@ -292,7 +322,7 @@ function downloadAppleIcs(event: EventItem) {
     "BEGIN:VEVENT",
     `SUMMARY:${event.title.replace(/\n/g, " ")}`,
     `DESCRIPTION:${descText.replace(/\n/g, " ")}`,
-    "LOCATION:Applica APS",
+    `LOCATION:${locText.replace(/\n/g, " ")}`,
     `DTSTART:${startIso}`,
     `DTEND:${endIso}`,
     "STATUS:CONFIRMED",
@@ -379,6 +409,23 @@ export default function ProgrammaPage() {
                           <Clock size={14} className="text-[var(--color-primary)] shrink-0" />
                           <span>{event.timeDisplay}</span>
                         </div>
+                        {event.location && (
+                          <div className="flex items-center gap-2 sm:col-span-2 text-[var(--color-primary)] font-medium">
+                            <MapPin size={14} className="shrink-0" />
+                            {event.locationUrl ? (
+                              <a 
+                                href={event.locationUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="underline hover:opacity-80 transition-opacity"
+                              >
+                                {event.location}
+                              </a>
+                            ) : (
+                              <span>{event.location}</span>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
 

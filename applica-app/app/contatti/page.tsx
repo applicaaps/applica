@@ -120,11 +120,11 @@ export default function Contatti() {
           </RevealSection>
 
           {/* ─── Cards Prenotazione Cal.eu ─── */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {calEvents.map((evt, idx) => {
-              return (
-                <RevealSection key={evt.id} stagger={idx + 1}>
-                  <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 lg:p-9 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between h-full relative group">
+          <RevealSection>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+              {calEvents.map((evt) => {
+                return (
+                  <div key={evt.id} className="bg-white/80 backdrop-blur-md rounded-3xl p-8 lg:p-9 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between h-full relative group">
                     <div>
                       <h2 className="text-2xl lg:text-3xl font-bold text-[var(--color-on-surface)] mb-1.5 tracking-tight">
                         {evt.title}
@@ -150,10 +150,10 @@ export default function Contatti() {
                       <ArrowRight size={16} />
                     </button>
                   </div>
-                </RevealSection>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          </RevealSection>
 
           {/* Modal / Inline Embed Cal.eu */}
           {activeCalLink && (
@@ -293,7 +293,9 @@ export default function Contatti() {
                   <form className="space-y-5" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
-                        <label htmlFor="nome" className="text-sm font-semibold text-[var(--color-on-surface)]">Nome</label>
+                        <label htmlFor="nome" className="text-sm font-semibold text-[var(--color-on-surface)]">
+                          Nome <span className="text-red-500">*</span>
+                        </label>
                         <input
                           type="text"
                           id="nome"
@@ -304,7 +306,9 @@ export default function Contatti() {
                         />
                       </div>
                       <div className="space-y-1.5">
-                        <label htmlFor="cognome" className="text-sm font-semibold text-[var(--color-on-surface)]">Cognome</label>
+                        <label htmlFor="cognome" className="text-sm font-semibold text-[var(--color-on-surface)]">
+                          Cognome <span className="text-red-500">*</span>
+                        </label>
                         <input
                           type="text"
                           id="cognome"
@@ -317,7 +321,9 @@ export default function Contatti() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <label htmlFor="email" className="text-sm font-semibold text-[var(--color-on-surface)]">Email</label>
+                      <label htmlFor="email" className="text-sm font-semibold text-[var(--color-on-surface)]">
+                        Email <span className="text-red-500">*</span>
+                      </label>
                       <input
                         type="email"
                         id="email"
@@ -330,7 +336,9 @@ export default function Contatti() {
                     </div>
 
                     <div className="space-y-1.5 relative">
-                      <label htmlFor="motivo" className="text-sm font-semibold text-[var(--color-on-surface)]">Motivo del contatto</label>
+                      <label htmlFor="motivo" className="text-sm font-semibold text-[var(--color-on-surface)]">
+                        Motivo del contatto <span className="text-red-500">*</span>
+                      </label>
                       <input type="hidden" id="motivo" name="motivo" value={selectedMotivo} required />
 
                       <div
@@ -377,7 +385,9 @@ export default function Contatti() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <label htmlFor="messaggio" className="text-sm font-semibold text-[var(--color-on-surface)]">Messaggio</label>
+                      <label htmlFor="messaggio" className="text-sm font-semibold text-[var(--color-on-surface)]">
+                        Messaggio <span className="text-red-500">*</span>
+                      </label>
                       <textarea
                         id="messaggio"
                         name="messaggio"

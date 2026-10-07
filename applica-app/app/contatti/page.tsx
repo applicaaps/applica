@@ -23,8 +23,8 @@ export default function Contatti() {
 
   return (
     <>
-      {/* ─── Hero Split ─── */}
-      <section className="relative pt-16 pb-24 md:pt-24 md:pb-32 px-4 md:px-6 overflow-hidden">
+      {/* ─── Contatti Hero & Form Section ─── */}
+      <section className="relative pt-12 pb-20 md:pt-16 md:pb-24 px-4 md:px-6 overflow-hidden">
         {/* Background Gradients */}
         <div className="absolute inset-0 pointer-events-none -z-10">
           <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-[var(--color-primary-container)]/30 to-transparent opacity-50 blur-3xl"></div>
@@ -33,130 +33,16 @@ export default function Contatti() {
 
         <div className="container mx-auto max-w-6xl">
           <RevealSection>
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[var(--color-on-surface)] mb-5 tracking-tight">
-                Unisciti ad Applica
+                Contatti
               </h1>
               <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] max-w-2xl mx-auto leading-relaxed">
-                Che tu stia cercando il percorso giusto per te o che tu voglia crescere professionalmente nella nostra rete.
+                Siamo a tua disposizione per qualsiasi informazione, richiesta o chiarimento.
               </p>
             </div>
           </RevealSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative">
-            {/* Divider for desktop */}
-            <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-px bg-gradient-to-b from-transparent via-[var(--color-outline-variant)] to-transparent -translate-x-1/2"></div>
-
-            {/* Pazienti */}
-            <RevealSection stagger={1}>
-              <div className="group h-full bg-white/60 backdrop-blur-md rounded-3xl p-8 lg:p-10 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden text-center md:text-left flex flex-col items-center md:items-start">
-                <div className="w-16 h-16 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <User size={32} />
-                </div>
-                <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-4">
-                  Per i Pazienti
-                </h2>
-                <p className="text-base text-[var(--color-on-surface-variant)] leading-relaxed mb-8 flex-1">
-                  Inizia un percorso terapeutico su misura, basato su evidenze scientifiche e un approccio profondamente umano. Siamo qui per ascoltarti.
-                </p>
-                <Link
-                  href="/pazienti"
-                  className="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-orange-600 transition-colors w-full sm:w-auto shadow-sm shadow-orange-500/20"
-                >
-                  Richiedi informazioni
-                </Link>
-              </div>
-            </RevealSection>
-
-            {/* Professionisti */}
-            <RevealSection stagger={2}>
-              <div className="group h-full bg-white/60 backdrop-blur-md rounded-3xl p-8 lg:p-10 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden text-center md:text-left flex flex-col items-center md:items-start">
-                <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Brain size={32} />
-                </div>
-                <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-4">
-                  Per i Professionisti
-                </h2>
-                <p className="text-base text-[var(--color-on-surface-variant)] leading-relaxed mb-8 flex-1">
-                  Entra in una rete di clinici eccellenti. Accedi a supervisione continua, formazione e strumenti condivisi per crescere insieme.
-                </p>
-                <Link
-                  href="/professionisti"
-                  className="inline-flex items-center justify-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-blue-600 transition-colors w-full sm:w-auto shadow-sm shadow-blue-500/20"
-                >
-                  Candidati ora
-                </Link>
-              </div>
-            </RevealSection>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Opzioni Secondarie ─── */}
-      <section className="py-12 md:py-16 px-4 md:px-6 bg-[var(--color-surface-container-low)] border-y border-[var(--color-outline-variant)]/40">
-        <div className="container mx-auto max-w-6xl">
-          <RevealSection>
-            <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-on-surface)]">
-                Altre modalità di collaborazione
-              </h2>
-            </div>
-          </RevealSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {/* Come Docente */}
-            <RevealSection stagger={1}>
-              <div className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-[var(--color-outline-variant)] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center md:items-start text-center md:text-left h-full">
-                <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
-                  <GraduationCap size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-3">
-                  Come Docente / Formatore
-                </h3>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-6 flex-1">
-                  Condividi le tue competenze e la tua esperienza clinica o di ricerca guidando corsi, workshop e momenti formativi dedicati ai nostri professionisti e alla comunità.
-                </p>
-                <a
-                  href="https://forms.gle/KEqqAek9MKDijTHW7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-amber-700 transition-colors w-full sm:w-auto shadow-sm shadow-amber-600/20"
-                >
-                  Proponiti come docente
-                </a>
-              </div>
-            </RevealSection>
-
-            {/* Come Associazione */}
-            <RevealSection stagger={2}>
-              <div className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-[var(--color-outline-variant)] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center md:items-start text-center md:text-left h-full">
-                <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
-                  <Building2 size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-3">
-                  Come Associazione / Ente
-                </h3>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-6 flex-1">
-                  Attiva collaborazioni territoriali, progetti integrati di sensibilizzazione, convenzioni o iniziative culturali con la nostra associazione.
-                </p>
-                <a
-                  href="https://forms.gle/iVx25PizgZV6m8B97"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold text-sm pressable hover:bg-emerald-700 transition-colors w-full sm:w-auto shadow-sm shadow-emerald-600/20"
-                >
-                  Proponi una collaborazione
-                </a>
-              </div>
-            </RevealSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Content ─── */}
-      <section className="py-20 md:py-24 px-4 md:px-6">
-        <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
             {/* Contact Info */}

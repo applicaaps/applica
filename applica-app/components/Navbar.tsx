@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/chi-siamo", label: "Chi Siamo" },
   { href: "/programma", label: "Programma" },
+ e m  { href: "/contatti", label: "Contatti" },
 ]
 
 export function Navbar() {

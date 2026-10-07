@@ -341,7 +341,41 @@ function downloadAppleIcs(event: EventItem) {
   URL.revokeObjectURL(url)
 }
 
+// Funzione per verificare se un evento è passato rispetto all'orario/giorno corrente
+function isEventPassed(event: EventItem): boolean {
+  const startH = event.startHour ?? 8
+  const startM = event.startMinute ?? 30
+  const endH = event.endHour ?? (startH + 2)
+  const endM = event.endMinute ?? startM
+
+  // Crea l'oggetto Date per la fine dell'evento
+  const eventEndDate = new Date(event.year, event.month - 1, event.day, endH, endM, 59)
+  const now = new Date()
+
+  return eventEndDate < now
+}
+
 export default function ProgrammaPage() {
+  const [showPastEvents, setShowPastEvents] = React.useState(false)
+
+  // Separa gli eventi in futuri (e odierni) e passati
+  const { upcomingEvents, pastEvents } = React.useMemo(() => {
+    const upcoming: EventItem[] = []
+    const past: EventItem[] = []
+
+    eventsData.forEach(event => {
+      if (isEventPassed(event)) {
+        past.push(event)
+      } else {
+        upcoming.push(event)
+      }
+    })
+
+    return { upcomingEvents: upcoming, pastEvents: past }
+  }, [])
+
+  const displayedEvents = showPastEvents ? [...upcomingEvents, ...pastEvents] : upcomingEvents
+
   return (
     <>
       {/* ─── Hero Section ─── */}
@@ -372,97 +406,131 @@ export default function ProgrammaPage() {
                 Incontri in Programma
               </h3>
               <span className="text-xs sm:text-sm text-[var(--color-on-surface-variant)] bg-[var(--color-surface-container)] px-2.5 py-1 rounded-md font-medium">
-                {eventsData.length} incontri in programma
+                {upcomingEvents.length} incontri in programma
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              {eventsData.map((event, idx) => (
-                <RevealSection key={event.id} stagger={(idx % 2) + 1}>
-                  <div className="bg-white p-5 sm:p-6 md:p-7 rounded-2xl border border-[var(--color-outline-variant)] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full group">
-                    <div className="space-y-3.5">
-                      <div className="flex items-center justify-between gap-2 flex-wrap">
-                        <span className="px-2.5 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-xs font-bold rounded-lg">
-                          {event.incontro}
-                        </span>
-                        <span className="text-[11px] font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-container)] px-2.5 py-1 rounded-md">
-                          Applica APS
-                        </span>
-                      </div>
+            {displayedEvents.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                {displayedEvents.map((event, idx) => {
+                  const isPassed = isEventPassed(event)
+                  return (
+                    <RevealSection key={event.id} stagger={(idx % 2) + 1}>
+                      <div className={`p-5 sm:p-6 md:p-7 rounded-2xl border transition-all duration-300 flex flex-col justify-between h-full group ${
+                        isPassed 
+                          ? "bg-gray-50/80 border-gray-200 opacity-75" 
+                          : "bg-white border-[var(--color-outline-variant)] shadow-sm hover:shadow-md"
+                      }`}>
+                        <div className="space-y-3.5">
+                          <div className="flex items-center justify-between gap-2 flex-wrap">
+                            <span className={`px-2.5 py-1 text-xs font-bold rounded-lg ${
+                              isPassed 
+                                ? "bg-gray-200 text-gray-600" 
+                                : "bg-[var(--color-primary)]/10 text-[var(--color-primary)]"
+                            }`}>
+                              {event.incontro}
+                            </span>
+                            <span className="text-[11px] font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-container)] px-2.5 py-1 rounded-md">
+                              Applica APS
+                            </span>
+                          </div>
 
-                      <h4 className="text-base sm:text-lg font-bold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors leading-snug">
-                        {event.title}
-                      </h4>
+                          <h4 className="text-base sm:text-lg font-bold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors leading-snug">
+                            {event.title}
+                          </h4>
 
-                      {event.description && (
-                        <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                          {event.description}
-                        </p>
-                      )}
+                          {event.description && (
+                            <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                              {event.description}
+                            </p>
+                          )}
 
-                      <div className="pt-3 border-t border-[var(--color-outline-variant)]/40 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[var(--color-on-surface-variant)]">
-                        <div className="flex items-center gap-2">
-                          <Calendar size={14} className="text-[var(--color-primary)] shrink-0" />
-                          <span className="font-semibold text-[var(--color-on-surface)]">{event.dateDisplay}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Clock size={14} className="text-[var(--color-primary)] shrink-0" />
-                          <span>{event.timeDisplay}</span>
-                        </div>
-                        {event.location && (
-                          <div className="flex items-center gap-2 sm:col-span-2 text-[var(--color-primary)] font-medium">
-                            <MapPin size={14} className="shrink-0" />
-                            {event.locationUrl ? (
-                              <a 
-                                href={event.locationUrl} 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="underline hover:opacity-80 transition-opacity"
-                              >
-                                {event.location}
-                              </a>
-                            ) : (
-                              <span>{event.location}</span>
+                          <div className="pt-3 border-t border-[var(--color-outline-variant)]/40 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[var(--color-on-surface-variant)]">
+                            <div className="flex items-center gap-2">
+                              <Calendar size={14} className="text-[var(--color-primary)] shrink-0" />
+                              <span className="font-semibold text-[var(--color-on-surface)]">{event.dateDisplay}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Clock size={14} className="text-[var(--color-primary)] shrink-0" />
+                              <span>{event.timeDisplay}</span>
+                            </div>
+                            {event.location && (
+                              <div className="flex items-center gap-2 sm:col-span-2 text-[var(--color-primary)] font-medium">
+                                <MapPin size={14} className="shrink-0" />
+                                {event.locationUrl ? (
+                                  <a 
+                                    href={event.locationUrl} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="underline hover:opacity-80 transition-opacity"
+                                  >
+                                    {event.location}
+                                  </a>
+                                ) : (
+                                  <span>{event.location}</span>
+                                )}
+                              </div>
                             )}
                           </div>
-                        )}
+                        </div>
+
+                        {/* Azioni del Calendario */}
+                        <div className="pt-4 sm:pt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mt-4 border-t border-[var(--color-outline-variant)]/30">
+                          <span className="text-[11px] font-medium text-[var(--color-on-surface-variant)]">
+                            Aggiungi al tuo calendario:
+                          </span>
+
+                          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+                            {/* Google Calendar */}
+                            <a
+                              href={getGoogleCalendarLink(event)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              title="Aggiungi al tuo Google Calendar"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-50 border border-[var(--color-outline-variant)] text-xs font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition-all pressable shadow-2xs"
+                            >
+                              <GoogleCalendarIcon className="w-3.5 h-3.5 text-[#4285F4]" />
+                              <span className="text-[11px] font-semibold">Google</span>
+                            </a>
+
+                            {/* Apple / iOS Calendar */}
+                            <button
+                              onClick={() => downloadAppleIcs(event)}
+                              title="Aggiungi al tuo Apple / iOS Calendar"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-50 border border-[var(--color-outline-variant)] text-xs font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition-all pressable shadow-2xs"
+                            >
+                              <AppleCalendarIcon className="w-3.5 h-3.5 text-gray-900" />
+                              <span className="text-[11px] font-semibold">Apple / iOS</span>
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    </RevealSection>
+                  )
+                })}
+              </div>
+            ) : (
+              <div className="text-center py-12 bg-white rounded-2xl border border-[var(--color-outline-variant)] p-6">
+                <p className="text-[var(--color-on-surface-variant)] text-sm sm:text-base font-medium">
+                  Non ci sono prossimi incontri in programma al momento.
+                </p>
+              </div>
+            )}
 
-                    {/* Azioni del Calendario */}
-                    <div className="pt-4 sm:pt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mt-4 border-t border-[var(--color-outline-variant)]/30">
-                      <span className="text-[11px] font-medium text-[var(--color-on-surface-variant)]">
-                        Aggiungi al tuo calendario:
-                      </span>
-
-                      <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-                        {/* Google Calendar */}
-                        <a
-                          href={getGoogleCalendarLink(event)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="Aggiungi al tuo Google Calendar"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-50 border border-[var(--color-outline-variant)] text-xs font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition-all pressable shadow-2xs"
-                        >
-                          <GoogleCalendarIcon className="w-3.5 h-3.5 text-[#4285F4]" />
-                          <span className="text-[11px] font-semibold">Google</span>
-                        </a>
-
-                        {/* Apple / iOS Calendar */}
-                        <button
-                          onClick={() => downloadAppleIcs(event)}
-                          title="Aggiungi al tuo Apple / iOS Calendar"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-50 border border-[var(--color-outline-variant)] text-xs font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition-all pressable shadow-2xs"
-                        >
-                          <AppleCalendarIcon className="w-3.5 h-3.5 text-gray-900" />
-                          <span className="text-[11px] font-semibold">Apple / iOS</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </RevealSection>
-              ))}
-            </div>
+            {/* Toggle Eventi Passati */}
+            {pastEvents.length > 0 && (
+              <div className="pt-6 text-center">
+                <Button
+                  variant="outline"
+                  onClick={() => setShowPastEvents(!showPastEvents)}
+                  className="text-xs sm:text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)]"
+                >
+                  {showPastEvents 
+                    ? "Nascondi eventi passati" 
+                    : `Mostra eventi passati (${pastEvents.length})`}
+                </Button>
+              </div>
+            )}
           </div>
 
           {/* Avviso Aggiornamento Calendario */}
@@ -495,3 +563,4 @@ export default function ProgrammaPage() {
     </>
   )
 }
+

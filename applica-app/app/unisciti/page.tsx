@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import * as React from "react"
 import Link from "next/link"
@@ -99,7 +99,7 @@ export default function Contatti() {
           <RevealSection>
             <div className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-on-surface)]">
-                Altre modalit├á di collaborazione
+                Altre modalità di collaborazione
               </h2>
             </div>
           </RevealSection>

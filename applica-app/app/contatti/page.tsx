@@ -2,15 +2,30 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { MapPin, Phone, Mail, Send, CheckCircle2, ChevronDown, User, Brain, GraduationCap, Building2 } from "lucide-react"
+import { MapPin, Phone, Mail, Send, CheckCircle2, ChevronDown, User, Brain, GraduationCap, Building2, Calendar, ArrowRight, X } from "lucide-react"
 import { RevealSection } from "@/components/RevealSection"
 import { useForm, ValidationError } from '@formspree/react'
+import Cal, { getCalApi } from "@calcom/embed-react"
 
 export default function Contatti() {
 
   const [state, handleSubmit] = useForm("mjgzdlqo")
   const [isSelectOpen, setIsSelectOpen] = React.useState(false)
   const [selectedMotivo, setSelectedMotivo] = React.useState("")
+  const [activeCalLink, setActiveCalLink] = React.useState<string | null>(null)
+  const [activeCalTitle, setActiveCalTitle] = React.useState<string>("")
+
+  React.useEffect(() => {
+    (async () => {
+      const cal = await getCalApi({ namespace: "cal" });
+      cal("ui", {
+        theme: "light",
+        styles: { branding: { brandColor: "#5c4033" } },
+        hideEventTypeDetails: false,
+        layout: "month_view"
+      });
+    })();
+  }, []);
 
   const motivi = [
     { value: "paziente", label: "Informazioni per iniziare un percorso (Pazienti)" },
@@ -21,10 +36,35 @@ export default function Contatti() {
     { value: "altro", label: "Altro" },
   ]
 
+  const calEvents = [
+    {
+      id: "presentazione-applica",
+      title: "Presentazione Applica",
+      subtitle: "Per Psicologi e Professionisti",
+      description: "Sei uno psicologo o un professionista sanitario? Prenota un colloquio di presentazione per scoprire come entrare a far parte della nostra rete e collaborare con noi.",
+      calLink: "applica/presentazione",
+      badge: "Professionisti",
+      badgeColor: "bg-blue-50 text-blue-600 border-blue-200",
+      buttonColor: "bg-blue-600 hover:bg-blue-700 shadow-blue-600/20",
+      icon: Brain,
+    },
+    {
+      id: "orientamento-paziente",
+      title: "Orientamento Paziente",
+      subtitle: "Per chi cerca il percorso adatto",
+      description: "Desideri iniziare un percorso ma non sai da dove partire? Prenota un colloquio d'orientamento gratuito con un nostro referente per individuare lo specialista più idoneo.",
+      calLink: "applica/orientamento",
+      badge: "Pazienti",
+      badgeColor: "bg-orange-50 text-orange-600 border-orange-200",
+      buttonColor: "bg-orange-500 hover:bg-orange-600 shadow-orange-500/20",
+      icon: User,
+    }
+  ]
+
   return (
     <>
-      {/* ─── Contatti Hero & Form Section ─── */}
-      <section className="relative pt-12 pb-20 md:pt-16 md:pb-24 px-4 md:px-6 overflow-hidden">
+      {/* ─── Contatti Hero Section ─── */}
+      <section className="relative pt-12 pb-12 md:pt-16 md:pb-16 px-4 md:px-6 overflow-hidden">
         {/* Background Gradients */}
         <div className="absolute inset-0 pointer-events-none -z-10">
           <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-[var(--color-primary-container)]/30 to-transparent opacity-50 blur-3xl"></div>
@@ -33,15 +73,90 @@ export default function Contatti() {
 
         <div className="container mx-auto max-w-6xl">
           <RevealSection>
-            <div className="text-center mb-12">
+            <div className="text-center mb-10">
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[var(--color-on-surface)] mb-5 tracking-tight">
-                Contatti
+                Contatti & Prenotazioni
               </h1>
               <p className="text-lg md:text-xl text-[var(--color-on-surface-variant)] max-w-2xl mx-auto leading-relaxed">
-                Siamo a tua disposizione per qualsiasi informazione, richiesta o chiarimento.
+                Prenota direttamente un appuntamento conoscitivo oppure inviaci un messaggio.
               </p>
             </div>
           </RevealSection>
+
+          {/* ─── Cards Prenotazione Cal.eu ─── */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {calEvents.map((evt, idx) => {
+              const IconComp = evt.icon;
+              return (
+                <RevealSection key={evt.id} stagger={idx + 1}>
+                  <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between h-full relative group">
+                    <div>
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="w-14 h-14 rounded-2xl bg-[var(--color-surface-container)] flex items-center justify-center text-[var(--color-primary)] group-hover:scale-105 transition-transform duration-300">
+                          <IconComp size={28} />
+                        </div>
+                        <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${evt.badgeColor}`}>
+                          {evt.badge}
+                        </span>
+                      </div>
+
+                      <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-1">
+                        {evt.title}
+                      </h2>
+                      <p className="text-xs font-medium text-[var(--color-primary)] mb-4 uppercase tracking-wider">
+                        {evt.subtitle}
+                      </p>
+                      <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-8">
+                        {evt.description}
+                      </p>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActiveCalLink(evt.calLink);
+                        setActiveCalTitle(evt.title);
+                      }}
+                      className={`w-full inline-flex items-center justify-center gap-2.5 text-white px-6 py-3.5 rounded-xl font-semibold text-sm pressable transition-all shadow-md ${evt.buttonColor}`}
+                    >
+                      <Calendar size={18} />
+                      Prenota appuntamento
+                      <ArrowRight size={16} />
+                    </button>
+                  </div>
+                </RevealSection>
+              );
+            })}
+          </div>
+
+          {/* Modal / Inline Embed Cal.eu */}
+          {activeCalLink && (
+            <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
+              <div className="bg-white w-full max-w-4xl h-[90vh] rounded-3xl overflow-hidden shadow-2xl flex flex-col relative">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--color-outline-variant)] bg-[var(--color-surface-container-low)]">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="text-[var(--color-primary)]" size={20} />
+                    <h3 className="text-lg font-bold text-[var(--color-on-surface)]">
+                      Prenotazione: {activeCalTitle}
+                    </h3>
+                  </div>
+                  <button
+                    onClick={() => setActiveCalLink(null)}
+                    className="p-2 rounded-full hover:bg-[var(--color-surface-container-high)] text-[var(--color-on-surface-variant)] transition-colors"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+                <div className="flex-1 w-full h-full overflow-y-auto">
+                  <Cal
+                    calLink={activeCalLink}
+                    style={{ width: "100%", height: "100%", minHeight: "600px" }}
+                    config={{ layout: "month_view" }}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 

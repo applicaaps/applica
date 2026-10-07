@@ -80,7 +80,7 @@ export function Navbar() {
                 </Button>
               </Link>
               */}
-              <Link href="/contatti">
+              <Link href="/unisciti">
                 <Button size="sm">Unisciti ad Applica</Button>
               </Link>
             </div>
@@ -137,7 +137,7 @@ export function Navbar() {
           <div className="w-16 h-0.5 bg-[var(--color-outline-variant)]/60 my-4 rounded-full" />
 
           <div className="w-full pt-2">
-            <Link href="/contatti" onClick={() => setMobileMenuOpen(false)} className="w-full block">
+            <Link href="/unisciti" onClick={() => setMobileMenuOpen(false)} className="w-full block">
               <Button size="lg" className="w-full justify-center text-lg py-6 rounded-2xl shadow-lg shadow-[var(--color-primary)]/20">
                 Unisciti ad Applica
               </Button>

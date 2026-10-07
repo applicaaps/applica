@@ -15,17 +15,49 @@ export default function Contatti() {
   const [activeCalLink, setActiveCalLink] = React.useState<string | null>(null)
   const [activeCalTitle, setActiveCalTitle] = React.useState<string>("")
 
+  const [calLoading, setCalLoading] = React.useState(true)
+
   React.useEffect(() => {
     (async () => {
-      const cal = await getCalApi({ namespace: "cal" });
-      cal("ui", {
-        theme: "light",
-        styles: { branding: { brandColor: "#5c4033" } },
+      // Init Psicologi namespace (dark theme)
+      const calPsi = await getCalApi({ namespace: "colloquio-presentazione-applica" });
+      calPsi("ui", {
+        theme: "dark",
         hideEventTypeDetails: false,
         layout: "month_view"
       });
+      calPsi("on", {
+        action: "*",
+        callback: () => {
+          setCalLoading(false);
+        }
+      });
+
+      // Init Pazienti namespace (light theme)
+      const calPaz = await getCalApi({ namespace: "orientamento-paziente-applica" });
+      calPaz("ui", {
+        theme: "light",
+        hideEventTypeDetails: false,
+        layout: "month_view"
+      });
+      calPaz("on", {
+        action: "*",
+        callback: () => {
+          setCalLoading(false);
+        }
+      });
     })();
   }, []);
+
+  React.useEffect(() => {
+    if (activeCalLink) {
+      setCalLoading(true);
+      const timer = setTimeout(() => {
+        setCalLoading(false);
+      }, 1800);
+      return () => clearTimeout(timer);
+    }
+  }, [activeCalLink]);
 
   const motivi = [
     { value: "paziente", label: "Informazioni per iniziare un percorso (Pazienti)" },
@@ -43,6 +75,8 @@ export default function Contatti() {
       subtitle: "Per Psicologi e Professionisti",
       description: "Sei uno psicologo o un professionista sanitario? Prenota un colloquio di presentazione per scoprire come entrare a far parte della nostra rete e collaborare con noi.",
       calLink: "applicaaps/colloquio-presentazione-applica",
+      namespace: "colloquio-presentazione-applica",
+      theme: "dark",
       badge: "Professionisti",
       badgeColor: "bg-blue-50 text-blue-600 border-blue-200",
       buttonColor: "bg-blue-600 hover:bg-blue-700 shadow-blue-600/20",
@@ -54,6 +88,8 @@ export default function Contatti() {
       subtitle: "Per chi cerca il percorso adatto",
       description: "Desideri iniziare un percorso ma non sai da dove partire? Prenota un colloquio d'orientamento gratuito con un nostro referente per individuare lo specialista più idoneo.",
       calLink: "applicaaps/orientamento-paziente-applica",
+      namespace: "orientamento-paziente-applica",
+      theme: "light",
       badge: "Pazienti",
       badgeColor: "bg-orange-50 text-orange-600 border-orange-200",
       buttonColor: "bg-orange-500 hover:bg-orange-600 shadow-orange-500/20",
@@ -86,24 +122,19 @@ export default function Contatti() {
           {/* ─── Cards Prenotazione Cal.eu ─── */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {calEvents.map((evt, idx) => {
-              const IconComp = evt.icon;
               return (
                 <RevealSection key={evt.id} stagger={idx + 1}>
-                  <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between h-full relative group">
-                    <div>
-                      <div className="mb-6">
-                        <div className="w-14 h-14 rounded-2xl bg-[var(--color-surface-container)] flex items-center justify-center text-[var(--color-primary)] group-hover:scale-105 transition-transform duration-300">
-                          <IconComp size={28} />
-                        </div>
+                  <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 lg:p-9 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between h-full relative group">
+                    <div className="pt-2">
+                      <div className="mb-4">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)] bg-[var(--color-primary)]/8 px-3 py-1 rounded-full">
+                          {evt.subtitle}
+                        </span>
                       </div>
-
-                      <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-1">
+                      <h2 className="text-2xl lg:text-3xl font-bold text-[var(--color-on-surface)] mb-3 tracking-tight">
                         {evt.title}
                       </h2>
-                      <p className="text-sm font-medium text-[var(--color-primary)] mb-4">
-                        {evt.subtitle}
-                      </p>
-                      <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-8">
+                      <p className="text-sm md:text-base text-[var(--color-on-surface-variant)] leading-relaxed mb-8">
                         {evt.description}
                       </p>
                     </div>
@@ -138,18 +169,46 @@ export default function Contatti() {
                     </h3>
                   </div>
                   <button
-                    onClick={() => setActiveCalLink(null)}
+                    onClick={() => {
+                      setActiveCalLink(null);
+                      setCalLoading(true);
+                    }}
                     className="p-2 rounded-full hover:bg-[var(--color-surface-container-high)] text-[var(--color-on-surface-variant)] transition-colors"
                   >
                     <X size={20} />
                   </button>
                 </div>
-                <div className="flex-1 w-full h-full overflow-y-auto">
-                  <Cal
-                    calLink={activeCalLink}
-                    style={{ width: "100%", height: "100%", minHeight: "600px" }}
-                    config={{ layout: "month_view" }}
-                  />
+
+                <div className="flex-1 w-full h-full overflow-y-auto relative">
+                  {/* Loading Skeleton */}
+                  {calLoading && (
+                    <div className="absolute inset-0 bg-white z-10 p-8 flex flex-col justify-center items-center space-y-6 animate-pulse">
+                      <div className="w-12 h-12 rounded-full border-4 border-[var(--color-primary)]/20 border-t-[var(--color-primary)] animate-spin mb-2" />
+                      <div className="h-6 bg-slate-200 rounded-md w-64"></div>
+                      <div className="h-4 bg-slate-100 rounded-md w-48"></div>
+                      <div className="grid grid-cols-7 gap-3 w-full max-w-md pt-4">
+                        {[...Array(28)].map((_, i) => (
+                          <div key={i} className="h-10 bg-slate-100 rounded-lg"></div>
+                        ))}
+                      </div>
+                      <p className="text-xs text-slate-400 font-medium">Caricamento calendario in corso...</p>
+                    </div>
+                  )}
+
+                  {(() => {
+                    const evt = calEvents.find(e => e.calLink === activeCalLink);
+                    return (
+                      <Cal
+                        namespace={evt?.namespace}
+                        calLink={activeCalLink}
+                        style={{ width: "100%", height: "100%", minHeight: "600px" }}
+                        config={{
+                          layout: "month_view",
+                          theme: evt?.theme as "light" | "dark"
+                        }}
+                      />
+                    );
+                  })()}
                 </div>
               </div>
             </div>

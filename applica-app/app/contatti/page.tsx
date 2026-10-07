@@ -19,10 +19,10 @@ export default function Contatti() {
 
   React.useEffect(() => {
     (async () => {
-      // Init Psicologi namespace (dark theme)
+      // Init Psicologi namespace (light theme)
       const calPsi = await getCalApi({ namespace: "colloquio-presentazione-applica" });
       calPsi("ui", {
-        theme: "dark",
+        theme: "light",
         hideEventTypeDetails: false,
         layout: "month_view"
       });
@@ -76,7 +76,7 @@ export default function Contatti() {
       description: "Sei uno psicologo o un professionista sanitario? Prenota un colloquio di presentazione per scoprire come entrare a far parte della nostra rete e collaborare con noi.",
       calLink: "applicaaps/colloquio-presentazione-applica",
       namespace: "colloquio-presentazione-applica",
-      theme: "dark",
+      theme: "light",
       badge: "Professionisti",
       badgeColor: "bg-blue-50 text-blue-600 border-blue-200",
       buttonColor: "bg-blue-600 hover:bg-blue-700 shadow-blue-600/20",
@@ -125,15 +125,13 @@ export default function Contatti() {
               return (
                 <RevealSection key={evt.id} stagger={idx + 1}>
                   <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 lg:p-9 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between h-full relative group">
-                    <div className="pt-2">
-                      <div className="mb-4">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)] bg-[var(--color-primary)]/8 px-3 py-1 rounded-full">
-                          {evt.subtitle}
-                        </span>
-                      </div>
-                      <h2 className="text-2xl lg:text-3xl font-bold text-[var(--color-on-surface)] mb-3 tracking-tight">
+                    <div>
+                      <h2 className="text-2xl lg:text-3xl font-bold text-[var(--color-on-surface)] mb-1.5 tracking-tight">
                         {evt.title}
                       </h2>
+                      <p className="text-sm font-medium text-[var(--color-primary)] mb-4">
+                        {evt.subtitle}
+                      </p>
                       <p className="text-sm md:text-base text-[var(--color-on-surface-variant)] leading-relaxed mb-8">
                         {evt.description}
                       </p>
@@ -161,7 +159,7 @@ export default function Contatti() {
           {activeCalLink && (
             <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
               <div className="bg-white w-full max-w-4xl h-[90vh] rounded-3xl overflow-hidden shadow-2xl flex flex-col relative">
-                <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--color-outline-variant)] bg-[var(--color-surface-container-low)]">
+                <div className="flex items-center justify-between px-6 py-4 bg-[var(--color-surface-container-low)]">
                   <div className="flex items-center gap-2">
                     <Calendar className="text-[var(--color-primary)]" size={20} />
                     <h3 className="text-lg font-bold text-[var(--color-on-surface)]">

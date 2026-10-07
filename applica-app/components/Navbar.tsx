@@ -36,10 +36,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full border-b border-transparent",
-        "transition-[background-color,border-color,padding,box-shadow] duration-300",
+        "fixed top-0 w-full border-none",
+        "transition-[background-color,padding,box-shadow] duration-300",
         isScrolled
-          ? "bg-white/80 backdrop-blur-xl border-[var(--color-outline-variant)]/50 shadow-[0_1px_3px_rgba(0,0,0,0.04)] py-3"
+          ? "bg-white/80 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] py-3"
           : "bg-transparent py-5"
       )}
       style={{ zIndex: "var(--z-sticky)" }}

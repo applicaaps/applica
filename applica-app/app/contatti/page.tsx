@@ -91,19 +91,16 @@ export default function Contatti() {
                 <RevealSection key={evt.id} stagger={idx + 1}>
                   <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between h-full relative group">
                     <div>
-                      <div className="flex items-center justify-between mb-6">
+                      <div className="mb-6">
                         <div className="w-14 h-14 rounded-2xl bg-[var(--color-surface-container)] flex items-center justify-center text-[var(--color-primary)] group-hover:scale-105 transition-transform duration-300">
                           <IconComp size={28} />
                         </div>
-                        <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${evt.badgeColor}`}>
-                          {evt.badge}
-                        </span>
                       </div>
 
                       <h2 className="text-2xl font-bold text-[var(--color-on-surface)] mb-1">
                         {evt.title}
                       </h2>
-                      <p className="text-xs font-medium text-[var(--color-primary)] mb-4 uppercase tracking-wider">
+                      <p className="text-sm font-medium text-[var(--color-primary)] mb-4">
                         {evt.subtitle}
                       </p>
                       <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-8">

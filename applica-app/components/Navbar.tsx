@@ -12,7 +12,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/chi-siamo", label: "Chi Siamo" },
   { href: "/programma", label: "Programma" },
- e m  { href: "/contatti", label: "Contatti" },
+  { href: "/contatti", label: "Contatti" },
 ]
 
 export function Navbar() {
@@ -98,43 +98,49 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Fullscreen & Centered */}
       <div
         className={cn(
-          "md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-[var(--color-outline-variant)]/50 shadow-lg",
-          "transition-[opacity,transform] duration-200",
+          "md:hidden fixed inset-0 w-screen h-screen bg-white/95 backdrop-blur-2xl z-50 flex flex-col justify-center items-center px-6 py-12",
+          "transition-all duration-300 ease-in-out",
           mobileMenuOpen
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-2 pointer-events-none"
+            ? "opacity-100 scale-100 pointer-events-auto"
+            : "opacity-0 scale-95 pointer-events-none"
         )}
-        style={{ transitionTimingFunction: "var(--ease-out)" }}
       >
-        <div className="flex flex-col p-4 space-y-1">
+        {/* Close Button inside fullscreen menu */}
+        <button
+          className="absolute top-6 right-6 p-3 rounded-full text-[var(--color-on-surface)] bg-[var(--color-surface-container)] hover:bg-[var(--color-outline-variant)]/40 transition-colors pressable"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-label="Chiudi menu"
+        >
+          <X size={26} />
+        </button>
+
+        <div className="flex flex-col items-center justify-center space-y-6 w-full max-w-sm text-center">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
               className={cn(
-                "px-4 py-3 rounded-xl text-base font-medium transition-colors duration-200",
+                "w-full py-3.5 rounded-2xl text-2xl font-bold transition-all duration-200",
                 pathname === link.href
-                  ? "text-[var(--color-primary)] font-semibold bg-[var(--color-primary)]/5"
-                  : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container)]"
+                  ? "text-[var(--color-primary)] bg-[var(--color-primary)]/10 scale-105"
+                  : "text-[var(--color-on-surface)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-container)]"
               )}
             >
               {link.label}
             </Link>
           ))}
-          <hr className="border-[var(--color-outline-variant)]/50 my-2" />
-          <div className="flex flex-col gap-2 px-4 pt-1 pb-2">
-            {/* Login nascosto temporaneamente:
-            <Link href="/login">
-              <Button variant="outline" className="w-full justify-center">
-                Area Riservata
+
+          <div className="w-16 h-0.5 bg-[var(--color-outline-variant)]/60 my-4 rounded-full" />
+
+          <div className="w-full pt-2">
+            <Link href="/contatti" onClick={() => setMobileMenuOpen(false)} className="w-full block">
+              <Button size="lg" className="w-full justify-center text-lg py-6 rounded-2xl shadow-lg shadow-[var(--color-primary)]/20">
+                Unisciti ad Applica
               </Button>
-            </Link>
-            */}
-            <Link href="/contatti" onClick={() => setMobileMenuOpen(false)}>
-              <Button className="w-full justify-center">Unisciti ad Applica</Button>
             </Link>
           </div>
         </div>

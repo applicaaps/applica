@@ -3,10 +3,10 @@ Data 3 ottobre 2026 – 8:30
 Tema: Benvenuto Applica - Burocrazia e apertura dello studio — Partita IVA; regime fiscale; ENPAP; Sistema Tessera Sanitaria; fatturazione; principali scadenze; errori da evitare.
 Data 17 ottobre – 8:30
 Incontro: 2 PA
-Tema: Codice Deontologico nella pratica — pubblicità, social, confini, segreto professionale, responsabilità
+Tema: Da psicologo a professionista: come iniziare davvero — privacy, consenso informato, documentazione, primi passi, assicurazione professionale, organizzazione, identità professionale
 Data 31 ottobre – 8:30
 Incontro: 3 PA
-Tema: Da psicologo a professionista: come iniziare davvero — privacy, consenso informato, documentazione, primi passi, assicurazione professionale, organizzazione, identità professionale
+Tema: Codice Deontologico nella pratica — pubblicità, social, confini, segreto professionale, responsabilità
 Data 14 novembre – 8:30
 Incontro: 4 PA
 Tema: Costruire uno studio professionale — presenza online/offline, agenda, strumenti, organizzazione e gestione del paziente

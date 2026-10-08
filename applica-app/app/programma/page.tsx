@@ -83,8 +83,8 @@ const eventsData: EventItem[] = [
     incontro: "Incontro 2 PA",
     dateDisplay: "17 Ottobre 2026",
     timeDisplay: "08:30",
-    title: "Codice Deontologico nella pratica",
-    description: "pubblicità, social, confini, segreto professionale, responsabilità",
+    title: "Da psicologo a professionista: come iniziare davvero",
+    description: "privacy, consenso informato, documentazione, primi passi, assicurazione professionale, organizzazione, identità professionale",
     year: 2026,
     month: 10,
     day: 17
@@ -94,8 +94,8 @@ const eventsData: EventItem[] = [
     incontro: "Incontro 3 PA",
     dateDisplay: "31 Ottobre 2026",
     timeDisplay: "08:30",
-    title: "Da psicologo a professionista: come iniziare davvero",
-    description: "privacy, consenso informato, documentazione, primi passi, assicurazione professionale, organizzazione, identità professionale",
+    title: "Codice Deontologico nella pratica",
+    description: "pubblicità, social, confini, segreto professionale, responsabilità",
     year: 2026,
     month: 10,
     day: 31

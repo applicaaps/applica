@@ -34,12 +34,12 @@ export interface EventItem {
   id: number
   incontro: string
   dateDisplay: string
-  timeDisplay: string
+  timeDisplay?: string
   title: string
   description?: string
-  year: number
-  month: number
-  day: number
+  year?: number
+  month?: number
+  day?: number
   startHour?: number
   startMinute?: number
   endHour?: number
@@ -70,28 +70,17 @@ const eventsData: EventItem[] = [
   {
     id: 1,
     incontro: "Incontro 1 PA",
-    dateDisplay: "3 Ottobre 2026",
+    dateDisplay: "17 Ottobre 2026",
     timeDisplay: "08:30",
     title: "Benvenuto Applica - Burocrazia e apertura dello studio",
     description: "Partita IVA; regime fiscale; ENPAP; Sistema Tessera Sanitaria; fatturazione; principali scadenze; errori da evitare.",
     year: 2026,
     month: 10,
-    day: 3
+    day: 17
   },
   {
     id: 2,
     incontro: "Incontro 2 PA",
-    dateDisplay: "17 Ottobre 2026",
-    timeDisplay: "08:30",
-    title: "Da psicologo a professionista: come iniziare davvero",
-    description: "privacy, consenso informato, documentazione, primi passi, assicurazione professionale, organizzazione, identità professionale",
-    year: 2026,
-    month: 10,
-    day: 17
-  },
-  {
-    id: 3,
-    incontro: "Incontro 3 PA",
     dateDisplay: "31 Ottobre 2026",
     timeDisplay: "08:30",
     title: "Codice Deontologico nella pratica",
@@ -101,15 +90,22 @@ const eventsData: EventItem[] = [
     day: 31
   },
   {
-    id: 4,
-    incontro: "Incontro 4 PA",
+    id: 3,
+    incontro: "Incontro 3 PA",
     dateDisplay: "14 Novembre 2026",
     timeDisplay: "08:30",
-    title: "Costruire uno studio professionale",
-    description: "presenza online/offline, agenda, strumenti, organizzazione e gestione del paziente",
+    title: "Da psicologo a professionista: come iniziare davvero",
+    description: "privacy, consenso informato, documentazione, primi passi, assicurazione professionale, organizzazione, identità professionale",
     year: 2026,
     month: 11,
     day: 14
+  },
+  {
+    id: 4,
+    incontro: "Incontro 4 PA",
+    dateDisplay: "Data da definire",
+    title: "Costruire uno studio professionale",
+    description: "presenza online/offline, agenda, strumenti, organizzazione e gestione del paziente"
   },
   {
     id: 5,
@@ -280,6 +276,9 @@ const eventsData: EventItem[] = [
 
 // Calcola le date ISO per il calendario
 function getEventDates(event: EventItem) {
+  if (!event.year || !event.month || !event.day) {
+    return null
+  }
   const startH = event.startHour ?? 8
   const startM = event.startMinute ?? 30
   const endH = event.endHour ?? (startH + 2)
@@ -297,7 +296,9 @@ function getEventDates(event: EventItem) {
 
 // Genera link Google Calendar: Titolo = titolo dell'evento, Descrizione = dettagli dell'evento
 function getGoogleCalendarLink(event: EventItem) {
-  const { startIso, endIso } = getEventDates(event)
+  const dates = getEventDates(event)
+  if (!dates) return "#"
+  const { startIso, endIso } = dates
   const title = encodeURIComponent(event.title)
   const detailsContent = event.description 
     ? `${event.description}\n\nOrganizzato da Applica APS (https://applicaaps.com)`
@@ -310,7 +311,9 @@ function getGoogleCalendarLink(event: EventItem) {
 
 // Genera e scarica file .ics per Apple / iOS Calendar: Summary = titolo, Description = dettagli
 function downloadAppleIcs(event: EventItem) {
-  const { startIso, endIso } = getEventDates(event)
+  const dates = getEventDates(event)
+  if (!dates) return
+  const { startIso, endIso } = dates
   const descText = event.description ? `${event.description} - Organizzato da Applica APS` : "Organizzato da Applica APS"
   const locText = event.location || "Applica APS"
 
@@ -343,6 +346,9 @@ function downloadAppleIcs(event: EventItem) {
 
 // Funzione per verificare se un evento è passato rispetto all'orario/giorno corrente
 function isEventPassed(event: EventItem): boolean {
+  if (!event.year || !event.month || !event.day) {
+    return false
+  }
   const startH = event.startHour ?? 8
   const startM = event.startMinute ?? 30
   const endH = event.endHour ?? (startH + 2)
@@ -450,10 +456,12 @@ export default function ProgrammaPage() {
                               <Calendar size={14} className="text-[var(--color-primary)] shrink-0" />
                               <span className="font-semibold text-[var(--color-on-surface)]">{event.dateDisplay}</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <Clock size={14} className="text-[var(--color-primary)] shrink-0" />
-                              <span>{event.timeDisplay}</span>
-                            </div>
+                            {event.timeDisplay && (
+                              <div className="flex items-center gap-2">
+                                <Clock size={14} className="text-[var(--color-primary)] shrink-0" />
+                                <span>{event.timeDisplay}</span>
+                              </div>
+                            )}
                             {event.location && (
                               <div className="flex items-center gap-2 sm:col-span-2 text-[var(--color-primary)] font-medium">
                                 <MapPin size={14} className="shrink-0" />
@@ -475,35 +483,46 @@ export default function ProgrammaPage() {
                         </div>
 
                         {/* Azioni del Calendario */}
-                        <div className="pt-4 sm:pt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mt-4 border-t border-[var(--color-outline-variant)]/30">
-                          <span className="text-[11px] font-medium text-[var(--color-on-surface-variant)]">
-                            Aggiungi al tuo calendario:
-                          </span>
+                        {event.year && event.month && event.day ? (
+                          <div className="pt-4 sm:pt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mt-4 border-t border-[var(--color-outline-variant)]/30">
+                            <span className="text-[11px] font-medium text-[var(--color-on-surface-variant)]">
+                              Aggiungi al tuo calendario:
+                            </span>
 
-                          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-                            {/* Google Calendar */}
-                            <a
-                              href={getGoogleCalendarLink(event)}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              title="Aggiungi al tuo Google Calendar"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-50 border border-[var(--color-outline-variant)] text-xs font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition-all pressable shadow-2xs"
-                            >
-                              <GoogleCalendarIcon className="w-3.5 h-3.5 text-[#4285F4]" />
-                              <span className="text-[11px] font-semibold">Google</span>
-                            </a>
+                            <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+                              {/* Google Calendar */}
+                              <a
+                                href={getGoogleCalendarLink(event)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Aggiungi al tuo Google Calendar"
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-50 border border-[var(--color-outline-variant)] text-xs font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition-all pressable shadow-2xs"
+                              >
+                                <GoogleCalendarIcon className="w-3.5 h-3.5 text-[#4285F4]" />
+                                <span className="text-[11px] font-semibold">Google</span>
+                              </a>
 
-                            {/* Apple / iOS Calendar */}
-                            <button
-                              onClick={() => downloadAppleIcs(event)}
-                              title="Aggiungi al tuo Apple / iOS Calendar"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-50 border border-[var(--color-outline-variant)] text-xs font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition-all pressable shadow-2xs"
-                            >
-                              <AppleCalendarIcon className="w-3.5 h-3.5 text-gray-900" />
-                              <span className="text-[11px] font-semibold">Apple / iOS</span>
-                            </button>
+                              {/* Apple / iOS Calendar */}
+                              <button
+                                onClick={() => downloadAppleIcs(event)}
+                                title="Aggiungi al tuo Apple / iOS Calendar"
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-50 border border-[var(--color-outline-variant)] text-xs font-medium text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition-all pressable shadow-2xs"
+                              >
+                                <AppleCalendarIcon className="w-3.5 h-3.5 text-gray-900" />
+                                <span className="text-[11px] font-semibold">Apple / iOS</span>
+                              </button>
+                            </div>
                           </div>
-                        </div>
+                        ) : (
+                          <div className="pt-4 sm:pt-5 flex items-center justify-between gap-3 mt-4 border-t border-[var(--color-outline-variant)]/30">
+                            <span className="text-xs font-medium text-[var(--color-on-surface-variant)] italic">
+                              Data e orario in fase di definizione
+                            </span>
+                            <span className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-amber-50 text-amber-700 border border-amber-200/60">
+                              Data da definire
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </RevealSection>
                   )
